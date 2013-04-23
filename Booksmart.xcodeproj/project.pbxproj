@@ -1,0 +1,312 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FFDDFAAB172746CF0005138A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDDFAAA172746CF0005138A /* UIKit.framework */; };
+		FFDDFAAD172746CF0005138A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDDFAAC172746CF0005138A /* Foundation.framework */; };
+		FFDDFAAF172746CF0005138A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDDFAAE172746CF0005138A /* CoreGraphics.framework */; };
+		FFDDFAB5172746CF0005138A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFAB3172746CF0005138A /* InfoPlist.strings */; };
+		FFDDFAB7172746CF0005138A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDDFAB6172746CF0005138A /* main.m */; };
+		FFDDFABB172746CF0005138A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDDFABA172746CF0005138A /* AppDelegate.m */; };
+		FFDDFABD172746CF0005138A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFABC172746CF0005138A /* Default.png */; };
+		FFDDFABF172746CF0005138A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFABE172746CF0005138A /* Default@2x.png */; };
+		FFDDFAC1172746CF0005138A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFAC0172746CF0005138A /* Default-568h@2x.png */; };
+		FFDDFAC4172746CF0005138A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFAC2172746CF0005138A /* MainStoryboard_iPhone.storyboard */; };
+		FFDDFAC7172746CF0005138A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFAC5172746CF0005138A /* MainStoryboard_iPad.storyboard */; };
+		FFDDFACA172746CF0005138A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDDFAC9172746CF0005138A /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FFDDFAA6172746CF0005138A /* Booksmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booksmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFDDFAAA172746CF0005138A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FFDDFAAC172746CF0005138A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FFDDFAAE172746CF0005138A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FFDDFAB2172746CF0005138A /* Booksmart-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Booksmart-Info.plist"; sourceTree = "<group>"; };
+		FFDDFAB4172746CF0005138A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FFDDFAB6172746CF0005138A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FFDDFAB8172746CF0005138A /* Booksmart-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Booksmart-Prefix.pch"; sourceTree = "<group>"; };
+		FFDDFAB9172746CF0005138A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FFDDFABA172746CF0005138A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FFDDFABC172746CF0005138A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FFDDFABE172746CF0005138A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FFDDFAC0172746CF0005138A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FFDDFAC3172746CF0005138A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		FFDDFAC6172746CF0005138A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		FFDDFAC8172746CF0005138A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FFDDFAC9172746CF0005138A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FFDDFAA3172746CF0005138A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFDDFAAB172746CF0005138A /* UIKit.framework in Frameworks */,
+				FFDDFAAD172746CF0005138A /* Foundation.framework in Frameworks */,
+				FFDDFAAF172746CF0005138A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FFDDFA9B172746CF0005138A = {
+			isa = PBXGroup;
+			children = (
+				FFDDFAB0172746CF0005138A /* Booksmart */,
+				FFDDFAA9172746CF0005138A /* Frameworks */,
+				FFDDFAA7172746CF0005138A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FFDDFAA7172746CF0005138A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFDDFAA6172746CF0005138A /* Booksmart.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFDDFAA9172746CF0005138A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFDDFAAA172746CF0005138A /* UIKit.framework */,
+				FFDDFAAC172746CF0005138A /* Foundation.framework */,
+				FFDDFAAE172746CF0005138A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFDDFAB0172746CF0005138A /* Booksmart */ = {
+			isa = PBXGroup;
+			children = (
+				FFDDFAB9172746CF0005138A /* AppDelegate.h */,
+				FFDDFABA172746CF0005138A /* AppDelegate.m */,
+				FFDDFAC2172746CF0005138A /* MainStoryboard_iPhone.storyboard */,
+				FFDDFAC5172746CF0005138A /* MainStoryboard_iPad.storyboard */,
+				FFDDFAC8172746CF0005138A /* ViewController.h */,
+				FFDDFAC9172746CF0005138A /* ViewController.m */,
+				FFDDFAB1172746CF0005138A /* Supporting Files */,
+			);
+			path = Booksmart;
+			sourceTree = "<group>";
+		};
+		FFDDFAB1172746CF0005138A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFDDFAB2172746CF0005138A /* Booksmart-Info.plist */,
+				FFDDFAB3172746CF0005138A /* InfoPlist.strings */,
+				FFDDFAB6172746CF0005138A /* main.m */,
+				FFDDFAB8172746CF0005138A /* Booksmart-Prefix.pch */,
+				FFDDFABC172746CF0005138A /* Default.png */,
+				FFDDFABE172746CF0005138A /* Default@2x.png */,
+				FFDDFAC0172746CF0005138A /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFDDFAA5172746CF0005138A /* Booksmart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFDDFACD172746CF0005138A /* Build configuration list for PBXNativeTarget "Booksmart" */;
+			buildPhases = (
+				FFDDFAA2172746CF0005138A /* Sources */,
+				FFDDFAA3172746CF0005138A /* Frameworks */,
+				FFDDFAA4172746CF0005138A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Booksmart;
+			productName = Booksmart;
+			productReference = FFDDFAA6172746CF0005138A /* Booksmart.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FFDDFA9D172746CF0005138A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Lam Lu";
+			};
+			buildConfigurationList = FFDDFAA0172746CF0005138A /* Build configuration list for PBXProject "Booksmart" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FFDDFA9B172746CF0005138A;
+			productRefGroup = FFDDFAA7172746CF0005138A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFDDFAA5172746CF0005138A /* Booksmart */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FFDDFAA4172746CF0005138A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFDDFAB5172746CF0005138A /* InfoPlist.strings in Resources */,
+				FFDDFABD172746CF0005138A /* Default.png in Resources */,
+				FFDDFABF172746CF0005138A /* Default@2x.png in Resources */,
+				FFDDFAC1172746CF0005138A /* Default-568h@2x.png in Resources */,
+				FFDDFAC4172746CF0005138A /* MainStoryboard_iPhone.storyboard in Resources */,
+				FFDDFAC7172746CF0005138A /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFDDFAA2172746CF0005138A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFDDFAB7172746CF0005138A /* main.m in Sources */,
+				FFDDFABB172746CF0005138A /* AppDelegate.m in Sources */,
+				FFDDFACA172746CF0005138A /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FFDDFAB3172746CF0005138A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFDDFAB4172746CF0005138A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FFDDFAC2172746CF0005138A /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFDDFAC3172746CF0005138A /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		FFDDFAC5172746CF0005138A /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFDDFAC6172746CF0005138A /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FFDDFACB172746CF0005138A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FFDDFACC172746CF0005138A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FFDDFACE172746CF0005138A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Booksmart/Booksmart-Prefix.pch";
+				INFOPLIST_FILE = "Booksmart/Booksmart-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FFDDFACF172746CF0005138A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Booksmart/Booksmart-Prefix.pch";
+				INFOPLIST_FILE = "Booksmart/Booksmart-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FFDDFAA0172746CF0005138A /* Build configuration list for PBXProject "Booksmart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFDDFACB172746CF0005138A /* Debug */,
+				FFDDFACC172746CF0005138A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFDDFACD172746CF0005138A /* Build configuration list for PBXNativeTarget "Booksmart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFDDFACE172746CF0005138A /* Debug */,
+				FFDDFACF172746CF0005138A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FFDDFA9D172746CF0005138A /* Project object */;
+}
