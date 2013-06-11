@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment version="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Sign In View Controller - Login-->
@@ -338,6 +338,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="03A-8r-8SD" kind="push" id="grz-0x-Rsq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hSg-wA-jDs">
                                 <rect key="frame" x="63" y="304" width="194" height="44"/>
@@ -633,8 +636,102 @@
             </objects>
             <point key="canvasLocation" x="620" y="-1208"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="k0M-OW-n7M">
+            <objects>
+                <viewController id="03A-8r-8SD" customClass="SearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0vh-12-UL0">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="SBi-x4-0VV">
+                                <rect key="frame" x="0.0" y="44" width="320" height="328"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="tMK-YA-qX8">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="yB5-Hc-DLZ">
+                                                    <rect key="frame" x="9" y="13" width="116" height="54"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nyE-53-GYu">
+                                                    <rect key="frame" x="138" y="29" width="162" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <searchBar contentMode="redraw" id="sq8-VP-063">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="03A-8r-8SD" id="OjF-EZ-nfx"/>
+                                </connections>
+                            </searchBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="h9g-5y-qoZ">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem width="73" style="plain" systemItem="fixedSpace" id="XNc-NO-FhM"/>
+                                    <barButtonItem style="plain" id="ONH-gw-tRh">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="idX-Pc-DTt">
+                                            <rect key="frame" x="85" y="8" width="161" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="First"/>
+                                                <segment title="Second"/>
+                                            </segments>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Seq-zu-NZS"/>
+                    <connections>
+                        <outlet property="searchBar" destination="sq8-VP-063" id="dDz-QE-Rxj"/>
+                        <outlet property="searchDisplayController" destination="Fud-aQ-Ra9" id="h0v-IO-ntW"/>
+                        <outlet property="searchResult" destination="SBi-x4-0VV" id="Lyj-6Y-2oK"/>
+                        <outlet property="typeOfSegment" destination="idX-Pc-DTt" id="rjU-zS-Zyv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bos-EZ-kkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Fud-aQ-Ra9">
+                    <connections>
+                        <outlet property="delegate" destination="03A-8r-8SD" id="mTo-oA-E44"/>
+                        <outlet property="searchBar" destination="sq8-VP-063" id="hNd-US-F18"/>
+                        <outlet property="searchContentsController" destination="03A-8r-8SD" id="NRt-w6-XE2"/>
+                        <outlet property="searchResultsDataSource" destination="03A-8r-8SD" id="Zor-jL-RWD"/>
+                        <outlet property="searchResultsDelegate" destination="03A-8r-8SD" id="u11-51-Y0R"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1201" y="-643"/>
+        </scene>
     </scenes>
     <classes>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchResult" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="typeOfSegment" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
         <class className="SignInViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SignInViewController.h"/>
             <relationships>
@@ -651,7 +748,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WIS-Dz-0Yi"/>
+        <segue reference="grl-4E-gNJ"/>
         <segue reference="WvP-9j-bYV"/>
     </inferredMetricsTieBreakers>
 </document>
