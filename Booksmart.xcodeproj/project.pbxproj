@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52D7BC3A1766A24600340B9F /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7BC371766A24600340B9F /* Connection.m */; };
+		52D7BC3B1766A24600340B9F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7BC391766A24600340B9F /* SearchViewController.m */; };
 		FFA877651766967000504B62 /* LoginConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA877641766967000504B62 /* LoginConnection.m */; };
 		FFA8776D1766968F00504B62 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA877681766968E00504B62 /* KeychainItemWrapper.m */; };
 		FFA8776E1766968F00504B62 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA8776A1766968E00504B62 /* UserProfile.m */; };
@@ -28,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52D7BC361766A24600340B9F /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
+		52D7BC371766A24600340B9F /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
+		52D7BC381766A24600340B9F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		52D7BC391766A24600340B9F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		FFA877631766967000504B62 /* LoginConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginConnection.h; path = LoginConnection/LoginConnection.h; sourceTree = "<group>"; };
 		FFA877641766967000504B62 /* LoginConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginConnection.m; path = LoginConnection/LoginConnection.m; sourceTree = "<group>"; };
 		FFA877671766968E00504B62 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainItemWrapper.h; path = Singleton/KeychainItemWrapper.h; sourceTree = "<group>"; };
@@ -107,6 +113,10 @@
 		FFDDFA9B172746CF0005138A = {
 			isa = PBXGroup;
 			children = (
+				52D7BC361766A24600340B9F /* Connection.h */,
+				52D7BC371766A24600340B9F /* Connection.m */,
+				52D7BC381766A24600340B9F /* SearchViewController.h */,
+				52D7BC391766A24600340B9F /* SearchViewController.m */,
 				FFDDFAB0172746CF0005138A /* Booksmart */,
 				FFDDFAA9172746CF0005138A /* Frameworks */,
 				FFDDFAA7172746CF0005138A /* Products */,
@@ -236,6 +246,8 @@
 				FFA8776E1766968F00504B62 /* UserProfile.m in Sources */,
 				FFA8776F1766968F00504B62 /* WTTSingleton.m in Sources */,
 				FFA877731766976F00504B62 /* SignInViewController.m in Sources */,
+				52D7BC3A1766A24600340B9F /* Connection.m in Sources */,
+				52D7BC3B1766A24600340B9F /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
