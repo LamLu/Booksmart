@@ -367,6 +367,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="PGq-pD-xHh">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="Xp7-lD-ZSQ"/>
                         <barButtonItem key="rightBarButtonItem" title="Flip" id="ZTv-4B-r9s">
                             <connections>
                                 <segue destination="EyX-aw-uzh" kind="modal" modalTransitionStyle="flipHorizontal" id="MQf-bz-Ng6"/>
