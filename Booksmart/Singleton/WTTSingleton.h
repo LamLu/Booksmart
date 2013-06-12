@@ -23,7 +23,7 @@
 
 //the URL to the user that contains php, userProfile images...
 @property (nonatomic, retain) NSString * serverURL;
-
+@property (nonatomic, retain) NSArray *searchResult;
 
 
 // method to return this Singleton

@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "WTTSingleton.h"
+
+@protocol WsCompleteDelegate
+-(void) finished;
+@end
 @interface Connection : NSObject
 {
     NSDictionary * jsonObject;
     NSMutableArray * jsonArray;
+    //id <WsCompleteDelegate> delegate;
 }
 @property (nonatomic,retain) NSMutableData *receivedData;
 @property (nonatomic,retain) UIAlertView *loadingAlertView;
-
+@property (retain, nonatomic) id <WsCompleteDelegate> delegate;
 /*
  * method to connect to database to login
  * @param username is the username to login

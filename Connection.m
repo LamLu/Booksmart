@@ -11,6 +11,7 @@
 @implementation Connection
 @synthesize receivedData;
 @synthesize loadingAlertView;
+@synthesize delegate;
 //initialize
 - (id) init
 {
@@ -167,6 +168,10 @@
             //[[WTTSingleton sharedManager] setRatingData:jsonObject];
             //NSLog(@"%@",[WTTSingleton sharedManager].emailData);
             //jsonObject = nil;
+            [[WTTSingleton sharedManager] setSearchResult:jsonArray];
+            result = nil;
+            jsonObject = nil;
+            jsonArray = nil;
             
             
         }
@@ -175,6 +180,7 @@
         [self dismissLoadingAlertView];
         
     }
+    [delegate finished];
     
 }
 
@@ -193,7 +199,7 @@
   
     //error parsing
     NSString *result = nil;
-    //NSLog(@"json = %@", json);
+    NSLog(@"json = %@", json);
     if(!json)
     {
         NSLog(@"%@", error);
@@ -205,7 +211,13 @@
         
         result =  @"passed";
         jsonObject = [json objectForKey:@"result"];
-        NSLog(@"json = %@", jsonObject);
+        //NSLog(@"json = %@", jsonObject);
+        for (id key in jsonObject)
+        {
+            NSDictionary *tempDict = [jsonObject objectForKey:key];
+           
+            [jsonArray addObject:tempDict];
+        }
 
     }
     

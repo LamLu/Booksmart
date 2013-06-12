@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Connection.h"
 
-@interface SearchViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+
+@interface SearchViewController : UIViewController <WsCompleteDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+{
+    NSArray *listOfUser;
+    NSString *selectSegment;
+    
+}
 @property (weak, nonatomic) IBOutlet UITableView *searchResult;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *typeOfSegment;
+- (IBAction)changeSeg:(id)sender;
+
+
 
 @end
