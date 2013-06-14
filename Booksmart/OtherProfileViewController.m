@@ -100,8 +100,7 @@
         
         RatingViewController *detailView = (RatingViewController *)[segue destinationViewController];
         
-        
-        [detailView populateView:[imgView image] name:@"name" description:@"description" location:@"location" school:@"school" email:[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"full_name"]];
+        [detailView populateView:userEmail];
        
     }
 }
