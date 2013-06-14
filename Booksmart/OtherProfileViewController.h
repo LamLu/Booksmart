@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RatingPercentConnection.h"
+#import "RatingViewController.h"
 @interface OtherProfileViewController : UIViewController<RatingPercentageConnectionCompleteDelegate>
 {
     UIImage *img;
@@ -33,7 +34,7 @@
 - (IBAction)goToWishlist:(id)sender;
 
 
-- (void)populateView:(UIImage*)image name:(NSString*) name description: (NSString*) description location: (NSString*) location school:(NSString*) school rating:(NSString*) rating;
+
 
 - (void)populateView:(UIImage*)image name:(NSString*) name description: (NSString*) description location: (NSString*) location school:(NSString*) school email:(NSString*) email;
 @end

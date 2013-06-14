@@ -92,4 +92,17 @@
 }
 - (IBAction)goToWishlist:(id)sender {
 }
+// This will get called too before the view appears (when user click on a row)
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ToUserProfile"])
+    {
+        
+        RatingViewController *detailView = (RatingViewController *)[segue destinationViewController];
+        
+        
+        [detailView populateView:[imgView image] name:@"name" description:@"description" location:@"location" school:@"school" email:[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"full_name"]];
+       
+    }
+}
 @end
