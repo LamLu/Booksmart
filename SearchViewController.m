@@ -77,7 +77,7 @@
     NSString *imgLink = [NSString stringWithFormat:@"%@%@",[WTTSingleton sharedManager].serverURL,[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"profile_img_src"]];
     UIImageView *imgView =  (UIImageView *) [cell viewWithTag:1];
     
-    if (![imgLink isEqualToString:@""])
+    if (![imgLink isEqualToString:[WTTSingleton sharedManager].serverURL])
     {
         NSLog(@"img link = %@",imgLink);
         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgLink]];
@@ -111,6 +111,8 @@
 {
     [self.searchBar resignFirstResponder];
 }
+
+// Receive list of usernames from server
 - (void) finished{
     //NSLog(@"teeeeeeeee");
     listOfUser = [WTTSingleton sharedManager].searchResult;
@@ -118,6 +120,8 @@
     [searchResult reloadData];
     
 }
+
+
 - (IBAction)changeSeg:(id)sender {
     switch (self.typeOfSegment.selectedSegmentIndex) {
         case 0:
@@ -132,5 +136,31 @@
             break;
     }
     NSLog(@"%@",selectSegment);
+}
+// Receive rating percentage of user from server
+-(void) finishedRatingPercentageConnection
+{
+    //NSLog(@"teeeeeeeee");
+    ratingPercentage = [WTTSingleton sharedManager].ratingPercentage;
+}
+// This will get called too before the view appears (when user click on a row)
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ToUserProfile"])
+    {
+     
+        NSIndexPath *indexPath = [self.searchResult indexPathForSelectedRow];
+        UITableViewCell *selectedCell = [self.searchResult cellForRowAtIndexPath:indexPath];
+        OtherProfileViewController *detailView = (OtherProfileViewController *)[segue destinationViewController];
+        
+        UIImageView *imgView = (UIImageView *)[selectedCell viewWithTag:1];
+        [detailView populateView:[imgView image] name:@"name" description:@"description" location:@"location" school:@"school" email:[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"full_name"]];
+        /*
+         rating *connection = [[rating alloc]init];
+         [connection createConnection:@"lam"];
+         NSLog(@"Rating in prepare segue = %@",[WTTSingleton sharedManager].ratingData);
+         [detailView populateView:@"thanh" rating:[WTTSingleton sharedManager].ratingData];
+         */
+    }
 }
 @end

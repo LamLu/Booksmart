@@ -13,6 +13,7 @@
 @synthesize keychainItem;
 @synthesize userprofile;
 @synthesize serverURL;
+@synthesize ratingPercentage;
 
 
 #pragma mark Singleton Methods

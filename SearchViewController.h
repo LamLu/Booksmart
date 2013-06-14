@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Connection.h"
 
+#import "OtherProfileViewController.h"
 
-@interface SearchViewController : UIViewController <WsCompleteDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+
+@interface SearchViewController : UIViewController <RatingPercentageConnectionCompleteDelegate,WsCompleteDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 {
     NSArray *listOfUser;
     NSString *selectSegment;
+    NSString *ratingPercentage;
     
 }
 @property (weak, nonatomic) IBOutlet UITableView *searchResult;

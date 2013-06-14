@@ -11,6 +11,7 @@
 		52D7BC3B1766A24600340B9F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7BC391766A24600340B9F /* SearchViewController.m */; };
 		52E84D02176913AF008E502A /* lion.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 52E84D01176913AF008E502A /* lion.jpeg */; };
 		52E84D05176923FE008E502A /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E84D04176923FE008E502A /* OtherProfileViewController.m */; };
+		52EACC78176A61FA00501749 /* RatingPercentConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EACC77176A61FA00501749 /* RatingPercentConnection.m */; };
 		FFA877651766967000504B62 /* LoginConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA877641766967000504B62 /* LoginConnection.m */; };
 		FFA8776D1766968F00504B62 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA877681766968E00504B62 /* KeychainItemWrapper.m */; };
 		FFA8776E1766968F00504B62 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA8776A1766968E00504B62 /* UserProfile.m */; };
@@ -39,6 +40,8 @@
 		52E84D01176913AF008E502A /* lion.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lion.jpeg; sourceTree = "<group>"; };
 		52E84D03176923FE008E502A /* OtherProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherProfileViewController.h; path = Booksmart/OtherProfileViewController.h; sourceTree = "<group>"; };
 		52E84D04176923FE008E502A /* OtherProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherProfileViewController.m; path = Booksmart/OtherProfileViewController.m; sourceTree = "<group>"; };
+		52EACC76176A61FA00501749 /* RatingPercentConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingPercentConnection.h; sourceTree = "<group>"; };
+		52EACC77176A61FA00501749 /* RatingPercentConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingPercentConnection.m; sourceTree = "<group>"; };
 		FFA877631766967000504B62 /* LoginConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginConnection.h; path = LoginConnection/LoginConnection.h; sourceTree = "<group>"; };
 		FFA877641766967000504B62 /* LoginConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginConnection.m; path = LoginConnection/LoginConnection.m; sourceTree = "<group>"; };
 		FFA877671766968E00504B62 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainItemWrapper.h; path = Singleton/KeychainItemWrapper.h; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				FFDDFAB9172746CF0005138A /* AppDelegate.h */,
 				FFDDFABA172746CF0005138A /* AppDelegate.m */,
 				FFDDFAC2172746CF0005138A /* MainStoryboard_iPhone.storyboard */,
+				52EACC76176A61FA00501749 /* RatingPercentConnection.h */,
+				52EACC77176A61FA00501749 /* RatingPercentConnection.m */,
 				FFDDFAC5172746CF0005138A /* MainStoryboard_iPad.storyboard */,
 				FFDDFAB1172746CF0005138A /* Supporting Files */,
 			);
@@ -258,6 +263,7 @@
 				52D7BC3A1766A24600340B9F /* Connection.m in Sources */,
 				52D7BC3B1766A24600340B9F /* SearchViewController.m in Sources */,
 				52E84D05176923FE008E502A /* OtherProfileViewController.m in Sources */,
+				52EACC78176A61FA00501749 /* RatingPercentConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

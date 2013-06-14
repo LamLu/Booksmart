@@ -12,6 +12,7 @@
 
 @interface WTTSingleton : NSObject
 
+
 //property to check the login
 @property (nonatomic, assign) BOOL isLogin;
 
@@ -24,7 +25,7 @@
 //the URL to the user that contains php, userProfile images...
 @property (nonatomic, retain) NSString * serverURL;
 @property (nonatomic, retain) NSArray *searchResult;
-
+@property (nonatomic, retain) NSString *ratingPercentage;
 
 // method to return this Singleton
 + (WTTSingleton *) sharedManager;
