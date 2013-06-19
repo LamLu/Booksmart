@@ -14,6 +14,7 @@
 @synthesize userprofile;
 @synthesize serverURL;
 @synthesize ratingPercentage;
+@synthesize json;
 
 
 #pragma mark Singleton Methods

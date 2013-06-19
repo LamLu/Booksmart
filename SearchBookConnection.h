@@ -1,27 +1,25 @@
 //
-//  DisplayRatingConnection.h
+//  SearchBookConnection.h
 //  Booksmart
 //
-//  Created by test on 6/14/13.
+//  Created by test on 6/17/13.
 //  Copyright (c) 2013 Lam Lu. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "WTTSingleton.h"
-
-@protocol WsCompleteRatingConnectionDelegate
+@protocol WsCompleteSearchForBookConnectionDelegate
 -(void) finished;
 @end
-@interface DisplayRatingConnection : NSObject
+@interface SearchBookConnection : NSObject
 {
     NSDictionary * jsonObject;
     NSMutableArray * jsonArray;
     //id <WsCompleteDelegate> delegate;
 }
-
 @property (nonatomic,retain) NSMutableData *receivedData;
 @property (nonatomic,retain) UIAlertView *loadingAlertView;
-@property (retain, nonatomic) id <WsCompleteRatingConnectionDelegate> delegate;
+@property (retain, nonatomic) id <WsCompleteSearchForBookConnectionDelegate> delegate;
 /*
  * method to connect to database to login
  * @param username is the username to login
@@ -48,4 +46,6 @@
  * @return: the string parsed or failed if parse error
  */
 - (NSString *) parseJSON: (NSData *) data ;
+
+
 @end

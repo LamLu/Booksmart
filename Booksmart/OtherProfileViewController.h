@@ -26,12 +26,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *userLocationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userSchoolLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userRatingLabel;
+@property (weak, nonatomic) IBOutlet UIButton *ratingButton;
 
-- (IBAction)goToMessage:(id)sender;
-
-- (IBAction)goToInventory:(id)sender;
-
-- (IBAction)goToWishlist:(id)sender;
 
 
 

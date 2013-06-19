@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52281184176FAB5400A713CA /* SearchBookConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52281183176FAB5400A713CA /* SearchBookConnection.m */; };
 		52D7BC3A1766A24600340B9F /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7BC371766A24600340B9F /* Connection.m */; };
 		52D7BC3B1766A24600340B9F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7BC391766A24600340B9F /* SearchViewController.m */; };
 		52E84D02176913AF008E502A /* lion.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 52E84D01176913AF008E502A /* lion.jpeg */; };
@@ -37,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52281182176FAB5400A713CA /* SearchBookConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBookConnection.h; sourceTree = "<group>"; };
+		52281183176FAB5400A713CA /* SearchBookConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBookConnection.m; sourceTree = "<group>"; };
 		52D7BC361766A24600340B9F /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
 		52D7BC371766A24600340B9F /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
 		52D7BC381766A24600340B9F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -99,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52281181176FAA7000A713CA /* SearchForBook */ = {
+			isa = PBXGroup;
+			children = (
+				52281182176FAB5400A713CA /* SearchBookConnection.h */,
+				52281183176FAB5400A713CA /* SearchBookConnection.m */,
+			);
+			name = SearchForBook;
+			sourceTree = "<group>";
+		};
 		52EACC79176B85FA00501749 /* SearchForUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,8 +127,8 @@
 			children = (
 				52EACC76176A61FA00501749 /* RatingPercentConnection.h */,
 				52EACC77176A61FA00501749 /* RatingPercentConnection.m */,
-				52E84D04176923FE008E502A /* OtherProfileViewController.m */,
 				52E84D03176923FE008E502A /* OtherProfileViewController.h */,
+				52E84D04176923FE008E502A /* OtherProfileViewController.m */,
 			);
 			name = OtherUserProfile;
 			sourceTree = "<group>";
@@ -168,6 +180,7 @@
 			children = (
 				52EACC7B176B86A600501749 /* Rating */,
 				52E84D01176913AF008E502A /* lion.jpeg */,
+				52281181176FAA7000A713CA /* SearchForBook */,
 				52EACC79176B85FA00501749 /* SearchForUser */,
 				52EACC7A176B863A00501749 /* OtherUserProfile */,
 				FFDDFAB0172746CF0005138A /* Booksmart */,
@@ -312,6 +325,7 @@
 				52EACC81176B875100501749 /* DisplayRatingConnection.m in Sources */,
 				FC4DF696176B92F30096C36D /* InventoryViewController.m in Sources */,
 				FC4DF699176B94470096C36D /* InventoryConnection.m in Sources */,
+				52281184176FAB5400A713CA /* SearchBookConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

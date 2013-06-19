@@ -26,6 +26,7 @@
 @property (nonatomic, retain) NSString * serverURL;
 @property (nonatomic, retain) NSArray *searchResult;
 @property (nonatomic, retain) NSString *ratingPercentage;
+@property (nonatomic, retain) NSArray *json;
 
 // method to return this Singleton
 + (WTTSingleton *) sharedManager;

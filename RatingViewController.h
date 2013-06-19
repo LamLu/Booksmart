@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "DisplayRatingConnection.h"
 
-@interface RatingViewController : UITableViewController
+@interface RatingViewController : UITableViewController <WsCompleteRatingConnectionDelegate>
 {
     NSString* userEmail;
+    NSArray* ratingArr;
 }
 
 -(void)populateView:(NSString *) email;

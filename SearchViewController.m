@@ -61,30 +61,64 @@
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    if ([listOfUser count] != 0 )
+    UITableViewCell *cell;
+    if ([selectSegment isEqualToString:@"User"])
     {
+        static NSString *CellIdentifier = @"Cell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        if ([listOfUser count] != 0 )
+            {
     //UILabel*  senderLabel = (UILabel *) [cell viewWithTag:1];
-    UILabel* nameLabel = (UILabel *) [cell viewWithTag:2];
-    NSString *name = [[listOfUser objectAtIndex:indexPath.row]objectForKey:@"full_name"];
-    NSLog(@"name = %@", name);
-    nameLabel.text = name;
+                UILabel* nameLabel = (UILabel *) [cell viewWithTag:2];
+                NSString *name = [[listOfUser objectAtIndex:indexPath.row]objectForKey:@"full_name"];
+                NSLog(@"name = %@", name);
+                nameLabel.text = name;
     
-    NSString *imgLink = [NSString stringWithFormat:@"%@%@",[WTTSingleton sharedManager].serverURL,[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"profile_img_src"]];
-    UIImageView *imgView =  (UIImageView *) [cell viewWithTag:1];
+                NSString *imgLink = [NSString stringWithFormat:@"%@%@",[WTTSingleton sharedManager].serverURL,[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"profile_img_src"]];
+                UIImageView *imgView =  (UIImageView *) [cell viewWithTag:1];
     
-    if (![imgLink isEqualToString:[WTTSingleton sharedManager].serverURL])
+                if (![imgLink isEqualToString:[WTTSingleton sharedManager].serverURL])
+                {
+                    NSLog(@"img link = %@",imgLink);
+                    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgLink]];
+                    UIImage* profileImage = [UIImage imageWithData:imageData];
+                    [imgView setImage:profileImage];
+                }
+            }
+    }
+    
+    else
     {
-        NSLog(@"img link = %@",imgLink);
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgLink]];
-        UIImage* profileImage = [UIImage imageWithData:imageData];
-        [imgView setImage:profileImage];
+        
+        static NSString *CellIdentifier = @"BookCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        if ([listOfUser count] != 0 )
+        {
+            //UILabel*  senderLabel = (UILabel *) [cell viewWithTag:1];
+            UILabel* nameLabel = (UILabel *) [cell viewWithTag:2];
+            NSString *name = [[listOfUser objectAtIndex:indexPath.row]objectForKey:@"full_name"];
+            NSLog(@"name = %@", name);
+            nameLabel.text = name;
+            
+            NSString *imgLink = [NSString stringWithFormat:@"%@%@",[WTTSingleton sharedManager].serverURL,[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"profile_img_src"]];
+            UIImageView *imgView =  (UIImageView *) [cell viewWithTag:1];
+            
+            if (![imgLink isEqualToString:[WTTSingleton sharedManager].serverURL])
+            {
+                NSLog(@"img link = %@",imgLink);
+                NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgLink]];
+                UIImage* profileImage = [UIImage imageWithData:imageData];
+                [imgView setImage:profileImage];
+            }
+        }
     }
-    }
+
     return cell;
 }
 
@@ -154,13 +188,9 @@
         OtherProfileViewController *detailView = (OtherProfileViewController *)[segue destinationViewController];
         
         UIImageView *imgView = (UIImageView *)[selectedCell viewWithTag:1];
-        [detailView populateView:[imgView image] name:@"name" description:@"description" location:@"location" school:@"school" email:[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"full_name"]];
-        /*
-         rating *connection = [[rating alloc]init];
-         [connection createConnection:@"lam"];
-         NSLog(@"Rating in prepare segue = %@",[WTTSingleton sharedManager].ratingData);
-         [detailView populateView:@"thanh" rating:[WTTSingleton sharedManager].ratingData];
-         */
+        [detailView populateView:[imgView image] name:@"name" description:@"description" location:@"location" school:@"school" email:[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"email"]];
+        
+        
     }
 }
 @end

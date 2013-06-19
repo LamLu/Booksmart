@@ -32,6 +32,10 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    DisplayRatingConnection *connection = [[DisplayRatingConnection alloc]init];
+    NSLog(@"User email =%@", userEmail);
+    [connection createConnection:userEmail];
+    connection.delegate = self;
     
 }
 
@@ -40,20 +44,37 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)populateView:(NSString *) email
+{
+    userEmail = email;
+}
+-(void) finished
+{
+    NSLog(@"ttttttttttt");
+
+    //ratingArr = [[NSArray alloc]initWithArray:[[WTTSingleton sharedManager].json]];
+    ratingArr = [WTTSingleton sharedManager].json;
+    NSLog(@"rating : %@",ratingArr);
+    [self.tableView reloadData];
+}
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
+    if ([ratingArr count] != 0)
+    {
+        return [ratingArr count];
+    }
     return 0;
 }
 
@@ -63,6 +84,26 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    if ([ratingArr count] != 0 )
+    {
+        //UILabel*  senderLabel = (UILabel *) [cell viewWithTag:1];
+        UILabel* ratingLabel = (UILabel *) [cell viewWithTag:1];
+        NSString *rating = [[[ratingArr objectAtIndex:indexPath.row]objectForKey:@"rating"] stringValue];
+        
+        ratingLabel.text = rating;
+        
+        UILabel* raterEmailLabel = (UILabel *) [cell viewWithTag:2];
+        NSString *raterEmail = [[ratingArr objectAtIndex:indexPath.row]objectForKey:@"email"];
+        
+        raterEmailLabel.text = raterEmail;
+        
+        UILabel* raterCommentLabel = (UILabel *) [cell viewWithTag:3];
+        NSString *raterComment = [[ratingArr objectAtIndex:indexPath.row]objectForKey:@"rater_comment"];
+        
+        raterCommentLabel.text = raterComment;
+        
+    }
+
     
     return cell;
 }

@@ -1,14 +1,14 @@
 //
-//  DisplayRatingConnection.m
+//  SearchBookConnection.m
 //  Booksmart
 //
-//  Created by test on 6/14/13.
+//  Created by test on 6/17/13.
 //  Copyright (c) 2013 Lam Lu. All rights reserved.
 //
 
-#import "DisplayRatingConnection.h"
+#import "SearchBookConnection.h"
 
-@implementation DisplayRatingConnection
+@implementation SearchBookConnection
 @synthesize receivedData;
 @synthesize loadingAlertView;
 @synthesize delegate;
@@ -24,7 +24,7 @@
 
 -(void)createConnection:(NSString *) username
 {
-    NSString* link = [NSString stringWithFormat:@"%@%@", [WTTSingleton sharedManager].serverURL, @"/php/getRating.php"];
+    NSString* link = [NSString stringWithFormat:@"%@%@", [WTTSingleton sharedManager].serverURL, @"/php/searchForBook.php"];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString: link]
                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -168,7 +168,7 @@
             //[[WTTSingleton sharedManager] setRatingData:jsonObject];
             //NSLog(@"%@",[WTTSingleton sharedManager].emailData);
             //jsonObject = nil;
-            [[WTTSingleton sharedManager] setJson:jsonArray];
+            [[WTTSingleton sharedManager] setSearchResult:jsonArray];
             result = nil;
             jsonObject = nil;
             jsonArray = nil;

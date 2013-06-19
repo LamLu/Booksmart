@@ -77,6 +77,7 @@
     [self setUserSchoolLabel:nil];
     [self setUserRatingLabel:nil];
 
+    [self setRatingButton:nil];
     [super viewDidUnload];
 }
 // Receive rating percentage of user from server
@@ -85,17 +86,16 @@
     
     userRating = [WTTSingleton sharedManager].ratingPercentage;
     self.userRatingLabel.text = userRating;
+    if ([userRating isEqualToString: @"no rating"])
+    {
+        self.ratingButton.hidden = TRUE;
+    }
 }
-- (IBAction)goToMessage:(id)sender {
-}
-- (IBAction)goToInventory:(id)sender {
-}
-- (IBAction)goToWishlist:(id)sender {
-}
+
 // This will get called too before the view appears (when user click on a row)
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"ToUserProfile"])
+    if ([[segue identifier] isEqualToString:@"ToRating"])
     {
         
         RatingViewController *detailView = (RatingViewController *)[segue destinationViewController];
