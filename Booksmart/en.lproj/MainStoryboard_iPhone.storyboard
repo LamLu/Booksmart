@@ -937,6 +937,41 @@
     <resources>
         <image name="lion.jpeg" width="259" height="194"/>
     </resources>
+    <classes>
+        <class className="OtherProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OtherProfileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ratingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="userLocationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userRatingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userSchoolLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RatingViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RatingViewController.h"/>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeSeg:"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchResult" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="typeOfSegment" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="SignInViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SignInViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="signInButtonClicked:"/>
+                <relationship kind="action" name="textFieldFinishedWithKeyBoard:"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pwField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

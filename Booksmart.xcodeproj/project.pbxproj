@@ -109,6 +109,7 @@
 				52281183176FAB5400A713CA /* SearchBookConnection.m */,
 			);
 			name = SearchForBook;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		52EACC79176B85FA00501749 /* SearchForUser */ = {
@@ -120,6 +121,7 @@
 				52D7BC391766A24600340B9F /* SearchViewController.m */,
 			);
 			name = SearchForUser;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		52EACC7A176B863A00501749 /* OtherUserProfile */ = {
@@ -131,6 +133,7 @@
 				52E84D04176923FE008E502A /* OtherProfileViewController.m */,
 			);
 			name = OtherUserProfile;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		52EACC7B176B86A600501749 /* Rating */ = {
@@ -142,6 +145,7 @@
 				52EACC80176B875100501749 /* DisplayRatingConnection.m */,
 			);
 			name = Rating;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		FFA877611766961500504B62 /* LoginConnection */ = {
@@ -178,11 +182,7 @@
 		FFDDFA9B172746CF0005138A = {
 			isa = PBXGroup;
 			children = (
-				52EACC7B176B86A600501749 /* Rating */,
 				52E84D01176913AF008E502A /* lion.jpeg */,
-				52281181176FAA7000A713CA /* SearchForBook */,
-				52EACC79176B85FA00501749 /* SearchForUser */,
-				52EACC7A176B863A00501749 /* OtherUserProfile */,
 				FFDDFAB0172746CF0005138A /* Booksmart */,
 				FFDDFAA9172746CF0005138A /* Frameworks */,
 				FFDDFAA7172746CF0005138A /* Products */,
@@ -212,6 +212,10 @@
 		FFDDFAB0172746CF0005138A /* Booksmart */ = {
 			isa = PBXGroup;
 			children = (
+				52EACC7A176B863A00501749 /* OtherUserProfile */,
+				52EACC79176B85FA00501749 /* SearchForUser */,
+				52281181176FAA7000A713CA /* SearchForBook */,
+				52EACC7B176B86A600501749 /* Rating */,
 				FFA877701766975F00504B62 /* LoginVC */,
 				FFA877661766967600504B62 /* Singleton */,
 				FC4DF695176B92F30096C36D /* InventoryViewController.m */,
