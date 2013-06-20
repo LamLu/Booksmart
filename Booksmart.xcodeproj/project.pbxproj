@@ -15,7 +15,6 @@
 		52EACC78176A61FA00501749 /* RatingPercentConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EACC77176A61FA00501749 /* RatingPercentConnection.m */; };
 		52EACC7E176B86ED00501749 /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EACC7D176B86ED00501749 /* RatingViewController.m */; };
 		52EACC81176B875100501749 /* DisplayRatingConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EACC80176B875100501749 /* DisplayRatingConnection.m */; };
-		B3876F911772776E00E9CF99 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F901772776E00E9CF99 /* SettingViewController.m */; };
 		B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9417727A7D00E9CF99 /* SettingViewController.m */; };
 		B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */; };
 		FC4DF696176B92F30096C36D /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DF695176B92F30096C36D /* InventoryViewController.m */; };
@@ -56,8 +55,6 @@
 		52EACC7D176B86ED00501749 /* RatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingViewController.m; sourceTree = "<group>"; };
 		52EACC7F176B875100501749 /* DisplayRatingConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayRatingConnection.h; sourceTree = "<group>"; };
 		52EACC80176B875100501749 /* DisplayRatingConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayRatingConnection.m; sourceTree = "<group>"; };
-		B3876F8F1772776E00E9CF99 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Setting/SettingViewController.h; sourceTree = "<group>"; };
-		B3876F901772776E00E9CF99 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Setting/SettingViewController.m; sourceTree = "<group>"; };
 		B3876F9317727A7D00E9CF99 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		B3876F9417727A7D00E9CF99 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		B3876F9617727ABD00E9CF99 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InviteFriendsViewController.h; path = Setting/InviteFriendsViewController.h; sourceTree = "<group>"; };
@@ -162,8 +159,6 @@
 			children = (
 				B3876F9617727ABD00E9CF99 /* InviteFriendsViewController.h */,
 				B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */,
-				B3876F8F1772776E00E9CF99 /* SettingViewController.h */,
-				B3876F901772776E00E9CF99 /* SettingViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -361,7 +356,6 @@
 				FC4DF696176B92F30096C36D /* InventoryViewController.m in Sources */,
 				FC4DF699176B94470096C36D /* InventoryConnection.m in Sources */,
 				52281184176FAB5400A713CA /* SearchBookConnection.m in Sources */,
-				B3876F911772776E00E9CF99 /* SettingViewController.m in Sources */,
 				B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */,
 				B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */,
 			);
