@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00FB666217739A6500CF84EC /* SearchForBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FB666117739A6500CF84EC /* SearchForBookViewController.m */; };
 		52281184176FAB5400A713CA /* SearchBookConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52281183176FAB5400A713CA /* SearchBookConnection.m */; };
 		52D7BC3A1766A24600340B9F /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7BC371766A24600340B9F /* Connection.m */; };
 		52D7BC3B1766A24600340B9F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7BC391766A24600340B9F /* SearchViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00FB666017739A6500CF84EC /* SearchForBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchForBookViewController.h; sourceTree = "<group>"; };
+		00FB666117739A6500CF84EC /* SearchForBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchForBookViewController.m; sourceTree = "<group>"; };
 		52281182176FAB5400A713CA /* SearchBookConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBookConnection.h; sourceTree = "<group>"; };
 		52281183176FAB5400A713CA /* SearchBookConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBookConnection.m; sourceTree = "<group>"; };
 		52D7BC361766A24600340B9F /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 			children = (
 				52281182176FAB5400A713CA /* SearchBookConnection.h */,
 				52281183176FAB5400A713CA /* SearchBookConnection.m */,
+				00FB666017739A6500CF84EC /* SearchForBookViewController.h */,
+				00FB666117739A6500CF84EC /* SearchForBookViewController.m */,
 			);
 			name = SearchForBook;
 			path = ..;
@@ -358,6 +363,7 @@
 				52281184176FAB5400A713CA /* SearchBookConnection.m in Sources */,
 				B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */,
 				B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */,
+				00FB666217739A6500CF84EC /* SearchForBookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

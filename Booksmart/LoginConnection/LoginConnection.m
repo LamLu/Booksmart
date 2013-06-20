@@ -242,6 +242,8 @@
 - (NSString *) parseJSON: (NSData *) data ;
 {
     NSError *error = nil;
+    NSString *temp = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",temp);
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:
                           NSJSONReadingMutableContainers error:&error];
     NSString *result = nil;

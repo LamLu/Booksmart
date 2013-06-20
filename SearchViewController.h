@@ -15,14 +15,13 @@
 @interface SearchViewController : UIViewController <RatingPercentageConnectionCompleteDelegate,WsCompleteDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 {
     NSArray *listOfUser;
-    NSString *selectSegment;
+
     NSString *ratingPercentage;
     
 }
 @property (weak, nonatomic) IBOutlet UITableView *searchResult;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *typeOfSegment;
-- (IBAction)changeSeg:(id)sender;
+
 
 
 

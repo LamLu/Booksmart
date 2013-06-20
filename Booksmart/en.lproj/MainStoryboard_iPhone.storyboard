@@ -860,10 +860,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" id="eSk-R3-NB0">
+                            <searchBar contentMode="redraw" id="yBM-BR-ndU">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="03A-8r-8SD" id="pEw-03-KZB"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -871,8 +878,7 @@
                     <tabBarItem key="tabBarItem" title="User" id="Q0f-D5-tFt"/>
                     <navigationItem key="navigationItem" id="Seq-zu-NZS"/>
                     <connections>
-                        <outlet property="searchBar" destination="eSk-R3-NB0" id="0Dj-Pq-6aw"/>
-                        <outlet property="searchDisplayController" destination="Fud-aQ-Ra9" id="h0v-IO-ntW"/>
+                        <outlet property="searchDisplayController" destination="9jP-Es-0j8" id="XUc-pD-C1I"/>
                         <outlet property="searchResult" destination="SBi-x4-0VV" id="Lyj-6Y-2oK"/>
                     </connections>
                 </viewController>
@@ -885,19 +891,28 @@
                         <outlet property="searchResultsDelegate" destination="03A-8r-8SD" id="u11-51-Y0R"/>
                     </connections>
                 </searchDisplayController>
+                <searchDisplayController id="9jP-Es-0j8">
+                    <connections>
+                        <outlet property="delegate" destination="03A-8r-8SD" id="Vtv-kx-NrL"/>
+                        <outlet property="searchBar" destination="yBM-BR-ndU" id="aTr-bp-Ols"/>
+                        <outlet property="searchContentsController" destination="03A-8r-8SD" id="CkA-Wm-rQn"/>
+                        <outlet property="searchResultsDataSource" destination="03A-8r-8SD" id="jZQ-kr-hkO"/>
+                        <outlet property="searchResultsDelegate" destination="03A-8r-8SD" id="QS1-HB-tDY"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1522" y="-629"/>
         </scene>
-        <!--View Controller - Book-->
+        <!--Search For Book View Controller - Book-->
         <scene sceneID="Btt-B8-w7Y">
             <objects>
-                <viewController id="l6k-mW-77A" sceneMemberID="viewController">
+                <viewController id="l6k-mW-77A" customClass="SearchForBookViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ChL-Sy-Okc">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" id="tRG-ak-XvH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <searchBar contentMode="redraw" showsScopeBar="YES" id="tRG-ak-XvH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -908,7 +923,7 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bw7-63-Ydd">
-                                <rect key="frame" x="0.0" y="44" width="320" height="323"/>
+                                <rect key="frame" x="0.0" y="88" width="320" height="310"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -940,6 +955,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Book" id="WfC-uc-sg5"/>
+                    <connections>
+                        <outlet property="searchBar" destination="tRG-ak-XvH" id="2P3-bk-BOC"/>
+                        <outlet property="searchResult" destination="Bw7-63-Ydd" id="ghu-2Y-vdU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vg-V4-u2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -950,7 +969,7 @@
             <objects>
                 <tabBarController definesPresentationContext="YES" id="28n-ES-f22" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="I7S-Pb-qgo"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="gsg-pO-Dzl">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -1157,13 +1176,18 @@
         <class className="RatingViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RatingViewController.h"/>
         </class>
+        <class className="SearchForBookViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchForBookViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchResult" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="SearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
             <relationships>
-                <relationship kind="action" name="changeSeg:"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="searchResult" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="typeOfSegment" candidateClass="UISegmentedControl"/>
             </relationships>
         </class>
         <class className="SettingViewController" superclassName="UIViewController">

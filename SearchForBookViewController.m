@@ -1,19 +1,19 @@
 //
-//  SearchViewController.m
+//  SearchForBookViewController.m
 //  Booksmart
 //
-//  Created by test on 6/10/13.
+//  Created by Thanh Au on 6/20/13.
 //  Copyright (c) 2013 Lam Lu. All rights reserved.
 //
 
-#import "SearchViewController.h"
+#import "SearchForBookViewController.h"
 
-@interface SearchViewController ()
+@interface SearchForBookViewController ()
 
 @end
 
-@implementation SearchViewController
-@synthesize searchResult;
+@implementation SearchForBookViewController
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,11 +26,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+	// Do any additional setup after loading the view.
+    [self.searchBar setShowsScopeBar:NO];
+    [self.searchBar sizeToFit];
     self.searchBar.delegate = self;
     self.searchResult.delegate = self;
     self.searchResult.dataSource = self;
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,10 +41,15 @@
 }
 
 - (void)viewDidUnload {
-    [self setSearchResult:nil];
     [self setSearchBar:nil];
-    
+    [self setSearchResult:nil];
     [super viewDidUnload];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    
+    return YES;
 }
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -53,51 +59,53 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([listOfUser count] != 0 )
+    if ([listOfBook count] != 0 )
     {
-        return  [listOfUser count];
+        return  [listOfBook count];
     }
     return 0;
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-   
     
-        static NSString *CellIdentifier = @"Cell";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    
+    static NSString *CellIdentifier = @"Cell";
+    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    if ([listOfBook count] != 0 )
+    {
+        UILabel* nameLabel = (UILabel *) [cell viewWithTag:2];
+        NSString *name = [[listOfBook objectAtIndex:indexPath.row]objectForKey:@"full_name"];
+        NSLog(@"name = %@", name);
+        nameLabel.text = name;
+        
+        //NSString *imgLink = [NSString stringWithFormat:@"%@%@",[WTTSingleton sharedManager].serverURL,[[listOfBook objectAtIndex:indexPath.row]objectForKey:@"profile_img_src"]];
+        /*
+        UIImageView *imgView =  (UIImageView *) [cell viewWithTag:1];
+        
+        if (![imgLink isEqualToString:[WTTSingleton sharedManager].serverURL])
+        {
+            NSLog(@"img link = %@",imgLink);
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgLink]];
+            UIImage* profileImage = [UIImage imageWithData:imageData];
+            [imgView setImage:profileImage];
         }
-        if ([listOfUser count] != 0 )
-            {
-                UILabel* nameLabel = (UILabel *) [cell viewWithTag:2];
-                NSString *name = [[listOfUser objectAtIndex:indexPath.row]objectForKey:@"full_name"];
-                NSLog(@"name = %@", name);
-                nameLabel.text = name;
-    
-                NSString *imgLink = [NSString stringWithFormat:@"%@%@",[WTTSingleton sharedManager].serverURL,[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"profile_img_src"]];
-                UIImageView *imgView =  (UIImageView *) [cell viewWithTag:1];
-    
-                if (![imgLink isEqualToString:[WTTSingleton sharedManager].serverURL])
-                {
-                    NSLog(@"img link = %@",imgLink);
-                    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgLink]];
-                    UIImage* profileImage = [UIImage imageWithData:imageData];
-                    [imgView setImage:profileImage];
-                }
-            }
-        return cell;
+        */
+    }
+    return cell;
 }
 
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-   
-    Connection *searchForUser = [[Connection alloc]init];
-    searchForUser.delegate = self;
+    
+    SearchBookConnection *connection = [[SearchBookConnection alloc]init];
+    connection.delegate = self;
     
     //[searchForUser createConnection:@"lam lu"];
-    [searchForUser createConnection:searchBar.text];
+    [connection createConnection:searchBar.text];
     
     [self.searchBar resignFirstResponder];
 }
@@ -109,29 +117,25 @@
     [self.searchBar resignFirstResponder];
 }
 
-// Receive list of usernames from server
+// Receive list of book from server
 - (void) finished{
     //NSLog(@"teeeeeeeee");
-    listOfUser = [WTTSingleton sharedManager].searchResult;
-    NSLog(@"%@",listOfUser);
-    [searchResult reloadData];
+    listOfBook = [WTTSingleton sharedManager].json;
+    NSLog(@"%@",listOfBook);
+    //[self.searchResult reloadData];
     
 }
 
 
 
-// Receive rating percentage of user from server
--(void) finishedRatingPercentageConnection
-{
-    //NSLog(@"teeeeeeeee");
-    ratingPercentage = [WTTSingleton sharedManager].ratingPercentage;
-}
+
 // This will get called too before the view appears (when user click on a row)
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    /*
     if ([[segue identifier] isEqualToString:@"ToUserProfile"])
     {
-     
+        
         NSIndexPath *indexPath = [self.searchResult indexPathForSelectedRow];
         UITableViewCell *selectedCell = [self.searchResult cellForRowAtIndexPath:indexPath];
         OtherProfileViewController *detailView = (OtherProfileViewController *)[segue destinationViewController];
@@ -141,5 +145,7 @@
         
         
     }
+     */
 }
+
 @end
