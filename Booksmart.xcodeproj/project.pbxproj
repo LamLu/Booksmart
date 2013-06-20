@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00FB666217739A6500CF84EC /* SearchForBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FB666117739A6500CF84EC /* SearchForBookViewController.m */; };
-		52281184176FAB5400A713CA /* SearchBookConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52281183176FAB5400A713CA /* SearchBookConnection.m */; };
-		52D7BC3A1766A24600340B9F /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7BC371766A24600340B9F /* Connection.m */; };
-		52D7BC3B1766A24600340B9F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D7BC391766A24600340B9F /* SearchViewController.m */; };
 		52E84D02176913AF008E502A /* lion.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 52E84D01176913AF008E502A /* lion.jpeg */; };
-		52E84D05176923FE008E502A /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E84D04176923FE008E502A /* OtherProfileViewController.m */; };
-		52EACC78176A61FA00501749 /* RatingPercentConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EACC77176A61FA00501749 /* RatingPercentConnection.m */; };
-		52EACC7E176B86ED00501749 /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EACC7D176B86ED00501749 /* RatingViewController.m */; };
-		52EACC81176B875100501749 /* DisplayRatingConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EACC80176B875100501749 /* DisplayRatingConnection.m */; };
 		B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9417727A7D00E9CF99 /* SettingViewController.m */; };
 		B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */; };
-		FC4DF696176B92F30096C36D /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DF695176B92F30096C36D /* InventoryViewController.m */; };
-		FC4DF699176B94470096C36D /* InventoryConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4DF698176B94470096C36D /* InventoryConnection.m */; };
+		FF731FE01773AFC600C723E7 /* InventoryConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FDD1773AFC600C723E7 /* InventoryConnection.m */; };
+		FF731FE11773AFC600C723E7 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FDF1773AFC600C723E7 /* InventoryViewController.m */; };
+		FF731FE41773B00200C723E7 /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FE31773B00200C723E7 /* OtherProfileViewController.m */; };
+		FF731FE71773B04E00C723E7 /* RatingPercentConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FE61773B04E00C723E7 /* RatingPercentConnection.m */; };
+		FF731FEC1773B09100C723E7 /* DisplayRatingConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FE91773B09100C723E7 /* DisplayRatingConnection.m */; };
+		FF731FED1773B09100C723E7 /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FEB1773B09100C723E7 /* RatingViewController.m */; };
+		FF731FF21773B0E400C723E7 /* SearchBookConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FEF1773B0E400C723E7 /* SearchBookConnection.m */; };
+		FF731FF31773B0E400C723E7 /* SearchForBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FF11773B0E400C723E7 /* SearchForBookViewController.m */; };
+		FF731FF81773B11100C723E7 /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FF51773B11100C723E7 /* Connection.m */; };
+		FF731FF91773B11100C723E7 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FF71773B11100C723E7 /* SearchViewController.m */; };
 		FFA877651766967000504B62 /* LoginConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA877641766967000504B62 /* LoginConnection.m */; };
 		FFA8776D1766968F00504B62 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA877681766968E00504B62 /* KeychainItemWrapper.m */; };
 		FFA8776E1766968F00504B62 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA8776A1766968E00504B62 /* UserProfile.m */; };
@@ -41,31 +41,31 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00FB666017739A6500CF84EC /* SearchForBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchForBookViewController.h; sourceTree = "<group>"; };
-		00FB666117739A6500CF84EC /* SearchForBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchForBookViewController.m; sourceTree = "<group>"; };
-		52281182176FAB5400A713CA /* SearchBookConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBookConnection.h; sourceTree = "<group>"; };
-		52281183176FAB5400A713CA /* SearchBookConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBookConnection.m; sourceTree = "<group>"; };
-		52D7BC361766A24600340B9F /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
-		52D7BC371766A24600340B9F /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
-		52D7BC381766A24600340B9F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		52D7BC391766A24600340B9F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		52E84D01176913AF008E502A /* lion.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lion.jpeg; sourceTree = "<group>"; };
-		52E84D03176923FE008E502A /* OtherProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherProfileViewController.h; path = Booksmart/OtherProfileViewController.h; sourceTree = "<group>"; };
-		52E84D04176923FE008E502A /* OtherProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherProfileViewController.m; path = Booksmart/OtherProfileViewController.m; sourceTree = "<group>"; };
-		52EACC76176A61FA00501749 /* RatingPercentConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingPercentConnection.h; path = Booksmart/RatingPercentConnection.h; sourceTree = "<group>"; };
-		52EACC77176A61FA00501749 /* RatingPercentConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingPercentConnection.m; path = Booksmart/RatingPercentConnection.m; sourceTree = "<group>"; };
-		52EACC7C176B86ED00501749 /* RatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingViewController.h; sourceTree = "<group>"; };
-		52EACC7D176B86ED00501749 /* RatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingViewController.m; sourceTree = "<group>"; };
-		52EACC7F176B875100501749 /* DisplayRatingConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayRatingConnection.h; sourceTree = "<group>"; };
-		52EACC80176B875100501749 /* DisplayRatingConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayRatingConnection.m; sourceTree = "<group>"; };
 		B3876F9317727A7D00E9CF99 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		B3876F9417727A7D00E9CF99 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		B3876F9617727ABD00E9CF99 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InviteFriendsViewController.h; path = Setting/InviteFriendsViewController.h; sourceTree = "<group>"; };
 		B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InviteFriendsViewController.m; path = Setting/InviteFriendsViewController.m; sourceTree = "<group>"; };
-		FC4DF694176B92F30096C36D /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryViewController.h; path = ../InventoryViewController.h; sourceTree = "<group>"; };
-		FC4DF695176B92F30096C36D /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryViewController.m; path = ../InventoryViewController.m; sourceTree = "<group>"; };
-		FC4DF697176B937A0096C36D /* InventoryConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryConnection.h; sourceTree = "<group>"; };
-		FC4DF698176B94470096C36D /* InventoryConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryConnection.m; sourceTree = "<group>"; };
+		FF731FDC1773AFC600C723E7 /* InventoryConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryConnection.h; path = Inventory/InventoryConnection.h; sourceTree = "<group>"; };
+		FF731FDD1773AFC600C723E7 /* InventoryConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryConnection.m; path = Inventory/InventoryConnection.m; sourceTree = "<group>"; };
+		FF731FDE1773AFC600C723E7 /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryViewController.h; path = Inventory/InventoryViewController.h; sourceTree = "<group>"; };
+		FF731FDF1773AFC600C723E7 /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryViewController.m; path = Inventory/InventoryViewController.m; sourceTree = "<group>"; };
+		FF731FE21773B00200C723E7 /* OtherProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherProfileViewController.h; path = Booksmart/OtherUserProfile/OtherProfileViewController.h; sourceTree = "<group>"; };
+		FF731FE31773B00200C723E7 /* OtherProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherProfileViewController.m; path = Booksmart/OtherUserProfile/OtherProfileViewController.m; sourceTree = "<group>"; };
+		FF731FE51773B04E00C723E7 /* RatingPercentConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingPercentConnection.h; path = Booksmart/OtherUserProfile/RatingPercentConnection.h; sourceTree = "<group>"; };
+		FF731FE61773B04E00C723E7 /* RatingPercentConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingPercentConnection.m; path = Booksmart/OtherUserProfile/RatingPercentConnection.m; sourceTree = "<group>"; };
+		FF731FE81773B09100C723E7 /* DisplayRatingConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisplayRatingConnection.h; path = Booksmart/Rating/DisplayRatingConnection.h; sourceTree = "<group>"; };
+		FF731FE91773B09100C723E7 /* DisplayRatingConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisplayRatingConnection.m; path = Booksmart/Rating/DisplayRatingConnection.m; sourceTree = "<group>"; };
+		FF731FEA1773B09100C723E7 /* RatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingViewController.h; path = Booksmart/Rating/RatingViewController.h; sourceTree = "<group>"; };
+		FF731FEB1773B09100C723E7 /* RatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingViewController.m; path = Booksmart/Rating/RatingViewController.m; sourceTree = "<group>"; };
+		FF731FEE1773B0E400C723E7 /* SearchBookConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchBookConnection.h; path = Booksmart/SearchForBook/SearchBookConnection.h; sourceTree = "<group>"; };
+		FF731FEF1773B0E400C723E7 /* SearchBookConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchBookConnection.m; path = Booksmart/SearchForBook/SearchBookConnection.m; sourceTree = "<group>"; };
+		FF731FF01773B0E400C723E7 /* SearchForBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchForBookViewController.h; path = Booksmart/SearchForBook/SearchForBookViewController.h; sourceTree = "<group>"; };
+		FF731FF11773B0E400C723E7 /* SearchForBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchForBookViewController.m; path = Booksmart/SearchForBook/SearchForBookViewController.m; sourceTree = "<group>"; };
+		FF731FF41773B11100C723E7 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = Booksmart/SearchForUser/Connection.h; sourceTree = "<group>"; };
+		FF731FF51773B11100C723E7 /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Connection.m; path = Booksmart/SearchForUser/Connection.m; sourceTree = "<group>"; };
+		FF731FF61773B11100C723E7 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Booksmart/SearchForUser/SearchViewController.h; sourceTree = "<group>"; };
+		FF731FF71773B11100C723E7 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Booksmart/SearchForUser/SearchViewController.m; sourceTree = "<group>"; };
 		FFA877631766967000504B62 /* LoginConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginConnection.h; path = LoginConnection/LoginConnection.h; sourceTree = "<group>"; };
 		FFA877641766967000504B62 /* LoginConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginConnection.m; path = LoginConnection/LoginConnection.m; sourceTree = "<group>"; };
 		FFA877671766968E00504B62 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainItemWrapper.h; path = Singleton/KeychainItemWrapper.h; sourceTree = "<group>"; };
@@ -114,10 +114,10 @@
 		52281181176FAA7000A713CA /* SearchForBook */ = {
 			isa = PBXGroup;
 			children = (
-				52281182176FAB5400A713CA /* SearchBookConnection.h */,
-				52281183176FAB5400A713CA /* SearchBookConnection.m */,
-				00FB666017739A6500CF84EC /* SearchForBookViewController.h */,
-				00FB666117739A6500CF84EC /* SearchForBookViewController.m */,
+				FF731FEE1773B0E400C723E7 /* SearchBookConnection.h */,
+				FF731FEF1773B0E400C723E7 /* SearchBookConnection.m */,
+				FF731FF01773B0E400C723E7 /* SearchForBookViewController.h */,
+				FF731FF11773B0E400C723E7 /* SearchForBookViewController.m */,
 			);
 			name = SearchForBook;
 			path = ..;
@@ -126,10 +126,10 @@
 		52EACC79176B85FA00501749 /* SearchForUser */ = {
 			isa = PBXGroup;
 			children = (
-				52D7BC361766A24600340B9F /* Connection.h */,
-				52D7BC371766A24600340B9F /* Connection.m */,
-				52D7BC381766A24600340B9F /* SearchViewController.h */,
-				52D7BC391766A24600340B9F /* SearchViewController.m */,
+				FF731FF41773B11100C723E7 /* Connection.h */,
+				FF731FF51773B11100C723E7 /* Connection.m */,
+				FF731FF61773B11100C723E7 /* SearchViewController.h */,
+				FF731FF71773B11100C723E7 /* SearchViewController.m */,
 			);
 			name = SearchForUser;
 			path = ..;
@@ -138,10 +138,10 @@
 		52EACC7A176B863A00501749 /* OtherUserProfile */ = {
 			isa = PBXGroup;
 			children = (
-				52EACC76176A61FA00501749 /* RatingPercentConnection.h */,
-				52EACC77176A61FA00501749 /* RatingPercentConnection.m */,
-				52E84D03176923FE008E502A /* OtherProfileViewController.h */,
-				52E84D04176923FE008E502A /* OtherProfileViewController.m */,
+				FF731FE51773B04E00C723E7 /* RatingPercentConnection.h */,
+				FF731FE61773B04E00C723E7 /* RatingPercentConnection.m */,
+				FF731FE21773B00200C723E7 /* OtherProfileViewController.h */,
+				FF731FE31773B00200C723E7 /* OtherProfileViewController.m */,
 			);
 			name = OtherUserProfile;
 			path = ..;
@@ -150,10 +150,10 @@
 		52EACC7B176B86A600501749 /* Rating */ = {
 			isa = PBXGroup;
 			children = (
-				52EACC7C176B86ED00501749 /* RatingViewController.h */,
-				52EACC7D176B86ED00501749 /* RatingViewController.m */,
-				52EACC7F176B875100501749 /* DisplayRatingConnection.h */,
-				52EACC80176B875100501749 /* DisplayRatingConnection.m */,
+				FF731FE81773B09100C723E7 /* DisplayRatingConnection.h */,
+				FF731FE91773B09100C723E7 /* DisplayRatingConnection.m */,
+				FF731FEA1773B09100C723E7 /* RatingViewController.h */,
+				FF731FEB1773B09100C723E7 /* RatingViewController.m */,
 			);
 			name = Rating;
 			path = ..;
@@ -175,6 +175,17 @@
 				B3876F9417727A7D00E9CF99 /* SettingViewController.m */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		FF731FDB1773AFB700C723E7 /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				FF731FDC1773AFC600C723E7 /* InventoryConnection.h */,
+				FF731FDD1773AFC600C723E7 /* InventoryConnection.m */,
+				FF731FDE1773AFC600C723E7 /* InventoryViewController.h */,
+				FF731FDF1773AFC600C723E7 /* InventoryViewController.m */,
+			);
+			name = Inventory;
 			sourceTree = "<group>";
 		};
 		FFA877611766961500504B62 /* LoginConnection */ = {
@@ -241,6 +252,8 @@
 		FFDDFAB0172746CF0005138A /* Booksmart */ = {
 			isa = PBXGroup;
 			children = (
+				FF731FDB1773AFB700C723E7 /* Inventory */,
+				B3876F9217727A7D00E9CF99 /* Setting */,
 				B3876F8E1772774000E9CF99 /* Setting */,
 				52EACC7A176B863A00501749 /* OtherUserProfile */,
 				52EACC79176B85FA00501749 /* SearchForUser */,
@@ -248,15 +261,10 @@
 				52EACC7B176B86A600501749 /* Rating */,
 				FFA877701766975F00504B62 /* LoginVC */,
 				FFA877661766967600504B62 /* Singleton */,
-				FC4DF695176B92F30096C36D /* InventoryViewController.m */,
-				FC4DF694176B92F30096C36D /* InventoryViewController.h */,
-				FC4DF697176B937A0096C36D /* InventoryConnection.h */,
-				FC4DF698176B94470096C36D /* InventoryConnection.m */,
 				FFA877611766961500504B62 /* LoginConnection */,
 				FFDDFAB9172746CF0005138A /* AppDelegate.h */,
 				FFDDFABA172746CF0005138A /* AppDelegate.m */,
 				FFDDFAC2172746CF0005138A /* MainStoryboard_iPhone.storyboard */,
-				B3876F9217727A7D00E9CF99 /* Setting */,
 				FFDDFAC5172746CF0005138A /* MainStoryboard_iPad.storyboard */,
 				FFDDFAB1172746CF0005138A /* Supporting Files */,
 			);
@@ -352,18 +360,18 @@
 				FFA8776E1766968F00504B62 /* UserProfile.m in Sources */,
 				FFA8776F1766968F00504B62 /* WTTSingleton.m in Sources */,
 				FFA877731766976F00504B62 /* SignInViewController.m in Sources */,
-				52D7BC3A1766A24600340B9F /* Connection.m in Sources */,
-				52D7BC3B1766A24600340B9F /* SearchViewController.m in Sources */,
-				52E84D05176923FE008E502A /* OtherProfileViewController.m in Sources */,
-				52EACC78176A61FA00501749 /* RatingPercentConnection.m in Sources */,
-				52EACC7E176B86ED00501749 /* RatingViewController.m in Sources */,
-				52EACC81176B875100501749 /* DisplayRatingConnection.m in Sources */,
-				FC4DF696176B92F30096C36D /* InventoryViewController.m in Sources */,
-				FC4DF699176B94470096C36D /* InventoryConnection.m in Sources */,
-				52281184176FAB5400A713CA /* SearchBookConnection.m in Sources */,
 				B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */,
 				B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */,
-				00FB666217739A6500CF84EC /* SearchForBookViewController.m in Sources */,
+				FF731FE01773AFC600C723E7 /* InventoryConnection.m in Sources */,
+				FF731FE11773AFC600C723E7 /* InventoryViewController.m in Sources */,
+				FF731FE41773B00200C723E7 /* OtherProfileViewController.m in Sources */,
+				FF731FE71773B04E00C723E7 /* RatingPercentConnection.m in Sources */,
+				FF731FEC1773B09100C723E7 /* DisplayRatingConnection.m in Sources */,
+				FF731FED1773B09100C723E7 /* RatingViewController.m in Sources */,
+				FF731FF21773B0E400C723E7 /* SearchBookConnection.m in Sources */,
+				FF731FF31773B0E400C723E7 /* SearchForBookViewController.m in Sources */,
+				FF731FF81773B11100C723E7 /* Connection.m in Sources */,
+				FF731FF91773B11100C723E7 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
