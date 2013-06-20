@@ -28,7 +28,7 @@
         sharedInstance.isLogin = NO;
         sharedInstance.keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"WTTLoginData" accessGroup:nil];
         sharedInstance.userprofile = [[UserProfile alloc] init];
-        sharedInstance.serverURL = @"http://localhost:8888/WTT";//@"https://srv01.hidevmobile.com";        
+        sharedInstance.serverURL = @"http://192.168.1.141:8888";//@"https://srv01.hidevmobile.com";        
     });
     
     return sharedInstance;
