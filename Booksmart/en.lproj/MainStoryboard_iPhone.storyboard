@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment version="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Sign In View Controller - Login-->
@@ -474,6 +474,20 @@
             </objects>
             <point key="canvasLocation" x="-400" y="1492"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Ffe-TP-iKU">
+            <objects>
+                <viewController id="hk5-JU-5jG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qui-NJ-H78">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9gh-Rs-Y2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58" y="1504"/>
+        </scene>
         <!--Setting View Controller-->
         <scene sceneID="XJC-5J-ZCE">
             <objects>
@@ -508,6 +522,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hk5-JU-5jG" kind="modal" id="sXF-zc-fPA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NWo-ig-Io2">
                                 <rect key="frame" x="19" y="146" width="280" height="44"/>
@@ -1174,8 +1191,10 @@
         <class className="SearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
             <relationships>
+                <relationship kind="action" name="changeSeg:"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="searchResult" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="typeOfSegment" candidateClass="UISegmentedControl"/>
             </relationships>
         </class>
         <class className="SettingViewController" superclassName="UIViewController">
