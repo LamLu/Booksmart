@@ -67,7 +67,7 @@
 
 // delegation method, refer to the method in Connection class
 // @param login : Yes = success, No = fail
-- (void) isLogInSuccessful : (BOOL)login;
+- (void) isLogInSuccessful : (BOOL)login
 {
     if(login == YES)
     {

@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52E84D02176913AF008E502A /* lion.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 52E84D01176913AF008E502A /* lion.jpeg */; };
 		B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9417727A7D00E9CF99 /* SettingViewController.m */; };
 		B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */; };
-		FF2651C61773BBE100BD613B /* BookInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2651C31773BBE100BD613B /* BookInfoViewController.m */; };
-		FF2651C71773BBE100BD613B /* UploadBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2651C51773BBE100BD613B /* UploadBookViewController.m */; };
 		FF2651CA1773BC5100BD613B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2651C91773BC5100BD613B /* CoreVideo.framework */; };
 		FF2651CC1773BC5B00BD613B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2651CB1773BC5B00BD613B /* CoreMedia.framework */; };
 		FF2651CE1773BC6300BD613B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2651CD1773BC6300BD613B /* AVFoundation.framework */; };
 		FF2651D01773BC7000BD613B /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2651CF1773BC7000BD613B /* libiconv.dylib */; };
 		FF2651D21773BC8900BD613B /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2651D11773BC8900BD613B /* libzbar.a */; };
 		FF2651D41773BC9200BD613B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2651D31773BC9200BD613B /* QuartzCore.framework */; };
+		FF52C37A177ACA3400A1485E /* book_default.png in Resources */ = {isa = PBXBuildFile; fileRef = FF52C378177ACA3400A1485E /* book_default.png */; };
+		FF52C37B177ACA3400A1485E /* lion.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FF52C379177ACA3400A1485E /* lion.jpeg */; };
+		FF52C37E177ACC1C00A1485E /* UploadBookConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF52C37D177ACC1C00A1485E /* UploadBookConnection.m */; };
 		FF731FE01773AFC600C723E7 /* InventoryConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FDD1773AFC600C723E7 /* InventoryConnection.m */; };
 		FF731FE11773AFC600C723E7 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FDF1773AFC600C723E7 /* InventoryViewController.m */; };
 		FF731FE41773B00200C723E7 /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF731FE31773B00200C723E7 /* OtherProfileViewController.m */; };
@@ -35,6 +35,7 @@
 		FFA877731766976F00504B62 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA877721766976F00504B62 /* SignInViewController.m */; };
 		FFA877791766980300504B62 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA877781766980300504B62 /* Security.framework */; };
 		FFA8777B1766980900504B62 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8777A1766980900504B62 /* MobileCoreServices.framework */; };
+		FFCB351B177A466C00695FAB /* UploadBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB351A177A466C00695FAB /* UploadBookViewController.m */; };
 		FFDDFAAB172746CF0005138A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDDFAAA172746CF0005138A /* UIKit.framework */; };
 		FFDDFAAD172746CF0005138A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDDFAAC172746CF0005138A /* Foundation.framework */; };
 		FFDDFAAF172746CF0005138A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDDFAAE172746CF0005138A /* CoreGraphics.framework */; };
@@ -46,7 +47,6 @@
 		FFDDFAC1172746CF0005138A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFAC0172746CF0005138A /* Default-568h@2x.png */; };
 		FFDDFAC4172746CF0005138A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFAC2172746CF0005138A /* MainStoryboard_iPhone.storyboard */; };
 		FFDDFAC7172746CF0005138A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFAC5172746CF0005138A /* MainStoryboard_iPad.storyboard */; };
-		FFEBCDD617765C64005C411E /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEBCDD017765C64005C411E /* libzbar.a */; };
 		FFEBCDD717765C64005C411E /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEBCDD217765C64005C411E /* zbar-back.png */; };
 		FFEBCDD817765C64005C411E /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = FFEBCDD317765C64005C411E /* zbar-help.html */; };
 		FFEBCDD917765C64005C411E /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEBCDD417765C64005C411E /* zbar-helpicons.png */; };
@@ -54,21 +54,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		52E84D01176913AF008E502A /* lion.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lion.jpeg; sourceTree = "<group>"; };
 		B3876F9317727A7D00E9CF99 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		B3876F9417727A7D00E9CF99 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		B3876F9617727ABD00E9CF99 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InviteFriendsViewController.h; path = Setting/InviteFriendsViewController.h; sourceTree = "<group>"; };
-		B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InviteFriendsViewController.m; path = Setting/InviteFriendsViewController.m; sourceTree = "<group>"; };
-		FF2651C21773BBE100BD613B /* BookInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfoViewController.h; sourceTree = "<group>"; };
-		FF2651C31773BBE100BD613B /* BookInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfoViewController.m; sourceTree = "<group>"; };
-		FF2651C41773BBE100BD613B /* UploadBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadBookViewController.h; sourceTree = "<group>"; };
-		FF2651C51773BBE100BD613B /* UploadBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadBookViewController.m; sourceTree = "<group>"; };
+		B3876F9617727ABD00E9CF99 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsViewController.h; sourceTree = "<group>"; };
+		B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendsViewController.m; sourceTree = "<group>"; };
 		FF2651C91773BC5100BD613B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		FF2651CB1773BC5B00BD613B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		FF2651CD1773BC6300BD613B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FF2651CF1773BC7000BD613B /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		FF2651D11773BC8900BD613B /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = ZBarSDK/libzbar.a; sourceTree = "<group>"; };
 		FF2651D31773BC9200BD613B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FF52C378177ACA3400A1485E /* book_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_default.png; sourceTree = "<group>"; };
+		FF52C379177ACA3400A1485E /* lion.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lion.jpeg; sourceTree = "<group>"; };
+		FF52C37C177ACC1C00A1485E /* UploadBookConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadBookConnection.h; sourceTree = "<group>"; };
+		FF52C37D177ACC1C00A1485E /* UploadBookConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadBookConnection.m; sourceTree = "<group>"; };
 		FF731FDC1773AFC600C723E7 /* InventoryConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryConnection.h; path = Inventory/InventoryConnection.h; sourceTree = "<group>"; };
 		FF731FDD1773AFC600C723E7 /* InventoryConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryConnection.m; path = Inventory/InventoryConnection.m; sourceTree = "<group>"; };
 		FF731FDE1773AFC600C723E7 /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryViewController.h; path = Inventory/InventoryViewController.h; sourceTree = "<group>"; };
@@ -101,6 +100,8 @@
 		FFA877721766976F00504B62 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignInViewController.m; path = LogInVC/SignInViewController.m; sourceTree = "<group>"; };
 		FFA877781766980300504B62 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FFA8777A1766980900504B62 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		FFCB3519177A466C00695FAB /* UploadBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadBookViewController.h; sourceTree = "<group>"; };
+		FFCB351A177A466C00695FAB /* UploadBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadBookViewController.m; sourceTree = "<group>"; };
 		FFDDFAA6172746CF0005138A /* Booksmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booksmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDDFAAA172746CF0005138A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFDDFAAC172746CF0005138A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,7 +160,6 @@
 				FFDDFAAB172746CF0005138A /* UIKit.framework in Frameworks */,
 				FFDDFAAD172746CF0005138A /* Foundation.framework in Frameworks */,
 				FFDDFAAF172746CF0005138A /* CoreGraphics.framework in Frameworks */,
-				FFEBCDD617765C64005C411E /* libzbar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,18 +214,11 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		B3876F8E1772774000E9CF99 /* Setting */ = {
+		B3876F9217727A7D00E9CF99 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				B3876F9617727ABD00E9CF99 /* InviteFriendsViewController.h */,
 				B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */,
-			);
-			name = Setting;
-			sourceTree = "<group>";
-		};
-		B3876F9217727A7D00E9CF99 /* Setting */ = {
-			isa = PBXGroup;
-			children = (
 				B3876F9317727A7D00E9CF99 /* SettingViewController.h */,
 				B3876F9417727A7D00E9CF99 /* SettingViewController.m */,
 			);
@@ -235,13 +228,22 @@
 		FF2651C11773BBE100BD613B /* UploadBook */ = {
 			isa = PBXGroup;
 			children = (
-				FF2651C21773BBE100BD613B /* BookInfoViewController.h */,
-				FF2651C31773BBE100BD613B /* BookInfoViewController.m */,
-				FF2651C41773BBE100BD613B /* UploadBookViewController.h */,
-				FF2651C51773BBE100BD613B /* UploadBookViewController.m */,
+				FFCB3519177A466C00695FAB /* UploadBookViewController.h */,
+				FFCB351A177A466C00695FAB /* UploadBookViewController.m */,
+				FF52C37C177ACC1C00A1485E /* UploadBookConnection.h */,
+				FF52C37D177ACC1C00A1485E /* UploadBookConnection.m */,
 			);
 			path = UploadBook;
 			sourceTree = "<group>";
+		};
+		FF52C377177ACA3400A1485E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FF52C378177ACA3400A1485E /* book_default.png */,
+				FF52C379177ACA3400A1485E /* lion.jpeg */,
+			);
+			path = Images;
+			sourceTree = SOURCE_ROOT;
 		};
 		FF731FDB1773AFB700C723E7 /* Inventory */ = {
 			isa = PBXGroup;
@@ -288,7 +290,6 @@
 		FFDDFA9B172746CF0005138A = {
 			isa = PBXGroup;
 			children = (
-				52E84D01176913AF008E502A /* lion.jpeg */,
 				FFDDFAB0172746CF0005138A /* Booksmart */,
 				FFDDFAA9172746CF0005138A /* Frameworks */,
 				FFDDFAA7172746CF0005138A /* Products */,
@@ -325,10 +326,10 @@
 		FFDDFAB0172746CF0005138A /* Booksmart */ = {
 			isa = PBXGroup;
 			children = (
+				FF52C377177ACA3400A1485E /* Images */,
 				FF2651C11773BBE100BD613B /* UploadBook */,
 				FF731FDB1773AFB700C723E7 /* Inventory */,
 				B3876F9217727A7D00E9CF99 /* Setting */,
-				B3876F8E1772774000E9CF99 /* Setting */,
 				52EACC7A176B863A00501749 /* OtherUserProfile */,
 				52EACC79176B85FA00501749 /* SearchForUser */,
 				52281181176FAA7000A713CA /* SearchForBook */,
@@ -480,11 +481,12 @@
 				FFDDFAC1172746CF0005138A /* Default-568h@2x.png in Resources */,
 				FFDDFAC4172746CF0005138A /* MainStoryboard_iPhone.storyboard in Resources */,
 				FFDDFAC7172746CF0005138A /* MainStoryboard_iPad.storyboard in Resources */,
-				52E84D02176913AF008E502A /* lion.jpeg in Resources */,
 				FFEBCDD717765C64005C411E /* zbar-back.png in Resources */,
 				FFEBCDD817765C64005C411E /* zbar-help.html in Resources */,
 				FFEBCDD917765C64005C411E /* zbar-helpicons.png in Resources */,
 				FFEBCDDA17765C64005C411E /* zbar-samples.png in Resources */,
+				FF52C37A177ACA3400A1485E /* book_default.png in Resources */,
+				FF52C37B177ACA3400A1485E /* lion.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,8 +516,8 @@
 				FF731FF31773B0E400C723E7 /* SearchForBookViewController.m in Sources */,
 				FF731FF81773B11100C723E7 /* Connection.m in Sources */,
 				FF731FF91773B11100C723E7 /* SearchViewController.m in Sources */,
-				FF2651C61773BBE100BD613B /* BookInfoViewController.m in Sources */,
-				FF2651C71773BBE100BD613B /* UploadBookViewController.m in Sources */,
+				FFCB351B177A466C00695FAB /* UploadBookViewController.m in Sources */,
+				FF52C37E177ACC1C00A1485E /* UploadBookConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

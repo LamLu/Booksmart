@@ -13,6 +13,7 @@
 @end
 
 @implementation UploadBookViewController
+@synthesize bookCoverImageView, bookInfoTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +28,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    bookInfoOutput = [[NSString alloc] init];
+    bookTitle = [[NSString alloc] init];
+    bookEdition = [[NSString alloc] init];
+    bookPublisher = [[NSString alloc] init];
+    bookAuthors = [[NSMutableString alloc] init];
+    bookSubject = [[NSString alloc] init];
+    bookISBN10 = [[NSString alloc] init];
+    bookISBN13 = [[NSString alloc] init];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,6 +47,17 @@
 }
 
 - (void)viewDidUnload {
+    [self setBookCoverImageView:nil];
+    [self setBookInfoTextField:nil];
+    bookInfoOutput = nil;
+    bookInfoOutput = nil;
+    bookTitle = nil;
+    bookEdition = nil;
+    bookPublisher = nil;
+    bookAuthors = nil;
+    bookSubject = nil;
+    bookISBN10 = nil;
+    bookISBN13 = nil;
     [super viewDidUnload];
 }
 - (IBAction)barcodeScanButtonClicked:(id)sender {
@@ -56,8 +78,9 @@
     [self presentModalViewController: reader
                             animated: YES];
     
-
+    
 }
+
 
 - (void) imagePickerController: (UIImagePickerController*) reader
  didFinishPickingMediaWithInfo: (NSDictionary*) info
@@ -72,18 +95,16 @@
     
     
     // EXAMPLE: do something useful with the barcode image
-   // resultImage.image =
-   // [info objectForKey: UIImagePickerControllerOriginalImage];
+    // resultImage.image =
+    // [info objectForKey: UIImagePickerControllerOriginalImage];
     
-   
+    
     NSString * isbnString = symbol.data;
-    bookInfo = [[NSDictionary alloc]init];
-    bookInfo = [self getBookFromISBN: isbnString];
-
+    bookInfoOutput = [self parseBookJSON:[self getBookJSONFromISBN: isbnString]];
+    bookInfoTextField.text = bookInfoOutput;
     // ADD: dismiss the controller (NB dismiss from the *reader*!)
     [reader dismissModalViewControllerAnimated: YES];
-    
-    [self performSegueWithIdentifier:@"ScanSuccess" sender:self];
+    bookInfoOutput = nil;
     
 }
 
@@ -93,9 +114,11 @@
 }
 
 /*
-    Get book from isbn
+ Get book json object from isbn
+ @param isbn: the barcode scanned from the camera
+ @return the dictionary of json object
  */
-- (NSDictionary*) getBookFromISBN: (NSString *) isbn
+- (NSDictionary*) getBookJSONFromISBN: (NSString *) isbn
 {
     /****
      IMPORTANT: CHECK FOR INTERNET CONNECTION FIRST
@@ -123,17 +146,116 @@
 }
 
 /*
- * prepare the segue when scan screen is dismissed. this will populate the 
- * BookInfoViewController
+ * parse the book json object 
+ * @param bookJSON : the dictionary of json object of the book from scanning
+ * @return a formatted book info to populate the bookInfoTextField
  */
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (NSString *) parseBookJSON: (NSDictionary*) bookInfo
 {
+    if (bookInfo == nil)
+        return nil;
     
-    // Make sure your segue name in storyboard is the same as this line
-    if ([[segue identifier] isEqualToString:@"ScanSuccess"])
+   // NSLog (@"book info at BookInfoVC: %@", bookInfo);
+	// Do any additional setup after loading the view.
+    
+    NSDictionary * book = [[NSDictionary alloc] init];
+    if ([bookInfo objectForKey:@"totalItems"] > 0)
     {
-        BookInfoViewController *biVC = segue.destinationViewController;
-        [biVC setBookInfo:bookInfo];
+        NSArray * items = (NSArray *)[bookInfo objectForKey:@"items"];
+        book = [items objectAtIndex:0];
+        items = nil;
+    }
+    NSMutableString * stringOutput = [[NSMutableString alloc] init];
+    
+    //get title of the book
+    NSDictionary *volumeInfo = [[NSDictionary alloc]init];
+    volumeInfo = [book objectForKey:@"volumeInfo"];
+    bookTitle =  [volumeInfo objectForKey:@"title"];
+    stringOutput = [NSMutableString stringWithFormat:@"Title : %@", bookTitle];
+    
+    //get author
+    NSArray* author = (NSArray *) [volumeInfo objectForKey:@"authors"];
+    stringOutput = [NSMutableString stringWithFormat:@"%@ \nAuthor(s): ", stringOutput];
+    for (int i = 0; i < [author count]; i++)
+    {
+        if (i < [author count] - 1)
+            bookAuthors = [NSMutableString stringWithFormat:@"%@ %@, ", bookAuthors, [author objectAtIndex:i]];
+        else
+            bookAuthors = [NSMutableString stringWithFormat:@"%@ %@", bookAuthors, [author objectAtIndex:i]];
+    }
+    
+    stringOutput = [NSMutableString stringWithFormat:@"%@ %@", stringOutput, bookAuthors];
+    
+    //get isbn item
+    NSArray*isbnItem = [[NSArray alloc] init];
+    isbnItem = (NSArray*)[volumeInfo objectForKey:@"industryIdentifiers"];
+    
+    //get isbn 10
+    bookISBN10 = [(NSDictionary *)[isbnItem objectAtIndex:0] objectForKey:@"identifier"];
+    stringOutput = [NSMutableString stringWithFormat:@"%@ \nISBN 10: %@", stringOutput, bookISBN10];
+    
+    //get isbn 13
+    bookISBN13 = [(NSDictionary *)[isbnItem objectAtIndex:1] objectForKey:@"identifier"];
+
+    stringOutput = [NSMutableString stringWithFormat:@"%@ \nISBN 10: %@", stringOutput,bookISBN13];
+    
+    //get book publisher
+    bookPublisher =  [volumeInfo objectForKey:@"publisher"];
+    stringOutput = [NSMutableString stringWithFormat:@"%@ \nPublisher: %@", stringOutput,bookPublisher];
+    
+    //get book cover image
+    NSString * imagelink = [(NSDictionary *)[volumeInfo objectForKey:@"imageLinks"] objectForKey:@"thumbnail"];
+    bookCoverImageView.image = [self getImageFromURL:imagelink];
+    
+    //clean up memory
+    volumeInfo = nil;
+    imagelink = nil;
+    book = nil;
+    isbnItem = nil;
+    return stringOutput;
+}
+
+/**
+ * get image from url.
+ * @param: url the url string to download the image
+ */
+
+- (UIImage *) getImageFromURL : (NSString *) url
+{
+    // NSLog (@"%@", url);
+    NSURL *imageURL = [NSURL URLWithString:url];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage *image = [UIImage imageWithData:imageData];
+    
+    //testing
+    //NSData *imgData = UIImageJPEGRepresentation(image, 0);
+    //NSLog(@"Size of Image(bytes):%d",[imgData length]);
+    
+    return image ;
+}
+
+
+- (IBAction)submitButtonClicked:(id)sender
+{
+    UploadBookConnection * connection = [[UploadBookConnection alloc] init];
+    bookSubject = @"Test Subject";
+    [connection createConnection:[WTTSingleton sharedManager].userprofile.email title:bookTitle edition:bookEdition isbn10:bookISBN10 isbn13:bookISBN13 publisher:bookPublisher authors:bookAuthors subject:bookSubject];
+
+}
+
+// delegation method, refer to the method in Connection class
+
+- (void) isUploadSuccessful:(BOOL)upload
+{
+    if(upload == YES)
+    {
+
+        
+    }
+    
+    else if (upload == NO)
+    {
+
     }
 }
 

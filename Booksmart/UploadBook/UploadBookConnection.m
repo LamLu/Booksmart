@@ -1,47 +1,39 @@
 //
-//  Connection.m
-//  Login
-//  This class is to establish the connection and process
-//  data between iOS and web services
-//  Created by Lam Lu on 2/24/13.
+//  UploadBookConnection.m
+//  Booksmart
+//
+//  Created by Lam Lu on 6/26/13.
 //  Copyright (c) 2013 Lam Lu. All rights reserved.
-//  Link to apple document
 //
 
+#import "UploadBookConnection.h"
 
-#import "LoginConnection.h"
-
-@implementation LoginConnection
-
+@implementation UploadBookConnection
 @synthesize receivedData;
-@synthesize delegate;
 @synthesize loadingAlertView;
-
-//initialize
-- (id) init
-{
-    if (self = [super init])
-    {
-    }
-    return self;
-}
-
 
 /*
  * method to create Connection.
- * @param username is the username to login
- * @param password is the password to login
+ * @param email the string email of the user
+ * @param bookTitle the string title
+ * @param bookEdition the string edition
+ * @param bookISBN10 the string isbn10
+ * @param bookISBN13 the string isbn13
+ * @param bookPubisher the string publisher
+ * @param bookAuthors the string of authors, separate by commas
+ * @param bookSubject the string subject
  */
-- (void)createConnection: (NSString *) username : (NSString *)password
+- (void)createConnection: (NSString *) email title: (NSString *) bookTitle edition: (NSString *) bookEdition isbn10: (NSString *) bookISBN10 isbn13: (NSString *) bookISBN13 publisher : (NSString *) bookPublisher authors: (NSString *) bookAuthors subject: (NSString *) bookSubject
 {
-    NSString* link = [NSString stringWithFormat:@"%@%@", [WTTSingleton sharedManager].serverURL, @"/include_php/loginData.php"];
+    NSString* link = [NSString stringWithFormat:@"%@%@", [WTTSingleton sharedManager].serverURL, @"/include_php/insertBook.php"];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString: link]
                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
                                      timeoutInterval:15.0];
-    
-    NSString *myParameters = [NSString stringWithFormat: @"username=%@ & password=%@",
-                              username, password];
+
+    NSLog (@"%@ %@", bookISBN10, bookISBN13);
+    NSString *myParameters = [NSString stringWithFormat: @"email=%@&title=%@&edition=%@&isbn10=%@ &isbn13=%@&publisher=%@&subject=%@&authors=%@",
+                              email, bookTitle, bookEdition, bookISBN10, bookISBN13, bookPublisher,bookSubject, bookAuthors];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody:[myParameters dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -52,7 +44,7 @@
      * nil. If the connection is successful, an instance of NSMutableData is created to store the data
      * that is provided to the delegate incrementally.
      */
-   
+    
     //if the connection is still being connected after 1 second, load the indicator
     NSURLConnection *connection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self startImmediately:YES];
     [self displayLoadingAlertView];
@@ -65,9 +57,9 @@
     } else
     {
         // Inform the user that the connection failed.
-        NSLog(@"Connection Failed!");        
+        NSLog(@"Connection Failed!");
     }
-
+    
     
     theRequest = nil;
     myParameters = nil;
@@ -91,9 +83,9 @@
 
 - (void) dismissLoadingAlertView
 {
-   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-   [loadingAlertView dismissWithClickedButtonIndex:0 animated:YES];
-   loadingAlertView = nil;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [loadingAlertView dismissWithClickedButtonIndex:0 animated:YES];
+    loadingAlertView = nil;
 }
 /*
  * This message can be sent due to server redirects, or in rare cases multi-part MIME documents.
@@ -172,63 +164,7 @@
     connection = nil;
     receivedData = nil;
     [self dismissLoadingAlertView];
-    
-    if([result caseInsensitiveCompare:@"failed"] == NSOrderedSame)
-    {
-        result = nil;
-        jsonObject = nil;
-        [[self delegate] isLogInSuccessful:NO];
-    }
-    
-    
-    else if([result caseInsensitiveCompare:@"passed"] == NSOrderedSame)
-    {
-        NSString * firstname = nil;
-        NSString * lastname = nil;
-        NSString * email = nil;
-        NSString * school = nil;
-        NSString * major = nil;
-        UIImage  * image = nil;
-        
-        
-       // if ([jsonObject objectForKey:@"userFirstName"] != [NSNull null])                                                           firstname = [jsonObject objectForKey:@"userFirstName"];
-        
-     //   if ([jsonObject objectForKey:@"userLastName"] != [NSNull null])
-            lastname = [jsonObject objectForKey:@"userLastName"];
-        
-     //   if ([jsonObject objectForKey:@"userEmail"] != [NSNull null])
-            email = [jsonObject objectForKey:@"userEmail"];
-        
-     //   if ([jsonObject objectForKey:@"userSchool"] != [NSNull null])
-            school = [jsonObject objectForKey:@"userSchool"];
-
-     //   if ([jsonObject objectForKey:@"userMajor"] != [NSNull null])
-            major = [jsonObject objectForKey:@"userMajor"];
-        
- 
-        
-        if ([jsonObject objectForKey:@"userProfileImgSrc"] != [NSNull null])
-        {
-            NSError * err = nil;
-            NSString * imageURL = [NSString stringWithFormat:@"%@%@", [WTTSingleton sharedManager].serverURL, [jsonObject objectForKey:@"userProfileImgSrc"]];
-            
-            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString: imageURL] options:NSDataReadingUncached error:&err];
-            if(err)
-            {
-                NSLog(@"ERROR IN LOGIN CONNECTION  %@", err);
-                return;
-            }                                                        
-            image = [UIImage imageWithData:data];
-            imageURL = nil;
-        }
-    
-           
-        [[WTTSingleton sharedManager].userprofile setUserProfile:image setUserFirstName:firstname setUserLastName:lastname setEmail:email setSchool:school setMajor:major];
-        
-        jsonObject = nil;
-        
-        [[self delegate] isLogInSuccessful:YES];
-    }
+    [[self delegate] isUploadSuccessful:YES];
     
 }
 
@@ -242,22 +178,11 @@
 - (NSString *) parseJSON: (NSData *) data 
 {
     NSError *error = nil;
-
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:
                           NSJSONReadingMutableContainers error:&error];
     NSString *result = nil;
-    //error parsing
-    if(!json)
-    {
-        NSLog(@"%@", error);
-        result = @"failed";
-    }
-    else
-    {
-        result =  (NSString*)[json objectForKey:@"login"];
-        jsonObject= [json objectForKey:@"userProfile"];
-    }
-    
+
+    NSLog (@"JSON HERE AT UPLOAD %@", json);
     json = nil;
     error = nil;
     return result;
@@ -276,4 +201,5 @@
     
     [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
 }
+
 @end
