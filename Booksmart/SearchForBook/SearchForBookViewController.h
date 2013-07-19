@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SearchBookConnection.h"
+#import "BookInfoViewController.h"
+#import "Book.h"
 
-@interface SearchForBookViewController : UIViewController <WsCompleteSearchForBookConnectionDelegate,UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+@interface SearchForBookViewController : UIViewController <WsCompleteSearchForBookConnectionDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 {
     NSArray *listOfBook;
 }

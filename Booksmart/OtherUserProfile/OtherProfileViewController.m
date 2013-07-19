@@ -53,6 +53,15 @@
     userSchool = school;
     userRating = rating;
 }
+- (void)populateView:(UIImage*)image name:(NSString*) name description: (NSString*) description location: (NSString*) location school:(NSString*) school email:(NSString*) email book:(Book *)book
+{
+    img = image;
+    userName = name;
+    userDescription = description;
+    userLocation = location;
+    userSchool = school;
+    userEmail = email;
+}
 - (void)populateView:(UIImage*)image name:(NSString*) name description: (NSString*) description location: (NSString*) location school:(NSString*) school email:(NSString*) email
 {
     img = image;
@@ -102,6 +111,23 @@
         
         [detailView populateView:userEmail];
        
+    }
+    
+    else if ([[segue identifier] isEqualToString:@"InitTrade"])
+    {
+        ListOfTradingBookViewController *detailView = (ListOfTradingBookViewController *) [segue destinationViewController];
+        [detailView populateView:userEmail];
+    }
+    
+    else if ([[segue identifier] isEqualToString:@"ToMessage"])
+    {
+        
+      
+        MessageViewController *detailView = (MessageViewController *)[segue destinationViewController];
+        
+        [detailView populateView:userEmail];
+        
+        
     }
 }
 @end

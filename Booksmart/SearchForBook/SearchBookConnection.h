@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "WTTSingleton.h"
+#import "Book.h"
 @protocol WsCompleteSearchForBookConnectionDelegate
 -(void) finished;
 @end
 @interface SearchBookConnection : NSObject
 {
     NSDictionary * jsonObject;
-    NSMutableArray * jsonArray;
+    NSMutableArray * bookArray;
+    Book *bookInfo;
     //id <WsCompleteDelegate> delegate;
 }
 @property (nonatomic,retain) NSMutableData *receivedData;
@@ -25,7 +27,7 @@
  * @param username is the username to login
  * @param password is the password to login
  */
-- (void) createConnection : (NSString*)username;
+-(void)createConnection:(NSString *) book scope:(NSString *)scope;
 
 /*
  * display the loading AlertView

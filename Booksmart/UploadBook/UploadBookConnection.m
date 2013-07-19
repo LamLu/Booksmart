@@ -7,10 +7,11 @@
 //
 
 #import "UploadBookConnection.h"
-
+#define MAX_IMAGE_SIZE 500000
 @implementation UploadBookConnection
 @synthesize receivedData;
 @synthesize loadingAlertView;
+
 
 /*
  * method to create Connection.
@@ -23,19 +24,84 @@
  * @param bookAuthors the string of authors, separate by commas
  * @param bookSubject the string subject
  */
-- (void)createConnection: (NSString *) email title: (NSString *) bookTitle edition: (NSString *) bookEdition isbn10: (NSString *) bookISBN10 isbn13: (NSString *) bookISBN13 publisher : (NSString *) bookPublisher authors: (NSString *) bookAuthors subject: (NSString *) bookSubject
-{
+- (void)createConnection: (NSString *) email title: (NSString *) bookTitle edition: (NSString *) bookEdition isbn10: (NSString *) bookISBN10 isbn13: (NSString *) bookISBN13 publisher : (NSString *) bookPublisher authors: (NSString *) bookAuthors subject: (NSString *) bookSubject imageArray:(NSMutableArray *) imgArr;
+{    
+    
     NSString* link = [NSString stringWithFormat:@"%@%@", [WTTSingleton sharedManager].serverURL, @"/include_php/insertBook.php"];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString: link]
                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
                                      timeoutInterval:15.0];
-
-    NSLog (@"%@ %@", bookISBN10, bookISBN13);
-    NSString *myParameters = [NSString stringWithFormat: @"email=%@&title=%@&edition=%@&isbn10=%@ &isbn13=%@&publisher=%@&subject=%@&authors=%@",
-                              email, bookTitle, bookEdition, bookISBN10, bookISBN13, bookPublisher,bookSubject, bookAuthors];
+    
     [theRequest setHTTPMethod:@"POST"];
-    [theRequest setHTTPBody:[myParameters dataUsingEncoding:NSUTF8StringEncoding]];
+    [theRequest setHTTPShouldHandleCookies:NO];
+    NSString *boundary = [NSString stringWithFormat:@"%@", @"--------------------asdaT0912380NCZCASDqweQOUOIASDz"];
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    [theRequest addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    //body of HTTP Post
+    NSMutableData *body = [NSMutableData data];
+    
+    //NSString *myParameters = [NSString stringWithFormat: @"email=%@&title=%@&edition=%@&isbn10=%@ &isbn13=%@&publisher=%@&subject=%@&authors=%@",
+   //                           email, bookTitle, bookEdition, bookISBN10, bookISBN13, bookPublisher,bookSubject, bookAuthors];
+    
+    //add params to HTTP Post body
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:email forKey:@"email"];
+    if (bookTitle != nil)
+        [params setObject:bookTitle forKey:@"title"];
+    if (bookEdition != nil)
+        [params setObject:bookEdition forKey:@"edition"];
+    if (bookISBN10 != nil)
+        [params setObject:bookISBN10 forKey:@"isbn10"];
+    if (bookISBN13 != nil)
+        [params setObject:bookISBN13 forKey:@"isbn13"];
+    if (bookPublisher != nil)
+        [params setObject:bookPublisher forKey:@"publisher"];
+    if (bookSubject != nil)
+        [params setObject:bookSubject forKey:@"subject"];
+    if (bookAuthors != nil)
+        [params setObject:bookAuthors forKey:@"authors"];
+    
+    for (NSString *param in params)
+    {
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"%@\r\n", [params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+    // add image data
+    int i = 0;
+    for (UIImage *image in imgArr)
+    {
+        NSData *imageData = UIImageJPEGRepresentation(image, 1.0f);
+    
+        //if image size > 500kb compress it
+        if ([imageData length] > MAX_IMAGE_SIZE)
+        {
+            CGFloat compressionRate = (MAX_IMAGE_SIZE) / [imageData length];
+            imageData = UIImageJPEGRepresentation(image, compressionRate);
+        }
+
+        if (imageData)
+        {
+            [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+            NSString * imageName = [NSString stringWithFormat:@"%@%d", @"uploadedImg",i++];
+            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\";filename=\"%@.jpg\"\r\n", imageName, imageName] dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:[[NSString stringWithFormat:@"%@",@"Content-Type: image/jpeg\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:imageData];
+        
+            [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+        }
+    
+        [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        //imageData = nil;
+    }
+    [theRequest setHTTPBody:body];
+    // set the content-length
+    NSString *postLength = [NSString stringWithFormat:@"%d", [body length]];
+    [theRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
     
     
     /*
@@ -47,6 +113,7 @@
     
     //if the connection is still being connected after 1 second, load the indicator
     NSURLConnection *connection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self startImmediately:YES];
+    
     [self displayLoadingAlertView];
     if (connection) {
         
@@ -62,9 +129,12 @@
     
     
     theRequest = nil;
-    myParameters = nil;
+    boundary = nil;
     link = nil;
+    body = nil;
+    params = nil;
     connection = nil;
+    
 }
 
 - (void) displayLoadingAlertView
@@ -157,14 +227,21 @@
 {
     // do something with the data
     // receivedData is declared as a method instance elsewhere
-    NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
     NSString * result = [self parseJSON:receivedData];
     
-    // release the connection, and the data object
     connection = nil;
     receivedData = nil;
-    [self dismissLoadingAlertView];
-    [[self delegate] isUploadSuccessful:YES];
+    
+     [self dismissLoadingAlertView];
+    if (result == (id) [NSNull null])
+    {
+       
+        [[self delegate] isUploadSuccessful:YES];
+    }
+    else
+    {
+        [[self delegate] isUploadSuccessful:NO];
+    }
     
 }
 
@@ -181,8 +258,8 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:
                           NSJSONReadingMutableContainers error:&error];
     NSString *result = nil;
-
-    NSLog (@"JSON HERE AT UPLOAD %@", json);
+    if (json != nil)
+        result = [json objectForKey:@"error"];
     json = nil;
     error = nil;
     return result;

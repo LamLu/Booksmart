@@ -16,9 +16,12 @@ $publisher = $_POST['publisher'];
 $subject = $_POST['subject'];
 
 $authorArr = explode (",", $authors);
+$firstImageFile = $_FILES['uploadedImg0'];
+$secondImageFile = $_FILES['uploadedImg1'];
 
 
-$result = BookProcessor::insertBook($email, $title, $edition, $isbn10, $isbn13, $publisher,$authorArr, $subject);
-echo (json_encode (array ("here" => $result)));
 
+$result = BookProcessor::insertBook($email, $title, $edition, $isbn10, $isbn13, $publisher,$authorArr, $subject, $firstImageFile,
+		$secondImageFile);
+echo json_encode($result);
 ?>

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "RatingPercentConnection.h"
 #import "RatingViewController.h"
+#import "ListOfTradingBookViewController.h"
+#import "Book.h"
+#import "MessageViewController.h"
 @interface OtherProfileViewController : UIViewController<RatingPercentageConnectionCompleteDelegate>
 {
     UIImage *img;
@@ -18,6 +21,7 @@
     NSString *userSchool;
     NSString *userRating;
     NSString *userEmail;
+    Book *_book;
     
 }
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
@@ -33,4 +37,6 @@
 
 
 - (void)populateView:(UIImage*)image name:(NSString*) name description: (NSString*) description location: (NSString*) location school:(NSString*) school email:(NSString*) email;
+- (void)populateView:(UIImage*)image name:(NSString*) name description: (NSString*) description location: (NSString*) location school:(NSString*) school email:(NSString*) email book:(Book *)book;
+
 @end

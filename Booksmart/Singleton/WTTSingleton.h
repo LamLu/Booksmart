@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "KeychainItemWrapper.h"
 #import "UserProfile.h"
-
+#import "Book.h"
 @interface WTTSingleton : NSObject
 
 
@@ -21,6 +21,12 @@
 
 //userprofile property
 @property (nonatomic, retain) UserProfile * userprofile;
+
+//book object
+@property (nonatomic, retain) Book *book;
+
+//book array
+@property (nonatomic, retain) NSMutableArray  *bookArray;
 
 //the URL to the user that contains php, userProfile images...
 @property (nonatomic, retain) NSString * serverURL;

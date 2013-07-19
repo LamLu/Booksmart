@@ -17,7 +17,7 @@
 @synthesize school;
 @synthesize major;
 
-//initialize the dish
+//initialize
 - (id) init
 {
     return [self initUserProfile:nil initUserFirstName:nil initUserLastName:nil initEmail:nil initSchool:nil initMajor:nil];

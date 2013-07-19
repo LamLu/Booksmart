@@ -15,6 +15,7 @@
 @synthesize serverURL;
 @synthesize ratingPercentage;
 @synthesize json;
+@synthesize book, bookArray;
 
 
 #pragma mark Singleton Methods
@@ -28,7 +29,10 @@
         sharedInstance.isLogin = NO;
         sharedInstance.keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"WTTLoginData" accessGroup:nil];
         sharedInstance.userprofile = [[UserProfile alloc] init];
-        sharedInstance.serverURL = @"http://192.168.0.104:8888"; //@"http://192.168.1.141:8888";//@"https://srv01.hidevmobile.com";
+        sharedInstance.serverURL = @"http://192.168.1.140:8888";//@"http://192.168.1.140:8888"; //@"http://192.168.1.141:8888";//@"https://srv01.hidevmobile.com";
+        
+        sharedInstance.book = [[Book alloc]init];
+        sharedInstance.bookArray = [[NSMutableArray alloc]init];
     });
     
     return sharedInstance;

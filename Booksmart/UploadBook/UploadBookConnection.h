@@ -11,7 +11,7 @@
 @protocol ProcessAfterUpload <NSObject>
 
 @required
-//@param login : Yes = success, No = fail
+//@param upload : Yes = success, No = fail
 - (void) isUploadSuccessful : (BOOL) upload;
 
 @end
@@ -23,5 +23,5 @@
 @property (nonatomic,retain) UIAlertView *loadingAlertView;
 
 //create connection
-- (void)createConnection: (NSString *) email title: (NSString *) bookTitle edition: (NSString *) bookEdition isbn10: (NSString *) bookISBN10 isbn13: (NSString *) bookISBN13 publisher : (NSString *) bookPublisher authors: (NSString *) bookAuthors subject: (NSString *) bookSubject;
+- (void)createConnection: (NSString *) email title: (NSString *) bookTitle edition: (NSString *) bookEdition isbn10: (NSString *) bookISBN10 isbn13: (NSString *) bookISBN13 publisher : (NSString *) bookPublisher authors: (NSString *) bookAuthors subject: (NSString *) bookSubject imageArray:(NSMutableArray *) imgArr;
 @end

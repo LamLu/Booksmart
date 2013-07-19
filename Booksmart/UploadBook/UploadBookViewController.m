@@ -14,6 +14,7 @@
 
 @implementation UploadBookViewController
 @synthesize bookCoverImageView, bookInfoTextField;
+@synthesize cameraVC, resultAlertView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +37,7 @@
     bookSubject = [[NSString alloc] init];
     bookISBN10 = [[NSString alloc] init];
     bookISBN13 = [[NSString alloc] init];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayImage) name:kFinishCapturePhoto object:nil];
     
     
 }
@@ -58,6 +60,8 @@
     bookSubject = nil;
     bookISBN10 = nil;
     bookISBN13 = nil;
+    [self setThumbnail1:nil];
+    [self setThumbnail2:nil];
     [super viewDidUnload];
 }
 - (IBAction)barcodeScanButtonClicked:(id)sender {
@@ -155,7 +159,6 @@
     if (bookInfo == nil)
         return nil;
     
-   // NSLog (@"book info at BookInfoVC: %@", bookInfo);
 	// Do any additional setup after loading the view.
     
     NSDictionary * book = [[NSDictionary alloc] init];
@@ -184,6 +187,7 @@
             bookAuthors = [NSMutableString stringWithFormat:@"%@ %@", bookAuthors, [author objectAtIndex:i]];
     }
     
+    NSLog (@"%@", bookAuthors);
     stringOutput = [NSMutableString stringWithFormat:@"%@ %@", stringOutput, bookAuthors];
     
     //get isbn item
@@ -197,7 +201,7 @@
     //get isbn 13
     bookISBN13 = [(NSDictionary *)[isbnItem objectAtIndex:1] objectForKey:@"identifier"];
 
-    stringOutput = [NSMutableString stringWithFormat:@"%@ \nISBN 10: %@", stringOutput,bookISBN13];
+    stringOutput = [NSMutableString stringWithFormat:@"%@ \nISBN 13: %@", stringOutput,bookISBN13];
     
     //get book publisher
     bookPublisher =  [volumeInfo objectForKey:@"publisher"];
@@ -239,7 +243,8 @@
 {
     UploadBookConnection * connection = [[UploadBookConnection alloc] init];
     bookSubject = @"Test Subject";
-    [connection createConnection:[WTTSingleton sharedManager].userprofile.email title:bookTitle edition:bookEdition isbn10:bookISBN10 isbn13:bookISBN13 publisher:bookPublisher authors:bookAuthors subject:bookSubject];
+    [connection setDelegate:self];
+    [connection createConnection:[WTTSingleton sharedManager].userprofile.email title:bookTitle edition:bookEdition isbn10:bookISBN10 isbn13:bookISBN13 publisher:bookPublisher authors:bookAuthors subject:bookSubject imageArray:imgArr];
 
 }
 
@@ -249,14 +254,48 @@
 {
     if(upload == YES)
     {
-
-        
+        [self displayResultAlertView: @"Uploaded Book Successfully"];
     }
     
     else if (upload == NO)
     {
-
+        [self displayResultAlertView: @"Error uploading book. Please try again"];
     }
+}
+
+
+- (void) displayResultAlertView : (NSString *) message
+{
+   
+    resultAlertView = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [resultAlertView show];
+    
+}
+
+
+
+- (IBAction)cameraButtonClicked:(id)sender
+{
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    cameraVC = [storyboard instantiateViewControllerWithIdentifier:@"CustomCamera"];
+    [self presentModalViewController:cameraVC animated:YES];
+    
+}
+
+/**
+ * display the images on thumbnail when photo have been taken
+ */
+- (void) displayImage
+{
+    int count = [cameraVC.imageArray count];
+    if (count == 1)
+        self.thumbnail1.image = [cameraVC.imageArray objectAtIndex:0];
+    else if (count == 2)
+    {
+        self.thumbnail1.image = [cameraVC.imageArray objectAtIndex:0];
+        self.thumbnail2.image = [cameraVC.imageArray objectAtIndex:1];
+    }
+    imgArr = cameraVC.imageArray;
 }
 
 @end

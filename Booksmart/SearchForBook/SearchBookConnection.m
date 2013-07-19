@@ -17,19 +17,21 @@
 {
     if (self = [super init])
     {
-        jsonArray = [[NSMutableArray alloc]init];
+        bookArray = [[NSMutableArray alloc]init];
     }
     return self;
 }
 
--(void)createConnection:(NSString *) username
+-(void)createConnection:(NSString *) book scope:(NSString *)scope
 {
-    NSString* link = [NSString stringWithFormat:@"%@%@", [WTTSingleton sharedManager].serverURL, @"/php/searchForBook.php"];
+    NSString* link = [NSString stringWithFormat:@"%@%@", [WTTSingleton sharedManager].serverURL, @"/include_php/searchForBook.php"];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString: link]
                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
                                      timeoutInterval:15.0];
-    NSString *myParameters = [NSString stringWithFormat: @"username=%@",username];
+    NSLog(@"Weierrrr book = %@",book);
+    NSString *myParameters = [NSString stringWithFormat: @"book=%@&scope=%@",book,scope];
+    
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody:[myParameters dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *connection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self startImmediately:YES];
@@ -157,6 +159,7 @@
         {
             result = nil;
             jsonObject = nil;
+            
             //[[self delegate] isLogInSuccessful:NO];
         }
         
@@ -168,10 +171,11 @@
             //[[WTTSingleton sharedManager] setRatingData:jsonObject];
             //NSLog(@"%@",[WTTSingleton sharedManager].emailData);
             //jsonObject = nil;
-            [[WTTSingleton sharedManager] setSearchResult:jsonArray];
+            [[WTTSingleton sharedManager] setJson:bookArray];
+            [delegate finished];
             result = nil;
             jsonObject = nil;
-            jsonArray = nil;
+            bookArray = nil;
             
             
         }
@@ -180,7 +184,7 @@
         [self dismissLoadingAlertView];
         
     }
-    [delegate finished];
+    
     
 }
 
@@ -196,28 +200,46 @@
     NSError *error = nil;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:
                           NSJSONReadingMutableContainers error:&error];
+    NSString * temp = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",temp);
     
     //error parsing
     NSString *result = nil;
     NSLog(@"json = %@", json);
     if(!json)
     {
-        NSLog(@"%@", error);
+        //NSLog(@"errorr is %@", error);
         result = @"failed";
     }
     else
     {
-        
-        
         result =  @"passed";
         jsonObject = [json objectForKey:@"result"];
         //NSLog(@"json = %@", jsonObject);
-        for (id key in jsonObject)
-        {
-            NSDictionary *tempDict = [jsonObject objectForKey:key];
-            
-            [jsonArray addObject:tempDict];
-        }
+            for (id key in jsonObject)
+            {
+                NSDictionary *tempDict = [jsonObject objectForKey:key];
+                NSString *author = [[NSString alloc] init];
+                NSMutableArray *authorArray = [tempDict objectForKey:@"author"];
+                for (int i = 0; i <[authorArray count]; i++) {
+                    if ([authorArray count] - 1 == i)
+                    {
+                        
+                        author = [author stringByAppendingString:[authorArray[i] objectForKey:@"name"]];
+                    }
+                    else
+                    {
+                        //author = [author stringByAppendingFormat:@"%@,",[authorArray[i] objectForKey:@"name"]];
+                        //[author stringByAppendingString:authorArray[i]];
+                    }
+                }
+                NSLog(@"authot is %@", author);
+                bookInfo = [[Book alloc] init];
+                //Add book imgage later on
+                [bookInfo setBookInfo:nil setTitle:[tempDict objectForKey:@"title"] setEdition:[tempDict objectForKey:@"edition"] setAuthor:authorArray setISBN10:[tempDict objectForKey:@"isbn_10"] setISBN13:[tempDict objectForKey:@"isbn_13"]];
+                [bookArray addObject:bookInfo];
+                //[jsonArray addObject:tempDict];
+            }
         
     }
     

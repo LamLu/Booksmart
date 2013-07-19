@@ -1,4 +1,4 @@
-//
+
 //  SearchForBookViewController.m
 //  Booksmart
 //
@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.searchBar setShowsScopeBar:NO];
+    //[self.searchBar setShowsScopeBar:NO];
     [self.searchBar sizeToFit];
     self.searchBar.delegate = self;
     self.searchResult.delegate = self;
@@ -46,11 +46,7 @@
     [super viewDidUnload];
 }
 
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    
-    return YES;
-}
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -78,34 +74,36 @@
     if ([listOfBook count] != 0 )
     {
         UILabel* nameLabel = (UILabel *) [cell viewWithTag:2];
-        NSString *name = [[listOfBook objectAtIndex:indexPath.row]objectForKey:@"full_name"];
+        Book *book = [listOfBook objectAtIndex:indexPath.row];
+        NSString *name = [book bookTitle];
         NSLog(@"name = %@", name);
         nameLabel.text = name;
         
         //NSString *imgLink = [NSString stringWithFormat:@"%@%@",[WTTSingleton sharedManager].serverURL,[[listOfBook objectAtIndex:indexPath.row]objectForKey:@"profile_img_src"]];
         /*
-        UIImageView *imgView =  (UIImageView *) [cell viewWithTag:1];
-        
-        if (![imgLink isEqualToString:[WTTSingleton sharedManager].serverURL])
-        {
-            NSLog(@"img link = %@",imgLink);
-            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgLink]];
-            UIImage* profileImage = [UIImage imageWithData:imageData];
-            [imgView setImage:profileImage];
-        }
-        */
+         UIImageView *imgView =  (UIImageView *) [cell viewWithTag:1];
+         
+         if (![imgLink isEqualToString:[WTTSingleton sharedManager].serverURL])
+         {
+         NSLog(@"img link = %@",imgLink);
+         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgLink]];
+         UIImage* profileImage = [UIImage imageWithData:imageData];
+         [imgView setImage:profileImage];
+         }
+         */
     }
     return cell;
 }
 
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    NSString *scopeSearch = [searchBar.scopeButtonTitles objectAtIndex:searchBar.selectedScopeButtonIndex];
     
     SearchBookConnection *connection = [[SearchBookConnection alloc]init];
     connection.delegate = self;
+    NSLog(@"scope search = %@",scopeSearch);
     
-    //[searchForUser createConnection:@"lam lu"];
-    [connection createConnection:searchBar.text];
+    [connection createConnection:searchBar.text scope:scopeSearch];
     
     [self.searchBar resignFirstResponder];
 }
@@ -119,33 +117,44 @@
 
 // Receive list of book from server
 - (void) finished{
-    //NSLog(@"teeeeeeeee");
+    NSLog(@"teeeeeeeee");
     listOfBook = [WTTSingleton sharedManager].json;
     NSLog(@"%@",listOfBook);
-    //[self.searchResult reloadData];
+    [self.searchResult reloadData];
     
 }
 
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    searchBar.showsScopeBar = YES;
+    [searchBar sizeToFit];
+    [searchBar setShowsCancelButton:YES animated:YES];
+    return YES;
+    
+}
 
-
-
+-(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
+{
+    searchBar.showsScopeBar = NO;
+    [searchBar sizeToFit];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    
+    return YES;
+}
 // This will get called too before the view appears (when user click on a row)
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    /*
-    if ([[segue identifier] isEqualToString:@"ToUserProfile"])
+    if ([[segue identifier] isEqualToString:@"ToBookInfo"])
     {
-        
         NSIndexPath *indexPath = [self.searchResult indexPathForSelectedRow];
-        UITableViewCell *selectedCell = [self.searchResult cellForRowAtIndexPath:indexPath];
-        OtherProfileViewController *detailView = (OtherProfileViewController *)[segue destinationViewController];
+        //UITableViewCell *selectCell = [self.searchResult cellForRowAtIndexPath:indexPath];
+        BookInfoViewController *detailView = (BookInfoViewController *)[segue destinationViewController];
         
-        UIImageView *imgView = (UIImageView *)[selectedCell viewWithTag:1];
-        [detailView populateView:[imgView image] name:@"name" description:@"description" location:@"location" school:@"school" email:[[listOfUser objectAtIndex:indexPath.row]objectForKey:@"email"]];
-        
+        Book *book = [listOfBook objectAtIndex:indexPath.row];
+        //[detailView populateView:nil title:[book _titleBook] edition:[book _editionBook] author:[book _authorBook] ISBN10:[book _ISBNBook10] ISBN13:[book _ISBNBook13]];
+        [detailView populateView:book];
         
     }
-     */
 }
 
 @end
