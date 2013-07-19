@@ -277,8 +277,9 @@
 - (IBAction)cameraButtonClicked:(id)sender
 {
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    cameraVC = [storyboard instantiateViewControllerWithIdentifier:@"CustomCamera"];
+    cameraVC = (CustomCameraViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CustomCamera"];
     [self presentModalViewController:cameraVC animated:YES];
+
     
 }
 

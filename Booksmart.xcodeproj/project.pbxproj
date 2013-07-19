@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0074102F1799EDB20045BE0F /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0074102E1799EDB20045BE0F /* CustomCameraViewController.m */; };
+		007410351799EE770045BE0F /* UploadBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007410341799EE770045BE0F /* UploadBookViewController.m */; };
 		B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9417727A7D00E9CF99 /* SettingViewController.m */; };
 		B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */; };
 		FF1E95CD17941D6900FC06E4 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1E95CC17941D6900FC06E4 /* Book.m */; };
@@ -34,7 +36,6 @@
 		FFA877731766976F00504B62 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA877721766976F00504B62 /* SignInViewController.m */; };
 		FFA877791766980300504B62 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA877781766980300504B62 /* Security.framework */; };
 		FFA8777B1766980900504B62 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8777A1766980900504B62 /* MobileCoreServices.framework */; };
-		FFCB351B177A466C00695FAB /* UploadBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB351A177A466C00695FAB /* UploadBookViewController.m */; };
 		FFCDF77317941343003015DF /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCDF77217941343003015DF /* InventoryViewController.m */; };
 		FFD8DE721799D3FF00181FF9 /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD8DE6A1799D3FF00181FF9 /* OtherProfileViewController.m */; };
 		FFD8DE731799D3FF00181FF9 /* RatingPercentConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD8DE6C1799D3FF00181FF9 /* RatingPercentConnection.m */; };
@@ -57,18 +58,20 @@
 		FFDDFABD172746CF0005138A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFABC172746CF0005138A /* Default.png */; };
 		FFDDFABF172746CF0005138A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFABE172746CF0005138A /* Default@2x.png */; };
 		FFDDFAC1172746CF0005138A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFAC0172746CF0005138A /* Default-568h@2x.png */; };
-		FFDDFAC4172746CF0005138A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFAC2172746CF0005138A /* MainStoryboard_iPhone.storyboard */; };
 		FFDDFAC7172746CF0005138A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFAC5172746CF0005138A /* MainStoryboard_iPad.storyboard */; };
 		FFEBCDD717765C64005C411E /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEBCDD217765C64005C411E /* zbar-back.png */; };
 		FFEBCDD817765C64005C411E /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = FFEBCDD317765C64005C411E /* zbar-help.html */; };
 		FFEBCDD917765C64005C411E /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEBCDD417765C64005C411E /* zbar-helpicons.png */; };
 		FFEBCDDA17765C64005C411E /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEBCDD517765C64005C411E /* zbar-samples.png */; };
 		FFFB9ECD178B8B36002D5CF2 /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB9ECA178B8B36002D5CF2 /* CaptureSessionManager.m */; };
-		FFFB9ECE178B8B36002D5CF2 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB9ECC178B8B36002D5CF2 /* CustomCameraViewController.m */; };
 		FFFB9ED4178B8BAC002D5CF2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFFB9ED3178B8BAC002D5CF2 /* ImageIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0074102D1799EDB20045BE0F /* CustomCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
+		0074102E1799EDB20045BE0F /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
+		007410331799EE770045BE0F /* UploadBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadBookViewController.h; sourceTree = "<group>"; };
+		007410341799EE770045BE0F /* UploadBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadBookViewController.m; sourceTree = "<group>"; };
 		B3876F9317727A7D00E9CF99 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		B3876F9417727A7D00E9CF99 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		B3876F9617727ABD00E9CF99 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsViewController.h; sourceTree = "<group>"; };
@@ -112,8 +115,6 @@
 		FFA877721766976F00504B62 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignInViewController.m; path = LogInVC/SignInViewController.m; sourceTree = "<group>"; };
 		FFA877781766980300504B62 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FFA8777A1766980900504B62 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		FFCB3519177A466C00695FAB /* UploadBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadBookViewController.h; sourceTree = "<group>"; };
-		FFCB351A177A466C00695FAB /* UploadBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadBookViewController.m; sourceTree = "<group>"; };
 		FFCDF77117941343003015DF /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryViewController.h; path = Inventory/InventoryViewController.h; sourceTree = "<group>"; };
 		FFCDF77217941343003015DF /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryViewController.m; path = Inventory/InventoryViewController.m; sourceTree = "<group>"; };
 		FFD8DE691799D3FF00181FF9 /* OtherProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherProfileViewController.h; sourceTree = "<group>"; };
@@ -153,7 +154,6 @@
 		FFDDFABC172746CF0005138A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FFDDFABE172746CF0005138A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FFDDFAC0172746CF0005138A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		FFDDFAC3172746CF0005138A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		FFDDFAC6172746CF0005138A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		FFEBCDBC17765C64005C411E /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		FFEBCDBD17765C64005C411E /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
@@ -182,8 +182,6 @@
 		FFEBCDD517765C64005C411E /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
 		FFFB9EC9178B8B36002D5CF2 /* CaptureSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureSessionManager.h; sourceTree = "<group>"; };
 		FFFB9ECA178B8B36002D5CF2 /* CaptureSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSessionManager.m; sourceTree = "<group>"; };
-		FFFB9ECB178B8B36002D5CF2 /* CustomCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
-		FFFB9ECC178B8B36002D5CF2 /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
 		FFFB9ED3178B8BAC002D5CF2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -224,8 +222,8 @@
 		FF2651C11773BBE100BD613B /* UploadBook */ = {
 			isa = PBXGroup;
 			children = (
-				FFCB3519177A466C00695FAB /* UploadBookViewController.h */,
-				FFCB351A177A466C00695FAB /* UploadBookViewController.m */,
+				007410331799EE770045BE0F /* UploadBookViewController.h */,
+				007410341799EE770045BE0F /* UploadBookViewController.m */,
 				FF52C37C177ACC1C00A1485E /* UploadBookConnection.h */,
 				FF52C37D177ACC1C00A1485E /* UploadBookConnection.m */,
 			);
@@ -444,7 +442,6 @@
 				FFA877611766961500504B62 /* LoginConnection */,
 				FFDDFAB9172746CF0005138A /* AppDelegate.h */,
 				FFDDFABA172746CF0005138A /* AppDelegate.m */,
-				FFDDFAC2172746CF0005138A /* MainStoryboard_iPhone.storyboard */,
 				FFDDFAC5172746CF0005138A /* MainStoryboard_iPad.storyboard */,
 				FFDDFAB1172746CF0005138A /* Supporting Files */,
 			);
@@ -532,10 +529,10 @@
 		FFFB9EC8178B8B36002D5CF2 /* CustomCamera */ = {
 			isa = PBXGroup;
 			children = (
+				0074102D1799EDB20045BE0F /* CustomCameraViewController.h */,
+				0074102E1799EDB20045BE0F /* CustomCameraViewController.m */,
 				FFFB9EC9178B8B36002D5CF2 /* CaptureSessionManager.h */,
 				FFFB9ECA178B8B36002D5CF2 /* CaptureSessionManager.m */,
-				FFFB9ECB178B8B36002D5CF2 /* CustomCameraViewController.h */,
-				FFFB9ECC178B8B36002D5CF2 /* CustomCameraViewController.m */,
 			);
 			path = CustomCamera;
 			sourceTree = "<group>";
@@ -595,7 +592,6 @@
 				FFDDFABD172746CF0005138A /* Default.png in Resources */,
 				FFDDFABF172746CF0005138A /* Default@2x.png in Resources */,
 				FFDDFAC1172746CF0005138A /* Default-568h@2x.png in Resources */,
-				FFDDFAC4172746CF0005138A /* MainStoryboard_iPhone.storyboard in Resources */,
 				FFDDFAC7172746CF0005138A /* MainStoryboard_iPad.storyboard in Resources */,
 				FFEBCDD717765C64005C411E /* zbar-back.png in Resources */,
 				FFEBCDD817765C64005C411E /* zbar-help.html in Resources */,
@@ -624,10 +620,8 @@
 				B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */,
 				B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */,
 				FF731FE01773AFC600C723E7 /* InventoryConnection.m in Sources */,
-				FFCB351B177A466C00695FAB /* UploadBookViewController.m in Sources */,
 				FF52C37E177ACC1C00A1485E /* UploadBookConnection.m in Sources */,
 				FFFB9ECD178B8B36002D5CF2 /* CaptureSessionManager.m in Sources */,
-				FFFB9ECE178B8B36002D5CF2 /* CustomCameraViewController.m in Sources */,
 				FFCDF77317941343003015DF /* InventoryViewController.m in Sources */,
 				FF1E95CD17941D6900FC06E4 /* Book.m in Sources */,
 				FF5AEFDD1799D2E900437A1B /* InboxConnection.m in Sources */,
@@ -648,6 +642,8 @@
 				FFD8DE8D1799D54C00181FF9 /* ListOfTradingBookConnection.m in Sources */,
 				FFD8DE8E1799D54C00181FF9 /* ListOfTradingBookViewController.m in Sources */,
 				FFD8DE921799D5AA00181FF9 /* BookInfoViewController.m in Sources */,
+				0074102F1799EDB20045BE0F /* CustomCameraViewController.m in Sources */,
+				007410351799EE770045BE0F /* UploadBookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,14 +656,6 @@
 				FFDDFAB4172746CF0005138A /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FFDDFAC2172746CF0005138A /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FFDDFAC3172746CF0005138A /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		FFDDFAC5172746CF0005138A /* MainStoryboard_iPad.storyboard */ = {

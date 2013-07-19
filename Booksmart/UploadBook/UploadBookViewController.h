@@ -28,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *bookInfoTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnail1;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnail2;
-@property (retain, nonatomic) CustomCameraViewController * cameraVC;
+@property (weak, nonatomic) CustomCameraViewController * cameraVC;
 @property (nonatomic,retain) UIAlertView *resultAlertView;
 
 //action when barcode scan button is clicked
