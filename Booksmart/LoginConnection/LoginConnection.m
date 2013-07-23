@@ -35,6 +35,7 @@
 - (void)createConnection: (NSString *) username : (NSString *)password
 {
     NSString* link = [NSString stringWithFormat:@"%@%@", [WTTSingleton sharedManager].serverURL, @"/include_php/loginData.php"];
+    
     NSMutableURLRequest *theRequest=[NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString: link]
                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -242,7 +243,9 @@
 - (NSString *) parseJSON: (NSData *) data 
 {
     NSError *error = nil;
-
+    
+    NSString* temp = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",temp);
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:
                           NSJSONReadingMutableContainers error:&error];
     NSString *result = nil;

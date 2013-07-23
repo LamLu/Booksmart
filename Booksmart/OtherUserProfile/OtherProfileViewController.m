@@ -106,7 +106,7 @@
 {
     if ([[segue identifier] isEqualToString:@"ToRating"])
     {
-        
+        NSLog(@"Go to Rating");
         RatingViewController *detailView = (RatingViewController *)[segue destinationViewController];
         
         [detailView populateView:userEmail];
@@ -115,13 +115,17 @@
     
     else if ([[segue identifier] isEqualToString:@"InitTrade"])
     {
+        NSLog(@"Go to Inventory");
         ListOfTradingBookViewController *detailView = (ListOfTradingBookViewController *) [segue destinationViewController];
-        [detailView populateView:userEmail];
+        NSLog(@"userEmail is = %@", userEmail);
+        //[detailView populateView:userEmail];
+        [detailView populateView:@"DDDDDD"];
+        
     }
     
     else if ([[segue identifier] isEqualToString:@"ToMessage"])
     {
-        
+        NSLog(@"Go to Message");
       
         MessageViewController *detailView = (MessageViewController *)[segue destinationViewController];
         

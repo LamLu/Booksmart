@@ -154,9 +154,10 @@
     [self.tableView reloadData];
 }
 
-- (void) populateView:email
+-(void)populateView:(NSString *) email;
 {
-    userEmail = email;
+    //userEmail = email;
+    userEmail = @"cowboy";
     
 }
 @end

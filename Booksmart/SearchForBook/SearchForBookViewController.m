@@ -144,17 +144,23 @@
 // This will get called too before the view appears (when user click on a row)
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+ 
+
     if ([[segue identifier] isEqualToString:@"ToBookInfo"])
     {
+        NSLog(@"find errrrror");
+        
         NSIndexPath *indexPath = [self.searchResult indexPathForSelectedRow];
-        //UITableViewCell *selectCell = [self.searchResult cellForRowAtIndexPath:indexPath];
+        
         BookInfoViewController *detailView = (BookInfoViewController *)[segue destinationViewController];
         
         Book *book = [listOfBook objectAtIndex:indexPath.row];
-        //[detailView populateView:nil title:[book _titleBook] edition:[book _editionBook] author:[book _authorBook] ISBN10:[book _ISBNBook10] ISBN13:[book _ISBNBook13]];
+        NSLog(@"%@",book.bookAuthors);
         [detailView populateView:book];
         
+        
     }
+ 
 }
 
 @end

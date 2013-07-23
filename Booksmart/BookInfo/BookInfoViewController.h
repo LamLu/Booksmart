@@ -28,6 +28,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *bookAuthorLabel;
 
-- (void)populateView:(UIImage*)image title:(NSString*) title edition: (NSString*) edition author:(NSMutableArray*) author ISBN10:(NSString*) ISBN10 ISBN13:(NSString*) ISBN13;
+
 - (void)populateView:(Book*)book;
 @end

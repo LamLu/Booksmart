@@ -219,8 +219,9 @@
             for (id key in jsonObject)
             {
                 NSDictionary *tempDict = [jsonObject objectForKey:key];
-                NSString *author = [[NSString alloc] init];
+                //NSString *author = [[NSString alloc] init];
                 NSMutableArray *authorArray = [tempDict objectForKey:@"author"];
+                /*
                 for (int i = 0; i <[authorArray count]; i++) {
                     if ([authorArray count] - 1 == i)
                     {
@@ -234,9 +235,12 @@
                     }
                 }
                 NSLog(@"authot is %@", author);
+                 */
                 bookInfo = [[Book alloc] init];
+                NSMutableString *isbn10 = [[NSMutableString alloc] initWithString:[[tempDict objectForKey:@"isbn_10"] stringValue]];
+                NSMutableString *isbn13 = [[NSMutableString alloc] initWithString:[[tempDict objectForKey:@"isbn_13"] stringValue]];
                 //Add book imgage later on
-                [bookInfo setBookInfo:nil setTitle:[tempDict objectForKey:@"title"] setEdition:[tempDict objectForKey:@"edition"] setAuthor:authorArray setISBN10:[tempDict objectForKey:@"isbn_10"] setISBN13:[tempDict objectForKey:@"isbn_13"]];
+                [bookInfo setBookInfo:nil setTitle:[tempDict objectForKey:@"title"] setEdition:[tempDict objectForKey:@"edition"] setAuthor:authorArray setISBN10: isbn10 setISBN13:isbn13];
                 [bookArray addObject:bookInfo];
                 //[jsonArray addObject:tempDict];
             }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0074102F1799EDB20045BE0F /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0074102E1799EDB20045BE0F /* CustomCameraViewController.m */; };
 		007410351799EE770045BE0F /* UploadBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007410341799EE770045BE0F /* UploadBookViewController.m */; };
+		009874E8179F2B3C0098E73D /* TradingProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009874E7179F2B3C0098E73D /* TradingProcessViewController.m */; };
 		B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9417727A7D00E9CF99 /* SettingViewController.m */; };
 		B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */; };
 		FF1E95CD17941D6900FC06E4 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1E95CC17941D6900FC06E4 /* Book.m */; };
@@ -72,6 +73,8 @@
 		0074102E1799EDB20045BE0F /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
 		007410331799EE770045BE0F /* UploadBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadBookViewController.h; sourceTree = "<group>"; };
 		007410341799EE770045BE0F /* UploadBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadBookViewController.m; sourceTree = "<group>"; };
+		009874E6179F2B3C0098E73D /* TradingProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradingProcessViewController.h; sourceTree = "<group>"; };
+		009874E7179F2B3C0098E73D /* TradingProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradingProcessViewController.m; sourceTree = "<group>"; };
 		B3876F9317727A7D00E9CF99 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		B3876F9417727A7D00E9CF99 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		B3876F9617727ABD00E9CF99 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsViewController.h; sourceTree = "<group>"; };
@@ -208,6 +211,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		009874E0179F28140098E73D /* TradingProcess */ = {
+			isa = PBXGroup;
+			children = (
+				009874E6179F2B3C0098E73D /* TradingProcessViewController.h */,
+				009874E7179F2B3C0098E73D /* TradingProcessViewController.m */,
+			);
+			name = TradingProcess;
+			sourceTree = "<group>";
+		};
 		B3876F9217727A7D00E9CF99 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +435,7 @@
 		FFDDFAB0172746CF0005138A /* Booksmart */ = {
 			isa = PBXGroup;
 			children = (
+				009874E0179F28140098E73D /* TradingProcess */,
 				FFD8DE8F1799D5AA00181FF9 /* BookInfo */,
 				FFD8DE811799D54C00181FF9 /* ListOfSeller */,
 				FFD8DE861799D54C00181FF9 /* ListOfTradingBook */,
@@ -644,6 +657,7 @@
 				FFD8DE921799D5AA00181FF9 /* BookInfoViewController.m in Sources */,
 				0074102F1799EDB20045BE0F /* CustomCameraViewController.m in Sources */,
 				007410351799EE770045BE0F /* UploadBookViewController.m in Sources */,
+				009874E8179F2B3C0098E73D /* TradingProcessViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,7 +32,21 @@
     
     //change this one
     //[self.bookAuthorLabel setText:authorBook];
-    [self.bookAuthorLabel setText: @"FIX THIS ONE TO ARRAY"];
+    NSString *author = [[NSString alloc]init];
+    for (int i = 0; i <[authorBook count]; i++) {
+        if ([authorBook count] - 1 == i)
+        {
+            
+            author = [author stringByAppendingString:[authorBook[i] objectForKey:@"name"]];
+        }
+        else
+        {
+            //author = [author stringByAppendingFormat:@"%@,",[authorArray[i] objectForKey:@"name"]];
+            //[author stringByAppendingString:authorArray[i]];
+        }
+    }
+
+    [self.bookAuthorLabel setText:author];
     
     [self.bookISBN10Label setText:ISBNBook10];
     [self.bookISBN13Label setText:ISBNBook13];
@@ -55,25 +69,18 @@
     [super viewDidUnload];
 }
 
-
-- (void)populateView:(UIImage*)image title:(NSString*) title edition: (NSString*) edition author:(NSMutableArray*) author ISBN10:(NSString*) ISBN10 ISBN13:(NSString*) ISBN13
-{
-    titleBook = title;
-    editionBook = edition;
-    authorBook = author;
-    ISBNBook10 = ISBN10;
-    ISBNBook13 = ISBN13;
-    bookImage = image;
-}
 - (void)populateView:(Book *)book
 {
     _book = book;
     titleBook = [book bookTitle];
     editionBook = [book bookEdition];
+    ISBNBook10 = [book bookISBN10];
+        
     authorBook = [book bookAuthors];
     ISBNBook10 = [book bookISBN10];
     ISBNBook13 = [book bookISBN13];
     bookImage = [book bookImg1];
+     
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

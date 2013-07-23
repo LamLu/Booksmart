@@ -197,6 +197,8 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:
                           NSJSONReadingMutableContainers error:&error];
   
+    NSString *stringData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"string = %@",stringData);
     //error parsing
     NSString *result = nil;
     NSLog(@"json = %@", json);

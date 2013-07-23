@@ -217,7 +217,7 @@
 }
 
 //Populate view 
-- (void) populateView:emailOther
+- (void) populateView:(NSString *)emailOther
 {
     email = emailOther;
 }

@@ -28,5 +28,5 @@
 
 - (IBAction) clickSendButton;
 - (IBAction) textFieldFinishedWithKeyBoard:(id)sender;
-- (void) populateView:emailOther;
+- (void) populateView:(NSString *)emailOther;
 @end

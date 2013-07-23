@@ -14,5 +14,5 @@
     NSArray *listOfBook;
     NSString *userEmail;
 }
-- (void) populateView:email;
+-(void)populateView:(NSString *) email;
 @end
