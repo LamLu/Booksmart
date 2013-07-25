@@ -117,9 +117,8 @@
     {
         NSLog(@"Go to Inventory");
         ListOfTradingBookViewController *detailView = (ListOfTradingBookViewController *) [segue destinationViewController];
-        NSLog(@"userEmail is = %@", userEmail);
-        //[detailView populateView:userEmail];
-        [detailView populateView:@"DDDDDD"];
+        //NSLog(@"userEmail is = %@", userEmail);
+        [detailView populateView:userEmail];
         
     }
     

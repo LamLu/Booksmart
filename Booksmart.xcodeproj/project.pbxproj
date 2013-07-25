@@ -10,6 +10,8 @@
 		0074102F1799EDB20045BE0F /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0074102E1799EDB20045BE0F /* CustomCameraViewController.m */; };
 		007410351799EE770045BE0F /* UploadBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007410341799EE770045BE0F /* UploadBookViewController.m */; };
 		009874E8179F2B3C0098E73D /* TradingProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009874E7179F2B3C0098E73D /* TradingProcessViewController.m */; };
+		009874EE17A1BCC40098E73D /* OfferMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009874ED17A1BCC40098E73D /* OfferMoneyViewController.m */; };
+		009874F117A1BDC20098E73D /* OfferBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009874F017A1BDC20098E73D /* OfferBookViewController.m */; };
 		B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9417727A7D00E9CF99 /* SettingViewController.m */; };
 		B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */; };
 		FF1E95CD17941D6900FC06E4 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1E95CC17941D6900FC06E4 /* Book.m */; };
@@ -75,6 +77,10 @@
 		007410341799EE770045BE0F /* UploadBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadBookViewController.m; sourceTree = "<group>"; };
 		009874E6179F2B3C0098E73D /* TradingProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradingProcessViewController.h; sourceTree = "<group>"; };
 		009874E7179F2B3C0098E73D /* TradingProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradingProcessViewController.m; sourceTree = "<group>"; };
+		009874EC17A1BCC40098E73D /* OfferMoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferMoneyViewController.h; sourceTree = "<group>"; };
+		009874ED17A1BCC40098E73D /* OfferMoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferMoneyViewController.m; sourceTree = "<group>"; };
+		009874EF17A1BDC10098E73D /* OfferBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferBookViewController.h; sourceTree = "<group>"; };
+		009874F017A1BDC20098E73D /* OfferBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferBookViewController.m; sourceTree = "<group>"; };
 		B3876F9317727A7D00E9CF99 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		B3876F9417727A7D00E9CF99 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		B3876F9617727ABD00E9CF99 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsViewController.h; sourceTree = "<group>"; };
@@ -218,6 +224,17 @@
 				009874E7179F2B3C0098E73D /* TradingProcessViewController.m */,
 			);
 			name = TradingProcess;
+			sourceTree = "<group>";
+		};
+		009874EB17A1BC7D0098E73D /* OfferItem */ = {
+			isa = PBXGroup;
+			children = (
+				009874EC17A1BCC40098E73D /* OfferMoneyViewController.h */,
+				009874ED17A1BCC40098E73D /* OfferMoneyViewController.m */,
+				009874EF17A1BDC10098E73D /* OfferBookViewController.h */,
+				009874F017A1BDC20098E73D /* OfferBookViewController.m */,
+			);
+			name = OfferItem;
 			sourceTree = "<group>";
 		};
 		B3876F9217727A7D00E9CF99 /* Setting */ = {
@@ -435,6 +452,7 @@
 		FFDDFAB0172746CF0005138A /* Booksmart */ = {
 			isa = PBXGroup;
 			children = (
+				009874EB17A1BC7D0098E73D /* OfferItem */,
 				009874E0179F28140098E73D /* TradingProcess */,
 				FFD8DE8F1799D5AA00181FF9 /* BookInfo */,
 				FFD8DE811799D54C00181FF9 /* ListOfSeller */,
@@ -658,6 +676,8 @@
 				0074102F1799EDB20045BE0F /* CustomCameraViewController.m in Sources */,
 				007410351799EE770045BE0F /* UploadBookViewController.m in Sources */,
 				009874E8179F2B3C0098E73D /* TradingProcessViewController.m in Sources */,
+				009874EE17A1BCC40098E73D /* OfferMoneyViewController.m in Sources */,
+				009874F117A1BDC20098E73D /* OfferBookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

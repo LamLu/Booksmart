@@ -1,18 +1,18 @@
 //
-//  ListOfTradingBookViewController.m
+//  OfferBookViewController.m
 //  Booksmart
 //
-//  Created by Thanh Au on 7/8/13.
+//  Created by Thanh Au on 7/25/13.
 //  Copyright (c) 2013 Lam Lu. All rights reserved.
 //
 
-#import "ListOfTradingBookViewController.h"
+#import "OfferBookViewController.h"
 
-@interface ListOfTradingBookViewController ()
+@interface OfferBookViewController ()
 
 @end
 
-@implementation ListOfTradingBookViewController
+@implementation OfferBookViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,9 +33,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     ListOfTradingBookConnection *connection = [[ListOfTradingBookConnection alloc]init];
-    [connection createConnection:userEmail];
+    [connection createConnection:[WTTSingleton sharedManager].userprofile.email];
     connection.delegate = self;
-    NSLog(@"IN Trading Book");
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,7 +55,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
     // Return the number of rows in the section.
     if ([listOfBook count] != 0)
     {
@@ -72,24 +71,18 @@
     // Configure the cell...
     if ([listOfBook count] != 0 )
     {
+        /*
         UILabel* nameLabel = (UILabel *) [cell viewWithTag:2];
         Book *book = [listOfBook objectAtIndex:indexPath.row];
         NSString *name = [book bookTitle];
         NSLog(@"name = %@", name);
         nameLabel.text = name;
+        */
+        UILabel* nameLabel = (UILabel *) [cell viewWithTag:1];
+        Book *book = [listOfBook objectAtIndex:indexPath.row];
+        NSString *name = [book bookTitle];
+        nameLabel.text = name;
         
-        //NSString *imgLink = [NSString stringWithFormat:@"%@%@",[WTTSingleton sharedManager].serverURL,[[listOfBook objectAtIndex:indexPath.row]objectForKey:@"profile_img_src"]];
-        /*
-         UIImageView *imgView =  (UIImageView *) [cell viewWithTag:1];
-         
-         if (![imgLink isEqualToString:[WTTSingleton sharedManager].serverURL])
-         {
-         NSLog(@"img link = %@",imgLink);
-         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgLink]];
-         UIImage* profileImage = [UIImage imageWithData:imageData];
-         [imgView setImage:profileImage];
-         }
-         */
     }
     return cell;
 }
@@ -146,6 +139,7 @@
      */
 }
 
+
 // Receive list of book from server
 - (void) finished{
     NSLog(@"teeeeeeeee");
@@ -154,24 +148,11 @@
     [self.tableView reloadData];
 }
 
--(void)populateView:(NSString *) email;
-{
-    userEmail = email;
-    //userEmail = @"cowboy";
+- (void)viewDidUnload {
     
+    [super viewDidUnload];
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"ToTradingProcess"])
-    {
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
-        TradingProcessViewController *detailView = (TradingProcessViewController *)[segue destinationViewController];
-        [detailView populateView:userEmail book:[listOfBook objectAtIndex:indexPath.row]];
-        
-        
-    }
+- (IBAction)done:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
 }
-
 @end

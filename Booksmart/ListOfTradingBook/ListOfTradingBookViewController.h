@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ListOfTradingBookConnection.h"
+#import "TradingProcessViewController.h"
 
 @interface ListOfTradingBookViewController : UITableViewController <WsCompleteInventoryConnectionDelegate, UITableViewDataSource,UITableViewDelegate>
 {
