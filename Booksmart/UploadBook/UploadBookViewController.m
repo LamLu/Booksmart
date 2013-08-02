@@ -38,6 +38,8 @@
     bookISBN10 = [[NSString alloc] init];
     bookISBN13 = [[NSString alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayImage) name:kFinishCapturePhoto object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadToInventory) name:kUploadToInventory object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadToWishList) name:kUploadToWishlist object:nil];
     
     
 }
@@ -238,14 +240,32 @@
     return image ;
 }
 
+/**
+ * upload book to inventory
+ */
 
-- (IBAction)submitButtonClicked:(id)sender
+- (void) uploadToInventory
 {
+  
+    
     UploadBookConnection * connection = [[UploadBookConnection alloc] init];
     bookSubject = @"Test Subject";
     [connection setDelegate:self];
-    [connection createConnection:[WTTSingleton sharedManager].userprofile.email title:bookTitle edition:bookEdition isbn10:bookISBN10 isbn13:bookISBN13 publisher:bookPublisher authors:bookAuthors subject:bookSubject imageArray:imgArr];
+    [connection createConnection:[WTTSingleton sharedManager].userprofile.email title:bookTitle edition:bookEdition isbn10:bookISBN10 isbn13:bookISBN13 publisher:bookPublisher authors:bookAuthors subject:bookSubject imageArray:imgArr isWishList:FALSE];
 
+}
+
+/**
+ * upload to wishlist
+ */
+- (void) uploadToWishList
+{
+
+    UploadBookConnection * connection = [[UploadBookConnection alloc] init];
+    bookSubject = @"Test Subject";
+    [connection setDelegate:self];
+    [connection createConnection:[WTTSingleton sharedManager].userprofile.email title:bookTitle edition:bookEdition isbn10:bookISBN10 isbn13:bookISBN13 publisher:bookPublisher authors:bookAuthors subject:bookSubject imageArray:imgArr isWishList:TRUE];
+     
 }
 
 // delegation method, refer to the method in Connection class
@@ -299,4 +319,17 @@
     imgArr = cameraVC.imageArray;
 }
 
+- (IBAction)submitButtonClicked:(id)sender
+{
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    UploadOptionViewController * uploadOptionVC = [storyboard instantiateViewControllerWithIdentifier:@"uploadOptionVC"];
+    self.navigationController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    [self presentModalViewController:uploadOptionVC animated:NO];
+    uploadOptionVC.view.frame = CGRectMake(0, self.view.window.frame.size.height, uploadOptionVC.view.frame.size.width, uploadOptionVC.view.frame.size.height);
+    
+    [UIView animateWithDuration:0.5 animations:^
+    {
+        uploadOptionVC.view.frame = CGRectMake(0, 0 + [UIApplication sharedApplication].statusBarFrame.size.height, uploadOptionVC.view.frame.size.width, uploadOptionVC.view.frame.size.height);
+    }];
+}
 @end

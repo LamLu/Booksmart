@@ -23,5 +23,5 @@
 @property (nonatomic,retain) UIAlertView *loadingAlertView;
 
 //create connection
-- (void)createConnection: (NSString *) email title: (NSString *) bookTitle edition: (NSString *) bookEdition isbn10: (NSString *) bookISBN10 isbn13: (NSString *) bookISBN13 publisher : (NSString *) bookPublisher authors: (NSString *) bookAuthors subject: (NSString *) bookSubject imageArray:(NSMutableArray *) imgArr;
+- (void)createConnection: (NSString *) email title: (NSString *) bookTitle edition: (NSString *) bookEdition isbn10: (NSString *) bookISBN10 isbn13: (NSString *) bookISBN13 publisher : (NSString *) bookPublisher authors: (NSString *) bookAuthors subject: (NSString *) bookSubject imageArray:(NSMutableArray *) imgArr isWishList: (BOOL) isWishList;
 @end

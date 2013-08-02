@@ -36,6 +36,10 @@
     emailField.keyboardType = UIKeyboardTypeEmailAddress;
     pwField.returnKeyType = UIReturnKeyDone;
     pwField.keyboardType = UIKeyboardTypeDefault;
+    [self.emailField setValue:[UIColor whiteColor]
+                    forKeyPath:@"_placeholderLabel.textColor"];
+    [self.pwField setValue:[UIColor whiteColor]
+                   forKeyPath:@"_placeholderLabel.textColor"];
     
 }
 

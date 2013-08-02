@@ -69,9 +69,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     NSDictionary *dict = [emailOther objectAtIndex:indexPath.row];
     cell.textLabel.text = [dict objectForKey:@"email"];
+    
     // Configure the cell...
-    
-    
+    /*
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"textform.png"]];
+    cell.textLabel.backgroundColor = [UIColor darkGrayColor];*/
     return cell;
 }
 
@@ -134,7 +136,7 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
-        MessageViewController *detailView = (MessageViewController *)[segue destinationViewController];
+        MessageMainScreenViewController *detailView = (MessageMainScreenViewController *)[segue destinationViewController];
         
         [detailView populateView:selectedCell.textLabel.text];
                 
@@ -147,5 +149,10 @@
     emailOther = [WTTSingleton sharedManager].json;
     NSLog(@"people you talk to %@",emailOther);
     [self.tableView reloadData];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    // This will create a "invisible" footer
+    return 0.01f;
 }
 @end

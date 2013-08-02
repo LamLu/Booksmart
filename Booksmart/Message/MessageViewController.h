@@ -11,22 +11,22 @@
 #import "SendMessageConnection.h"
 #import "GetConversationConnection.h"
 
+
+
 @interface MessageViewController : UITableViewController<WsCompleteGetConversationConnection,WsCompleteSentMessageConnectionDelegate>
 {
     NSMutableDictionary * jsonObject;
     NSArray *conversationArr;
     UIButton* sendButton;
-    NSString *email;
 
 }
 
 
-
-@property (nonatomic, retain) IBOutlet UITextField *textBoxField;
 @property (nonatomic, strong) NSString* otherEmail;
+@property (nonatomic, strong) NSString * email;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
-- (IBAction) clickSendButton;
-- (IBAction) textFieldFinishedWithKeyBoard:(id)sender;
-- (void) populateView:(NSString *)emailOther;
+
+- (void) clickSendButton;
+
 @end

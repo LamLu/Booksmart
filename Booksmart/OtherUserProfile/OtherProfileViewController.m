@@ -126,7 +126,7 @@
     {
         NSLog(@"Go to Message");
       
-        MessageViewController *detailView = (MessageViewController *)[segue destinationViewController];
+        MessageMainScreenViewController *detailView = (MessageMainScreenViewController *)[segue destinationViewController];
         
         [detailView populateView:userEmail];
         

@@ -10,6 +10,7 @@
 #import "ZBarSDK.h"
 #import "UploadBookConnection.h"
 #import "CustomCameraViewController.h"
+#import "UploadOptionViewController.h"
 
 @interface UploadBookViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate ,ZBarReaderDelegate, ProcessAfterUpload>
 {
@@ -31,11 +32,17 @@
 @property (weak, nonatomic) CustomCameraViewController * cameraVC;
 @property (nonatomic,retain) UIAlertView *resultAlertView;
 
+// submit button is clicked. option view is presented
+- (IBAction)submitButtonClicked:(id)sender;
+
 //action when barcode scan button is clicked
 - (IBAction)barcodeScanButtonClicked:(id)sender;
 
-//action when submit button is clicked
-- (IBAction)submitButtonClicked:(id)sender;
+//action when upload to inventory button is clicked
+- (void) uploadToInventory;
+
+//action when upload to wishlist button is clicked
+- (void)uploadToWishList;
 
 // delegation method, refer to the method in Connection class
 - (void) isUploadSuccessful : (BOOL)upload;

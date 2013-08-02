@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "InboxConnection.h"
-#import "MessageViewController.h"
+#import "MessageMainScreenViewController.h"
+
 
 @interface InboxViewController : UITableViewController<WsCompleteGetInboxConnection>
 {

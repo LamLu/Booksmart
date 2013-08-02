@@ -17,9 +17,11 @@
 @implementation MessageViewController
 
 
-@synthesize textBoxField;
+
 @synthesize otherEmail;
 @synthesize tableView;
+
+@synthesize email;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -48,20 +50,39 @@
     GetConversationConnection *conversationConnection =[[GetConversationConnection alloc] init];
     [conversationConnection createConnection:[WTTSingleton sharedManager].userprofile.email receiverEmail:email];
     conversationConnection.delegate = self;
+    
+    
+    /*
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    sendMessageBoxVC = [storyboard instantiateViewControllerWithIdentifier:@"sendMessageBoxView"];
+    
+    sendMessageBoxVC.view.frame = CGRectMake(0, self.view.bounds.size.height - self.view.bounds.size.height -  self.navigationController.navigationBar.bounds.size.height,
+                                            self.view.bounds.size.width,
+                                            self.view.bounds.size.height);
+   // [self.view addSubview:sendMessageBoxVC.view];
+    [self.tableView addSubview:sendMessageBoxVC.view];
+    storyboard = nil;
+    
+    //add notification to this view for sending text, when send button is click, delegate to the
+    //function of this view clickSendButton
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickSendButton) name:kSendMessage object:nil];
+     */
 }
 
 /*
  * Responsible for sending message, sender email, receiver email to PHP, and the PHP updates the database accordingly.
  */
 
--(IBAction)clickSendButton
+-(void)clickSendButton
 {
-    [self.textBoxField resignFirstResponder];
+    
+    /*
     SendMessageConnection* connection = [[SendMessageConnection alloc]init];
     NSLog(@"email = %@",email);
     //NSLog(@"text field = %@",textBoxField.text);
-    [connection createConnection:[WTTSingleton sharedManager].userprofile.email receiverEmail:email message:textBoxField.text];
+    [connection createConnection:[WTTSingleton sharedManager].userprofile.email receiverEmail:email message:sendMessageBoxVC.textBoxField.text];
     connection.delegate = self;
+     */
     
 }
 - (void)didReceiveMemoryWarning
@@ -187,19 +208,10 @@
 
 
 - (void)viewDidUnload {
-    [self setTextBoxField:nil];
     [super viewDidUnload];
 }
 
-/*
- * Dissmis the keyboard when the return button is pressed
- * Connect this function to Did End on Exit of the text field from
- * storyboard
- * @param sender, the textfield responder
- */
-- (IBAction) textFieldFinishedWithKeyBoard:(id)sender {
-    [sender resignFirstResponder];
-}
+
 
 //Loading conversation after receive json
 -(void) finishedGetConversation
@@ -216,9 +228,20 @@
     conversationConnection.delegate = self;
 }
 
-//Populate view 
-- (void) populateView:(NSString *)emailOther
+
+/*
+//when scroll is view, stick the sendMessageBox view at the bottom
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    email = emailOther;
+    sendMessageBoxVC.view.transform = CGAffineTransformMakeTranslation(0, scrollView.contentOffset.y);
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // this is needed to prevent cells from being displayed above our static view
+    [self.tableView bringSubviewToFront:sendMessageBoxVC.view];
+}
+ */
+ 
+
 @end
