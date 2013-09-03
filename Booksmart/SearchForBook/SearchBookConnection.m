@@ -199,7 +199,7 @@
 {
     NSError *error = nil;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:
-                          NSJSONReadingMutableContainers error:&error];
+    NSJSONReadingMutableContainers error:&error];
     NSString * temp = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"%@",temp);
     
@@ -221,26 +221,11 @@
                 NSDictionary *tempDict = [jsonObject objectForKey:key];
                 //NSString *author = [[NSString alloc] init];
                 NSMutableArray *authorArray = [tempDict objectForKey:@"author"];
-                /*
-                for (int i = 0; i <[authorArray count]; i++) {
-                    if ([authorArray count] - 1 == i)
-                    {
-                        
-                        author = [author stringByAppendingString:[authorArray[i] objectForKey:@"name"]];
-                    }
-                    else
-                    {
-                        //author = [author stringByAppendingFormat:@"%@,",[authorArray[i] objectForKey:@"name"]];
-                        //[author stringByAppendingString:authorArray[i]];
-                    }
-                }
-                NSLog(@"authot is %@", author);
-                 */
                 bookInfo = [[Book alloc] init];
-                NSMutableString *isbn10 = [[NSMutableString alloc] initWithString:[[tempDict objectForKey:@"isbn_10"] stringValue]];
-                NSMutableString *isbn13 = [[NSMutableString alloc] initWithString:[[tempDict objectForKey:@"isbn_13"] stringValue]];
+                NSMutableString *isbn10 = [tempDict objectForKey:@"isbn_10"];
+                NSMutableString *isbn13 = [tempDict objectForKey:@"isbn_13"];
                 //Add book imgage later on
-                [bookInfo setBookInfo:nil setTitle:[tempDict objectForKey:@"title"] setEdition:[tempDict objectForKey:@"edition"] setAuthor:authorArray setISBN10: isbn10 setISBN13:isbn13];
+                [bookInfo setBookInfo:nil setTitle:[tempDict objectForKey:@"title"] setEdition:[tempDict objectForKey:@"edition"] setAuthor:authorArray setISBN10: isbn10 setISBN13:isbn13 setSubjects:[tempDict objectForKey:@"bookSubject"] setProfessor:[tempDict objectForKey:@"professor"]];
                 [bookArray addObject:bookInfo];
                 //[jsonArray addObject:tempDict];
             }

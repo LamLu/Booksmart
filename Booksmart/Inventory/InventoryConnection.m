@@ -20,6 +20,7 @@
  */
 - (void)createConnection: (NSString *)email
 {
+   
     NSString* link = [NSString stringWithFormat:@"%@%@", [WTTSingleton sharedManager].serverURL, @"/include_php/getBookData.php"];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString: link]
@@ -150,22 +151,30 @@
 {
     // do something with the data
     // receivedData is declared as a method instance elsewhere
+    NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
     NSArray * resultArray = [self parseJSON:receivedData];
-    
+    //NSString * result = [self parseJSON:receivedData];
+    //NSLog(@"%@", result);
+    NSLog(@"%@",resultArray);
     connection = nil;
     receivedData = nil;
     
     
     NSMutableArray *bookArray = [[NSMutableArray alloc]init];
     //if success, populate the book object
+    
     if (resultArray != nil)
     {
         for (NSDictionary * bookJSON in resultArray)
         {
+            //NSLog(@"%@",bookJSON);
+            
             Book * book = [[Book alloc] init];
-            book.bookId = (int) [bookJSON objectForKey:@"bookID"];
+            book.bookId = [[bookJSON objectForKey:@"bookID"] intValue];
+            //NSLog(@"my book is %@", [bookJSON objectForKey:@"bookID"]);
             book.bookTitle = (NSMutableString *) [bookJSON objectForKey:@"bookTitle"];
             book.bookEdition = (NSMutableString*) [bookJSON objectForKey:@"bookEdition"];
+            
             book.bookAuthors = (NSMutableArray *) [bookJSON objectForKey:@"bookAuthors"];
             book.bookISBN10 = (NSMutableString *) [bookJSON objectForKey:@"bookISBN10"];
             book.bookISBN13 = (NSMutableString *) [bookJSON objectForKey:@"bookISBN13"];
@@ -181,6 +190,7 @@
             book.bookSubjects =(NSMutableArray *) [bookJSON objectForKey:@"bookSubjects"];
             [bookArray addObject:book];
             book = nil;
+             
             
         }
         [self dismissLoadingAlertView];

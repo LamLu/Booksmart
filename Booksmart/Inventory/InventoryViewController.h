@@ -10,13 +10,18 @@
 #import "InventoryConnection.h"
 #import "WTTSingleton.h"
 #import "Book.h"
+#import "DisplayBookInfoViewController.h"
+#import "BookTableViewCell.h"
+#import "DeleteBookConnection.h"
 
 @interface InventoryViewController : UITableViewController<ProcessAfterGettingInventory>
-
-@property (nonatomic, retain) NSArray *bookArray;
+{
+    NSString *email;
+}
+@property (nonatomic, retain) NSMutableArray *bookArray;
 
 //@param aBool : Yes = success, No = fail
 //@param bookArray the array of the books
 - (void) isRetrievingSuccessful : (BOOL) aBool bookArray: (NSArray*) array ;
-
+- (void)populateView:(NSString*)otherEmail;
 @end

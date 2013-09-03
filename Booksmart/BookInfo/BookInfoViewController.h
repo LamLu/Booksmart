@@ -18,6 +18,8 @@
     NSMutableArray *authorBook;
     NSString *ISBNBook10;
     NSString *ISBNBook13;
+    NSString *professorBook;
+    NSString *subjectBook;
     Book *_book;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *bookImg;
@@ -27,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *bookISBN13Label;
 
 @property (weak, nonatomic) IBOutlet UILabel *bookAuthorLabel;
+@property (weak, nonatomic) IBOutlet UILabel
+    *bookSubjectLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bookProfessorLabel;
 
 
 - (void)populateView:(Book*)book;

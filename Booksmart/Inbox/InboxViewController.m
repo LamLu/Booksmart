@@ -32,6 +32,16 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIImage *image = [UIImage imageNamed:@"inbox_header.png"];
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    //navBar.tintColor = [UIColor yellowColor];
+    [navBar setContentMode:UIViewContentModeScaleAspectFit];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsLandscapePhone];
+    
+
     InboxConnection *connection = [[InboxConnection alloc]init];
     [connection createConnection:[WTTSingleton sharedManager].userprofile.email];
     connection.delegate = self;

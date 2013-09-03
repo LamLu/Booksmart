@@ -44,7 +44,16 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIImage *image = [UIImage imageNamed:@"message_header.png"];
     
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    //navBar.tintColor = [UIColor yellowColor];
+    [navBar setContentMode:UIViewContentModeScaleAspectFit];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsLandscapePhone];
+    
+
     // NSLog(@"the other email was set too %@", otherEmail);
     NSLog(@"other email = %@",email);
     GetConversationConnection *conversationConnection =[[GetConversationConnection alloc] init];
@@ -67,6 +76,21 @@
     //function of this view clickSendButton
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickSendButton) name:kSendMessage object:nil];
      */
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    UIImage *image = [UIImage imageNamed:@"message_header.png"];
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    //navBar.tintColor = [UIColor yellowColor];
+    [navBar setContentMode:UIViewContentModeScaleAspectFit];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    
+    
 }
 
 /*

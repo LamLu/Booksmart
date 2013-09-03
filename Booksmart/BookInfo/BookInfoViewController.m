@@ -26,23 +26,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    [self.bookImg setImage:bookImage];
-    [self.bookTitleLabel setText:titleBook];
+    UIImage *image = [UIImage imageNamed:@"book_info_header.png"];
     
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    //navBar.tintColor = [UIColor yellowColor];
+    [navBar setContentMode:UIViewContentModeScaleAspectFit];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsLandscapePhone];
+    
+
+	// Do any additional setup after loading the view.
+    if (bookImage != nil)
+        [self.bookImg setImage:bookImage];
+    else
+        [self.bookImg setImage:[UIImage imageNamed:@"book_default.png"]];
+    [self.bookTitleLabel setText:titleBook];
+    [self.bookISBN10Label setText:ISBNBook10];
+    [self.bookISBN13Label setText:ISBNBook13];
+    [self.bookEditionLabel setText:editionBook];
     //change this one
     //[self.bookAuthorLabel setText:authorBook];
     NSString *author = [[NSString alloc]init];
     for (int i = 0; i <[authorBook count]; i++) {
         if ([authorBook count] - 1 == i)
         {
-            
+            if (![[authorBook[i] objectForKey:@"name"] isEqual:@""])
+                ;
             author = [author stringByAppendingString:[authorBook[i] objectForKey:@"name"]];
         }
         else
         {
-            //author = [author stringByAppendingFormat:@"%@,",[authorArray[i] objectForKey:@"name"]];
-            //[author stringByAppendingString:authorArray[i]];
+            if (![[authorBook[i] objectForKey:@"name"] isEqual:@""])
+                author = [author stringByAppendingFormat:@"%@,",[authorBook[i] objectForKey:@"name"]];
         }
     }
 

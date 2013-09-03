@@ -26,9 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    RatingPercentConnection *connection = [[RatingPercentConnection alloc]init];
-    [connection createConnection:userEmail];
-    connection.delegate = self;
+    //RatingPercentConnection *connection = [[RatingPercentConnection alloc]init];
+    //[connection createConnection:userEmail];
+    //connection.delegate = self;
 	// Do any additional setup after loading the view.
     [self.userImage setImage:img];
     self.userNameLabel.text = userName;
@@ -37,7 +37,20 @@
     self.userSchoolLabel.text = userSchool;
     //self.userRatingLabel.text = userRating;
 }
-
+- (void)viewDidAppear:(BOOL)animated
+{
+    UIImage *image = [UIImage imageNamed:@"profile_header.png"];
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    //navBar.tintColor = [UIColor yellowColor];
+    [navBar setContentMode:UIViewContentModeScaleAspectFit];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -131,6 +144,18 @@
         [detailView populateView:userEmail];
         
         
+    }
+    else if ([[segue identifier] isEqualToString:@"ToInventory"])
+    {
+        InventoryViewController *detailView = (InventoryViewController *)[segue destinationViewController];
+        
+        [detailView populateView:userEmail];
+    }
+    else if ([[segue identifier] isEqualToString:@"ToWishList"])
+    {
+        WishlistViewController *detailView = (WishlistViewController *)[segue destinationViewController];
+        
+        [detailView populateView:userEmail];
     }
 }
 @end

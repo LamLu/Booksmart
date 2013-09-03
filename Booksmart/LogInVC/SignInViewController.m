@@ -36,11 +36,15 @@
     emailField.keyboardType = UIKeyboardTypeEmailAddress;
     pwField.returnKeyType = UIReturnKeyDone;
     pwField.keyboardType = UIKeyboardTypeDefault;
-    [self.emailField setValue:[UIColor whiteColor]
-                    forKeyPath:@"_placeholderLabel.textColor"];
-    [self.pwField setValue:[UIColor whiteColor]
-                   forKeyPath:@"_placeholderLabel.textColor"];
+    UIView *paddingView  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    self.emailField.leftView  = paddingView;
+    self.emailField.leftViewMode = UITextFieldViewModeAlways;
     
+    UIView *paddingView1  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    self.pwField.leftView  = paddingView1;
+    self.pwField.leftViewMode = UITextFieldViewModeAlways;
+    paddingView = nil;
+    paddingView1 = nil;
 }
 
 - (void)viewDidUnload

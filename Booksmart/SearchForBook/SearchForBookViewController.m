@@ -32,6 +32,43 @@
     self.searchBar.delegate = self;
     self.searchResult.delegate = self;
     self.searchResult.dataSource = self;
+    
+    
+    UIImageView *footerView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.searchResult.frame.size.width, self.searchResult.frame.size.height)];
+    [footerView setImage:[UIImage imageNamed:@"searchBackGround.png"]];
+    
+    
+    self.searchResult.tableFooterView = footerView;
+    //self.searchResult.tableFooterView.contentMode = UIViewContentModeScaleAspectFit;
+    //[self.searchResult setContentInset:(UIEdgeInsetsMake(0, 50, -500, 0))];
+    //self.searchResult.backgroundView = imgView;
+    self.searchResult.separatorStyle = UITableViewCellSeparatorStyleNone;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    tap.cancelsTouchesInView = NO;
+    
+    
+    
+   
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    UIImage *image = [UIImage imageNamed:@"search_header.png"];
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    //navBar.tintColor = [UIColor yellowColor];
+    [navBar setContentMode:UIViewContentModeScaleAspectFit];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,31 +103,41 @@
     UITableViewCell *cell;
     
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"BookCell";
     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    if ([listOfBook count] != 0 )
+    if ([listOfBook count] > 0 )
     {
-        UILabel* nameLabel = (UILabel *) [cell viewWithTag:2];
-        Book *book = [listOfBook objectAtIndex:indexPath.row];
-        NSString *name = [book bookTitle];
-        NSLog(@"name = %@", name);
-        nameLabel.text = name;
+        UILabel* titleLabel = (UILabel*)[cell viewWithTag:2];
+        UILabel* authorLabel = (UILabel*)[cell viewWithTag:3];
+        UILabel* editionLabel = (UILabel*)[cell viewWithTag:4];
         
-        //NSString *imgLink = [NSString stringWithFormat:@"%@%@",[WTTSingleton sharedManager].serverURL,[[listOfBook objectAtIndex:indexPath.row]objectForKey:@"profile_img_src"]];
-        /*
-         UIImageView *imgView =  (UIImageView *) [cell viewWithTag:1];
-         
-         if (![imgLink isEqualToString:[WTTSingleton sharedManager].serverURL])
-         {
-         NSLog(@"img link = %@",imgLink);
-         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgLink]];
-         UIImage* profileImage = [UIImage imageWithData:imageData];
-         [imgView setImage:profileImage];
-         }
-         */
+
+        Book *book = [listOfBook objectAtIndex:indexPath.row];
+        
+        NSMutableArray *authorArray = [book bookAuthors];
+        NSString *author = @"";
+        
+        for (int i = 0; i <[authorArray count]; i++) {
+            if ([authorArray count] - 1 == i)
+            {
+                if (![[authorArray[i] objectForKey:@"name"] isEqual:@""])
+                    author = [author stringByAppendingString:[authorArray[i] objectForKey:@"name"]];
+            }
+            else
+            {
+                if (![[authorArray[i] objectForKey:@"name"] isEqual:@""])
+                    author = [author stringByAppendingFormat:@"%@,",[authorArray[i] objectForKey:@"name"]];
+                
+            }
+        }
+        titleLabel.text = [book bookTitle];
+        editionLabel.text = [book bookEdition];
+        authorLabel.text = author;
+        
+        
     }
     return cell;
 }
@@ -101,25 +148,32 @@
     
     SearchBookConnection *connection = [[SearchBookConnection alloc]init];
     connection.delegate = self;
-    NSLog(@"scope search = %@",scopeSearch);
+    
     
     [connection createConnection:searchBar.text scope:scopeSearch];
     
     [self.searchBar resignFirstResponder];
 }
 
-//dismiss the numpad keyboard when the user tap outside the keyboard
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
-    [self.searchBar resignFirstResponder];
-}
 
 // Receive list of book from server
 - (void) finished{
     NSLog(@"teeeeeeeee");
     listOfBook = [WTTSingleton sharedManager].json;
     NSLog(@"%@",listOfBook);
+    if ([listOfBook count] > 0) {
+        
+        self.searchResult.tableFooterView = nil;
+        self.searchResult.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
+    else
+    {
+        UIImageView *footerView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.searchResult.frame.size.width, self.searchResult.frame.size.height)];
+        [footerView setImage:[UIImage imageNamed:@"SearchNoResult.png"]];
+        
+        
+        self.searchResult.tableFooterView = footerView;
+    }
     [self.searchResult reloadData];
     
 }
@@ -129,6 +183,8 @@
     searchBar.showsScopeBar = YES;
     [searchBar sizeToFit];
     [searchBar setShowsCancelButton:YES animated:YES];
+    listOfBook = nil;
+    [self.searchResult reloadData];
     return YES;
     
 }
@@ -148,7 +204,7 @@
 
     if ([[segue identifier] isEqualToString:@"ToBookInfo"])
     {
-        NSLog(@"find errrrror");
+        
         
         NSIndexPath *indexPath = [self.searchResult indexPathForSelectedRow];
         
@@ -161,6 +217,22 @@
         
     }
  
+}
+- (void)populateView:(NSString*)input scope:(NSString*) scope
+{
+    _input = input;
+    _scope = scope;
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+
+{
+    [self.searchBar resignFirstResponder];
+}
+
+- (void) dismissKeyboard
+{
+    // add self
+    [self.searchBar resignFirstResponder];
 }
 
 @end

@@ -29,6 +29,19 @@
 	// Do any additional setup after loading the view.
   
 }
+- (void)viewDidAppear:(BOOL)animated
+{
+    UIImage *image = [UIImage imageNamed:@"home_header.png"];
+    UIImage *backImage = [UIImage imageNamed:@"backbutton"];
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    
+    [navBar setContentMode:UIViewContentModeScaleAspectFit];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsLandscapePhone];
+       
+    
+}
 
 - (void)didReceiveMemoryWarning
 {

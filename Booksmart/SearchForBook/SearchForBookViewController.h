@@ -14,7 +14,10 @@
 @interface SearchForBookViewController : UIViewController <WsCompleteSearchForBookConnectionDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 {
     NSArray *listOfBook;
+    NSString *_input;
+    NSString *_scope;
 }
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *searchResult;
+- (void)populateView:(NSString*)input scope:(NSString*) scope;
 @end

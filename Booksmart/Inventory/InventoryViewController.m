@@ -33,11 +33,73 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    bookArray = [[NSArray alloc] init];
+    //bookArray = [[NSArray alloc] init];
+    
+    UIImage *image =[[UIImage alloc]init];
+    if (email != nil)
+    {
+        image = [UIImage imageNamed:@"library_header.png"];
+        
+    }
+    else
+    {
+        image = [UIImage imageNamed:@"my_library_header.png"];
+    }
+    
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    //navBar.tintColor = [UIColor yellowColor];
+    [navBar setContentMode:UIViewContentModeScaleAspectFit];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsLandscapePhone];
+    image = nil;
     InventoryConnection *connection = [[InventoryConnection alloc] init];
     [connection setDelegate:self];
-    [connection createConnection:[WTTSingleton sharedManager].userprofile.email];
+    
+    if (email != nil)
+    {
+        NSLog(@"%@",email);
+        [connection createConnection:email];
+    }
+    else
+    {
+        NSLog(@"%@",[WTTSingleton sharedManager].userprofile.email);
+        [connection createConnection:[WTTSingleton sharedManager].userprofile.email];
+        //[connection createConnection:@"cowboy"];
+    }
     connection = nil;
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"upload_second_half.png"]];
+    [tempImageView setFrame:self.tableView.frame];
+    
+    self.tableView.backgroundView = tempImageView;
+    
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    /*
+    UIImage *image =[[UIImage alloc]init];
+    if (email != nil)
+    {
+        image = [UIImage imageNamed:@"library_header.png"];
+        
+    }
+    else
+    {
+        image = [UIImage imageNamed:@"my_library_header.png"];
+    }
+    
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    //navBar.tintColor = [UIColor yellowColor];
+    [navBar setContentMode:UIViewContentModeScaleAspectFit];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsLandscapePhone];
+    image = nil;
+    */
+    
     
 }
 
@@ -66,21 +128,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog (@"load first");
+    //NSLog (@"load first");
     static NSString *CellIdentifier = @"BookCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (cell == nil) {
     
         // No cell to reuse => create a new one
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
+        cell = [[BookTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
     }
 
-
-      // Configure the cell...
+    
+  
     if (bookArray.count > 0)
     {
         Book * aBook = (Book*)[bookArray objectAtIndex:indexPath.row];
+        
         UIImageView * imageView = (UIImageView *) [cell viewWithTag:1];
         if (aBook.bookImg1 == nil)
             [imageView setImage: [UIImage imageNamed:@"book_default.png"]];
@@ -90,50 +153,102 @@
         imageView = nil;
         
         //get title of the book
-        UILabel* title = (UILabel*)[cell viewWithTag:3];
+        UILabel* title = (UILabel*)[cell viewWithTag:2];
+        UILabel* author = (UILabel*)[cell viewWithTag:3];
+        UILabel* edition = (UILabel*)[cell viewWithTag:4];
         
         
         if (aBook.bookTitle != nil)
+        {
+            //NSLog(@"book Title = %@",aBook.bookTitle );
             title.text = aBook.bookTitle;
+        }
+        if (aBook.bookAuthors != nil)
+        {
+            NSMutableArray *authorArray = [aBook bookAuthors];
+            NSString *authorString = @"";
+            
+            for (int i = 0; i <[authorArray count]; i++) {
+                if ([authorArray count] - 1 == i)
+                {
+                    NSString *temp = authorArray[i];
+                    if (![temp isEqual:@""])
+                        authorString = [authorString stringByAppendingString:temp];
+                    temp = nil;
+                }
+                else
+                {
+                    NSString *temp = authorArray[i];
+                    if (![temp isEqual:@""])
+                        authorString = [authorString stringByAppendingFormat:@"%@,",temp];
+                    temp = nil;
+                    
+                }
+            }
+            
+
+            //NSLog(@"book Author = %@",aBook.bookTitle );
+            author.text = authorString;
+        }
+        if (aBook.bookEdition != nil)
+        {
+            //NSLog(@"book Edition = %@",aBook.bookEdition );
+            edition.text = aBook.bookEdition;
+        }
         title = nil;
+        author = nil;
+        edition = nil;
         
         
 
-    /*
+        /*
         imageView = (UIImageView *) [cell viewWithTag:2];
         if (aBook.bookImg2 != nil)
             imageView.image = aBook.bookImg2;
-        imageView = nil;*/
+        */
+        imageView = nil;
         //NSLog (@"%@", aBook.bookTitle);
         aBook = nil;
+    
         
     }
    
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    if (email == nil)
+    {
+        return YES;
+    }
+    return NO;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        Book* deleteBook = [bookArray objectAtIndex:indexPath.row];
+        //NSLog(@"%i",deleteBook.bookId);
+        [bookArray removeObjectAtIndex:indexPath.row];
+        DeleteBookConnection *connection = [[DeleteBookConnection alloc]init];
+        //[connection setDelegate:self];
+        
+        [connection createConnection:deleteBook.bookId isWishlist:@"FALSE"];
+        
+        [tableView reloadData];
     }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -172,8 +287,9 @@
     
     if (aBool == YES)
     {
-        NSLog (@"load second");
-        bookArray = array;
+        //NSLog (@"load second");
+        bookArray = [[NSMutableArray alloc] initWithArray: array];
+        //NSLog(@"book array = %@",bookArray);
         [self.tableView reloadData];
     }
     else
@@ -183,7 +299,31 @@
     }
      
 }
-
+- (void)populateView:(NSString*)otherEmail
+{
+    email = otherEmail;
+    //NSLog(@"%@",email);
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    
+    if ([[segue identifier] isEqualToString:@"ToDisplayBook"])
+    {
+       
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        DisplayBookInfoViewController *detailView = (DisplayBookInfoViewController *)[segue destinationViewController];
+        
+        Book *book = [bookArray objectAtIndex:indexPath.row];
+        //NSLog(@"%@",book.bookAuthors);
+        [detailView populateView:book];
+        
+        
+    }
+    
+}
 
 
 @end

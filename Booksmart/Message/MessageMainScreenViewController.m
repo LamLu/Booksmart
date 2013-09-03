@@ -29,6 +29,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIImage *image = [UIImage imageNamed:@"messages_header.png"];
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    //navBar.tintColor = [UIColor yellowColor];
+    [navBar setContentMode:UIViewContentModeScaleAspectFit];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsLandscapePhone];
+    
+
 	// Do any additional setup after loading the view.
     /*
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
@@ -40,7 +50,9 @@
 
     [self.view addSubview:messageVC.tableView];
      */
-    NSLog(@"other email = %@",email);
+    //NSLog(@"other email = %@",email);
+    self.textBoxField.delegate = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     GetConversationConnection *conversationConnection =[[GetConversationConnection alloc] init];
     [conversationConnection createConnection:[WTTSingleton sharedManager].userprofile.email receiverEmail:email];
     conversationConnection.delegate = self;
@@ -76,13 +88,13 @@
 -(void)clickSendButton
 {
     
-    /*
+    
      SendMessageConnection* connection = [[SendMessageConnection alloc]init];
      NSLog(@"email = %@",email);
-     //NSLog(@"text field = %@",textBoxField.text);
-     [connection createConnection:[WTTSingleton sharedManager].userprofile.email receiverEmail:email message:sendMessageBoxVC.textBoxField.text];
+     NSLog(@"text field = %@",self.textBoxField.text);
+     [connection createConnection:[WTTSingleton sharedManager].userprofile.email receiverEmail:email message:self.textBoxField.text];
      connection.delegate = self;
-     */
+     
     
 }
 
@@ -108,6 +120,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"Tesssssst");
     static NSString *CellIdentifier = @"Cell1";
     if ([conversationArr count] != 0)
     {
@@ -209,8 +222,19 @@
 -(void) finishedGetConversation
 {
     conversationArr = [WTTSingleton sharedManager].json;
-    NSLog(@"Converstaion : %@",conversationArr);
+    
+    
+    NSSortDescriptor *dateDescriptor = [[NSSortDescriptor alloc]initWithKey:@"date" ascending:YES];
+    
+   
+    
     [self.tableView reloadData];
+    NSArray *decriptors = [NSArray arrayWithObjects:dateDescriptor, nil];
+    conversationArr = [conversationArr sortedArrayUsingDescriptors:decriptors];
+    NSLog(@"Converstaion : %@",conversationArr);
+    [tableView reloadData];
+
+    
 }
 //Get the conversation after successful sent message
 -(void) finished
@@ -219,7 +243,23 @@
     [conversationConnection createConnection:[WTTSingleton sharedManager].userprofile.email receiverEmail:email];
     conversationConnection.delegate = self;
 }
+//Dismisses Keyboard when anything but the text field is touched
+- (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
+    for (UIView* view in self.view.subviews) {
+        if ([view isKindOfClass:[UITextField class]])
+            [view resignFirstResponder];
+    }
+}
 
+/*
+ * Dissmis the keyboard when the return button is pressed
+ * Connect this function to Did End on Exit of the text field from
+ * storyboard
+ * @param sender, the textfield responder
+ */
+- (IBAction) textFieldFinishedWithKeyBoard:(id)sender {
+    [sender resignFirstResponder];
+}
 
 /*
  //when scroll is view, stick the sendMessageBox view at the bottom

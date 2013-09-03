@@ -12,7 +12,7 @@
 #import "GetConversationConnection.h"
 
 @interface MessageMainScreenViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,
-WsCompleteGetConversationConnection,WsCompleteSentMessageConnectionDelegate>
+WsCompleteGetConversationConnection,WsCompleteSentMessageConnectionDelegate,UITextFieldDelegate>
 {
     NSMutableDictionary * jsonObject;
     NSArray *conversationArr;
@@ -27,4 +27,6 @@ WsCompleteGetConversationConnection,WsCompleteSentMessageConnectionDelegate>
 
 //populate other email when segue performed
 - (void) populateView:(NSString *)emailOther;
+// dismiss the keyboard when return button is hit
+- (IBAction) textFieldFinishedWithKeyBoard:(id)sender;
 @end

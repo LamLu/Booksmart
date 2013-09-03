@@ -241,7 +241,7 @@
              */
             book = [[Book alloc] init];
             //Add book imgage later on
-            [book setBookInfo:nil setTitle:[tempDict objectForKey:@"title"] setEdition:[tempDict objectForKey:@"edition"] setAuthor:authorArray setISBN10:isbn10 setISBN13:isbn13];
+            //[book setBookInfo:nil setTitle:[tempDict objectForKey:@"title"] setEdition:[tempDict objectForKey:@"edition"] setAuthor:authorArray setISBN10:isbn10 setISBN13:isbn13];
             [bookArray addObject:book];
             //[jsonArray addObject:tempDict];
         }

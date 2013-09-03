@@ -12,6 +12,8 @@
 #import "ListOfTradingBookViewController.h"
 #import "Book.h"
 #import "MessageMainScreenViewController.h"
+#import "InventoryViewController.h"
+#import "WishlistViewController.h"
 @interface OtherProfileViewController : UIViewController<RatingPercentageConnectionCompleteDelegate>
 {
     UIImage *img;
