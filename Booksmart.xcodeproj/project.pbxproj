@@ -44,9 +44,6 @@
 		000C004717D10D9B0050B5A4 /* invite_friend_header.png in Resources */ = {isa = PBXBuildFile; fileRef = 000C003F17D10D9B0050B5A4 /* invite_friend_header.png */; };
 		000CFFA817C310450050B5A4 /* DisplayBookInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000CFFA717C310450050B5A4 /* DisplayBookInfoViewController.m */; };
 		000CFFAB17C41AAA0050B5A4 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000CFFAA17C41AAA0050B5A4 /* BookTableViewCell.m */; };
-		000CFFB117C444460050B5A4 /* active.png in Resources */ = {isa = PBXBuildFile; fileRef = 000CFFAE17C444420050B5A4 /* active.png */; };
-		000CFFB217C444460050B5A4 /* closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 000CFFAF17C444430050B5A4 /* closed.png */; };
-		000CFFB317C444460050B5A4 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = 000CFFB017C444440050B5A4 /* open.png */; };
 		000CFFBA17C45CB10050B5A4 /* WishlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000CFFB917C45CB10050B5A4 /* WishlistViewController.m */; };
 		000CFFBD17C45DCA0050B5A4 /* WishlistConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 000CFFBC17C45DCA0050B5A4 /* WishlistConnection.m */; };
 		000CFFC217C47C4D0050B5A4 /* searchBackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 000CFFC117C47C4C0050B5A4 /* searchBackGround.png */; };
@@ -74,6 +71,11 @@
 		009874EE17A1BCC40098E73D /* OfferMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009874ED17A1BCC40098E73D /* OfferMoneyViewController.m */; };
 		009874F117A1BDC20098E73D /* OfferBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009874F017A1BDC20098E73D /* OfferBookViewController.m */; };
 		00FA44DB17C302B60032980C /* MainStoryboard_iPhoneTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00FA44D917C302B60032980C /* MainStoryboard_iPhoneTest.storyboard */; };
+		B213317417F29DD9005169AC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B213317317F29DD9005169AC /* MessageUI.framework */; };
+		B213317817F29DE8005169AC /* InviteFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B213317717F29DE8005169AC /* InviteFriendViewController.m */; };
+		B213317C17F2A04E005169AC /* active.png in Resources */ = {isa = PBXBuildFile; fileRef = B213317917F2A04E005169AC /* active.png */; };
+		B213317D17F2A04E005169AC /* closed.png in Resources */ = {isa = PBXBuildFile; fileRef = B213317A17F2A04E005169AC /* closed.png */; };
+		B213317E17F2A04E005169AC /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = B213317B17F2A04E005169AC /* open.png */; };
 		B3876F9517727A7D00E9CF99 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9417727A7D00E9CF99 /* SettingViewController.m */; };
 		B3876F9817727ABD00E9CF99 /* InviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3876F9717727ABD00E9CF99 /* InviteFriendsViewController.m */; };
 		FF017A1E17AE580A002FF46E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FF017A1D17AE580A002FF46E /* Default.png */; };
@@ -300,6 +302,12 @@
 		009874EF17A1BDC10098E73D /* OfferBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferBookViewController.h; sourceTree = "<group>"; };
 		009874F017A1BDC20098E73D /* OfferBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferBookViewController.m; sourceTree = "<group>"; };
 		00FA44DA17C302B60032980C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = Booksmart/en.lproj/MainStoryboard_iPhoneTest.storyboard; sourceTree = "<group>"; };
+		B213317317F29DD9005169AC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B213317617F29DE8005169AC /* InviteFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendViewController.h; sourceTree = "<group>"; };
+		B213317717F29DE8005169AC /* InviteFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendViewController.m; sourceTree = "<group>"; };
+		B213317917F2A04E005169AC /* active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = active.png; path = "UI elements/active.png"; sourceTree = "<group>"; };
+		B213317A17F2A04E005169AC /* closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closed.png; path = "UI elements/closed.png"; sourceTree = "<group>"; };
+		B213317B17F2A04E005169AC /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = open.png; path = "UI elements/open.png"; sourceTree = "<group>"; };
 		B3876F9317727A7D00E9CF99 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		B3876F9417727A7D00E9CF99 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		B3876F9617727ABD00E9CF99 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsViewController.h; sourceTree = "<group>"; };
@@ -515,6 +523,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B213317417F29DD9005169AC /* MessageUI.framework in Frameworks */,
 				000C001017CDCAA60050B5A4 /* AddressBook.framework in Frameworks */,
 				FFFB9ED4178B8BAC002D5CF2 /* ImageIO.framework in Frameworks */,
 				FF2651D41773BC9200BD613B /* QuartzCore.framework in Frameworks */,
@@ -657,6 +666,15 @@
 				009874F017A1BDC20098E73D /* OfferBookViewController.m */,
 			);
 			name = OfferItem;
+			sourceTree = "<group>";
+		};
+		B213317517F29DE8005169AC /* Invitation */ = {
+			isa = PBXGroup;
+			children = (
+				B213317617F29DE8005169AC /* InviteFriendViewController.h */,
+				B213317717F29DE8005169AC /* InviteFriendViewController.m */,
+			);
+			path = Invitation;
 			sourceTree = "<group>";
 		};
 		B3876F9217727A7D00E9CF99 /* Setting */ = {
@@ -851,6 +869,9 @@
 		FF52C377177ACA3400A1485E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B213317917F2A04E005169AC /* active.png */,
+				B213317A17F2A04E005169AC /* closed.png */,
+				B213317B17F2A04E005169AC /* open.png */,
 				000C001117CE83F10050B5A4 /* profile */,
 				000CFFBE17C479860050B5A4 /* Search */,
 				FFD28F2117BAFEB5008CBF89 /* Upload */,
@@ -1136,6 +1157,7 @@
 		FFDDFAA9172746CF0005138A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B213317317F29DD9005169AC /* MessageUI.framework */,
 				000C000F17CDCAA10050B5A4 /* AddressBook.framework */,
 				FFFB9ED3178B8BAC002D5CF2 /* ImageIO.framework */,
 				FFEBCDB817765C64005C411E /* ZBarSDK */,
@@ -1157,6 +1179,7 @@
 		FFDDFAB0172746CF0005138A /* Booksmart */ = {
 			isa = PBXGroup;
 			children = (
+				B213317517F29DE8005169AC /* Invitation */,
 				000C003317CEC61E0050B5A4 /* UpdateBookInfo */,
 				000C000B17CDC82A0050B5A4 /* InviteFriend */,
 				000CFFCF17C70ABF0050B5A4 /* Delete Book */,
@@ -1423,9 +1446,9 @@
 				FFD28F4817BB2177008CBF89 /* next_button_active.png in Resources */,
 				FFD28F4917BB2177008CBF89 /* next_button_active@2x.png in Resources */,
 				00FA44DB17C302B60032980C /* MainStoryboard_iPhoneTest.storyboard in Resources */,
-				000CFFB117C444460050B5A4 /* active.png in Resources */,
-				000CFFB217C444460050B5A4 /* closed.png in Resources */,
-				000CFFB317C444460050B5A4 /* open.png in Resources */,
+				B213317C17F2A04E005169AC /* active.png in Resources */,
+				B213317D17F2A04E005169AC /* closed.png in Resources */,
+				B213317E17F2A04E005169AC /* open.png in Resources */,
 				000CFFC217C47C4D0050B5A4 /* searchBackGround.png in Resources */,
 				000CFFC417C47F5D0050B5A4 /* SearchNoResult.png in Resources */,
 				000CFFD417CC6FD00050B5A4 /* home_header.png in Resources */,
@@ -1537,6 +1560,7 @@
 				000CFFD217C70BF70050B5A4 /* DeleteBookConnection.m in Sources */,
 				000C000E17CDC86F0050B5A4 /* InviteFriendThroughContactViewController.m in Sources */,
 				000C003617CEC6500050B5A4 /* UpdateBookInfoConnection.m in Sources */,
+				B213317817F29DE8005169AC /* InviteFriendViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
