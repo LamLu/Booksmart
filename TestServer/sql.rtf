@@ -1,0 +1,303 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww11980\viewh10300\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 -- phpMyAdmin SQL Dump\
+-- version 3.5.5\
+-- http://www.phpmyadmin.net\
+--\
+-- Host: localhost\
+-- Generation Time: Apr 28, 2013 at 01:47 PM\
+-- Server version: 5.5.29\
+-- PHP Version: 5.4.10\
+\
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";\
+SET time_zone = "+00:00";\
+\
+--\
+-- Database: `WTT_Schema`\
+--\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `author`\
+--\
+\
+CREATE TABLE `author` (\
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\
+  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `middle_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  PRIMARY KEY (`id`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;\
+\
+--\
+-- Dumping data for table `author`\
+--\
+\
+INSERT INTO `author` (`id`, `first_name`, `last_name`, `middle_name`) VALUES\
+(1, 'Shivalik', 'Narad', 'S'),\
+(2, 'Lam', 'Lu', 'L'),\
+(3, 'Tyler', 'Stennette', 'T'),\
+(4, 'Dhruv', 'Mevada', 'D'),\
+(5, 'Than', 'Au', 'T');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `author_book`\
+--\
+\
+CREATE TABLE `author_book` (\
+  `author_id` int(10) unsigned NOT NULL,\
+  `book_id` int(10) unsigned NOT NULL,\
+  PRIMARY KEY (`author_id`,`book_id`),\
+  KEY `book_id` (`book_id`)\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `author_book`\
+--\
+\
+INSERT INTO `author_book` (`author_id`, `book_id`) VALUES\
+(1, 2),\
+(2, 2),\
+(3, 3),\
+(1, 4),\
+(2, 4);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `book`\
+--\
+\
+CREATE TABLE `book` (\
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `edition` varchar(128) COLLATE utf8_unicode_ci NOT NULL,\
+  `isbn_10` int(10) unsigned NOT NULL,\
+  `isbn_13` int(10) unsigned NOT NULL,\
+  `uploaded_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\
+  PRIMARY KEY (`id`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;\
+\
+--\
+-- Dumping data for table `book`\
+--\
+\
+INSERT INTO `book` (`id`, `title`, `edition`, `isbn_10`, `isbn_13`, `uploaded_time`) VALUES\
+(1, 'Harry Potter', '9th', 12310, 45613, '2013-04-25 23:02:09'),\
+(2, 'Advanced Programing with Perl', '10th', 11110, 22213, '2013-04-25 23:02:09'),\
+(3, 'A Tale of Two Cities', '5th', 22210, 33313, '2013-04-25 23:02:09'),\
+(4, 'A Primate''s Memoir', '3rd', 99910, 99913, '2013-04-25 23:02:09'),\
+(5, 'Computer Networking: A Systematic Approach', '5th', 232310, 212113, '2013-04-25 23:02:09');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `publisher`\
+--\
+\
+CREATE TABLE `publisher` (\
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  PRIMARY KEY (`id`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;\
+\
+--\
+-- Dumping data for table `publisher`\
+--\
+\
+INSERT INTO `publisher` (`id`, `name`) VALUES\
+(1, 'sample1'),\
+(2, 'sample2'),\
+(3, 'sample3'),\
+(4, 'sample3'),\
+(5, 'sample4'),\
+(6, 'sample5'),\
+(7, 'sample6');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `publisher_book`\
+--\
+\
+CREATE TABLE `publisher_book` (\
+  `publisher_id` int(10) unsigned NOT NULL,\
+  `book_id` int(10) unsigned NOT NULL,\
+  KEY `publisher_id` (`publisher_id`),\
+  KEY `book_id` (`book_id`)\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `publisher_book`\
+--\
+\
+INSERT INTO `publisher_book` (`publisher_id`, `book_id`) VALUES\
+(1, 1),\
+(1, 1),\
+(1, 2),\
+(2, 3),\
+(3, 4),\
+(3, 5);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `subject`\
+--\
+\
+CREATE TABLE `subject` (\
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  PRIMARY KEY (`id`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;\
+\
+--\
+-- Dumping data for table `subject`\
+--\
+\
+INSERT INTO `subject` (`id`, `title`) VALUES\
+(1, 'CS'),\
+(3, 'BS'),\
+(4, 'Art'),\
+(5, 'Math'),\
+(6, 'SW');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `subject_book`\
+--\
+\
+CREATE TABLE `subject_book` (\
+  `subject_id` int(10) unsigned NOT NULL,\
+  `book_id` int(10) unsigned NOT NULL,\
+  KEY `subject_id` (`subject_id`,`book_id`),\
+  KEY `book_id` (`book_id`)\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `subject_book`\
+--\
+\
+INSERT INTO `subject_book` (`subject_id`, `book_id`) VALUES\
+(1, 1),\
+(1, 2),\
+(3, 5);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `user_book`\
+--\
+\
+CREATE TABLE `user_book` (\
+  `user_id` int(10) unsigned NOT NULL,\
+  `book_id` int(10) unsigned NOT NULL,\
+  PRIMARY KEY (`user_id`,`book_id`),\
+  KEY `book_id` (`book_id`)\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `user_book`\
+--\
+\
+INSERT INTO `user_book` (`user_id`, `book_id`) VALUES\
+(1, 1),\
+(1, 2),\
+(1, 3),\
+(2, 4),\
+(4, 5);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `user_profile`\
+--\
+\
+CREATE TABLE `user_profile` (\
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,\
+  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,\
+  `school` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,\
+  `major` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,\
+  `profile_img_src` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,\
+  PRIMARY KEY (`id`),\
+  UNIQUE KEY `email` (`email`),\
+  UNIQUE KEY `salt` (`salt`),\
+  UNIQUE KEY `salt_3` (`salt`),\
+  UNIQUE KEY `salt_4` (`salt`),\
+  KEY `salt_2` (`salt`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;\
+\
+--\
+-- Dumping data for table `user_profile`\
+--\
+\
+INSERT INTO `user_profile` (`id`, `email`, `password`, `salt`, `first_name`, `last_name`, `school`, `major`, `profile_img_src`) VALUES\
+(1, 'sample@sample.com', 'samplepassword', 'samlesalt', '', '', '', '', NULL),\
+(2, 'sample2@sample.com', 'samplepw2', 'samplesalt2', '', '', '', '', NULL),\
+(4, 'asd', '78397fd4b6777e4c8783f9b267c2a11bff0f8d5af26a1b8285a4f56e9f069bbe70cbdb35e97192a72bb0f29a2572e73a8566559334661e14950acc2cc5f18bfd', '359826305512789660b2520.68462851', '', '', '', '', NULL),\
+(5, 'test1@test1.com', 'e13b4df9beaeb35da53961b573a3ef00291c4979ef92a8ae9ede1a2902bbc97253aa84badf3f854df0919d1fae3d6130586322f7b2b2891d96223e46743af078', '1025357946512789a9eb7905.38283123', 'TeST', 'tytt', 'sjsu', 'as', '/profile_img/1365503667.jpg'),\
+(6, 'test2@test2.com', 'e4e42e9fbe44da056b22d65ed5530b2d5fc3a000b6765cba9f548538d830526b716a952367e405ae1afa111edf14dbda7ceb03f358419165e6cdaf2b75f57b62', '2311479051278b79f19057.45827348', '', '', '', '', NULL),\
+(7, 'test3@test3.com', '271abbad467600f8edc820ebb73c8f0d55387d85da92d03ad5817aaff4533aebc2b90d6fdbefd9f49fea2e6c8aa23f966b42328013c22bb3d2044f2b733c2272', '78845939951278bc3d0d9f2.34587578', '', '', '', '', NULL),\
+(8, 'test4@test4.com', '06cb93288e55628c7d64ebc858b63e052342314075c10ffd9b36beb02f5925c0a65c9914a904b98566fbd7498cd4467c917d46c1511c9fd3bf2fac4c587d6df4', '3240265851278be0c07215.06607984', '', '', '', '', NULL),\
+(9, 'test6@test6.com', '249319a9208dc8b7f4b9a936d8f76d4bcd3d33c08e332f3777b07387f63883a3f6361b4618ab4d8bd5e279a0800273c9f019d5ad6ed0c196e7d9d809bbd056a9', '184285936151278cb1c27831.03155617', '', '', '', '', NULL),\
+(10, 'test7@test7.com', 'ed361a00892f290c9e4103acaf457c298a632f54523b289d37d1d12bf82b2d4b2d38b22efb698c2c9171adaab8f40defe9a290471d8e5ccbb35a266dd127eaa9', '42655670951278cf4c7fc89.13131496', '', '', '', '', NULL),\
+(11, 'edwar@hidevmobile.com', '9e453cc0763bfef17d06b6cc6e2e5e55920e668ddf056694daa6def6500466438a68ef7dca64ba9649c862b6cfd043d44fb501748568b5e258bd3867b4b3032b', '2330548315127c2998c2f05.02170211', '', '', '', '', NULL),\
+(12, 'yoshi', '1cbba6b159540cbfeb69a1d0da980f406c852eded2f5ed657270ca3c2b36e271357bdb0f870537f72c03b2a9e51d6f719d1deb2dac48648348bcbd318cd20428', '16259981435127cedc0a4223.53251376', '', '', '', '', NULL),\
+(13, 'test8@test8.com', '8ebd4f1820aee51135bbfd53e7aac68321a4d1849c98e3b016bb29584f6f047310ff6dca955c4c17ade91a4e9d5d108b635e7b5e93909ec4b0e719519f2472d8', '222463467512e84daa95002.14913792', '', '', '', '', NULL),\
+(14, 'test9@test9.com ', 'f19cc80dbcfd7a2059f2e5a1905c47fce58eb29a458bb7717f65c2c13cdebc7c915ed17c78f905057d01a2c63000a2b9b2b22777d3d47872a6b2539d4b7901ea', '143020786512e9dc6867b30.13828778', '', '', '', '', NULL),\
+(15, 'test10@test10.com ', '0dbdef158287012924531baed43f8c733967998f9381a232decfb80766c3cbac0d1d2f2a49331ad8f02e6ca5c60a616902478d26e3266fd4b13f3e5f49064b84', '1485529808512ea42b2bb0a2.36731516', '', '', '', '', NULL),\
+(16, 'test11@test11.com ', 'eee2acf1ba914af1da424eba152abf28f97a77cf20899629b765185fc78f01f3926d3f0c78c5c82783166f2e1b8c58b1ee818f651c6f778514dfcc4682c6a823', '1378238004512ff491269833.17824582', '', '', '', '', NULL),\
+(17, '1 ', 'fc509c152633ab2a1a99b7fe5ecea5d83ad93138acda5c6762c676ee675987d98f85533c9ca61812e1fa8c2d80c7f78f557e19eb5b61eeec1808945541b2a4d6', '1626527578512ff550f39767.25121689', '', '', '', '', NULL),\
+(18, 'test12@test12.com ', 'd5f1a73367e5b82afba491191a752ae9421466d31f5c47f3939e19d046aafee07d3774066dab55f6461e86bacf8819d58f7ea3327fdfab99767816c093e96f3b', '922704777512ff622487b40.27824129', '', '', '', '', NULL),\
+(19, 'qwerty ', 'cde78f7ecc00e59bc34f5019dcf0b9f7d0761fbbf97f254eee65ed043b22f0d3150aef0f0f1e59fb0c81f8f341ccb0609b4f619048a2d869b43e963584f6fd20', '16664584505131016e118b90.38797686', '', '', '', '', NULL),\
+(20, 'su ', '9b13ad8bd628ce38feb887d3f1c6134070a070b3a02f8cdeffaff1bf6d7f91d4cc203f1baa3f2dd36987b92e3ead1c110598b831f3fb287d5fdc61606580e6f1', '6254230355131044c1ce235.44758198', '', '', '', '', NULL),\
+(21, 'mason ', 'e68ac1dbcd90f64de41188946d7b20a10a3c5c757fd08dca9780bfca38bd91df874c16de8a39c38b60978dfc8dbda1a29a69cf16925a5097606b3ab88c555b25', '1320995175513104c99e35f1.20424720', '', '', '', '', NULL),\
+(22, 'chien ', '7816f54fb65bde08cf038defc480a9874b0c296ed0bcc829356041d25dc4efb263c375fd0d3d34c60906fbd616cf0cf38bd91a3a5747a2a13ffdd6e643918f5c', '212923334451328367759ff2.40141019', '', '', '', '', NULL),\
+(23, 'lam@lam.com', '8d2923eed259c321fd0de71c7aa14629a4f685dc3f5f16e148a008d7f486ec681b710f6b5b996320c273ed6443f0aee5c609c0dad3aef94ededee0adc28c96be', '12855086325150d7db3d8192.59620478', 'Lam', 'Lu', '', '', '/profile_img/cute_avatar.jpg'),\
+(25, 'lam', 'b36f8aa9d689ce007078ca760081bb6cb44fa9e71c94f1883216069a3d4e09f2bcb8a9c0a1142b172b8329239d1aa38cf83d7dca8066191805cf75486dddc31a', '19461713385152b2e214e1a7.23647934', 'Lam', 'Lu', NULL, 'SW Engineering', NULL),\
+(26, 'abc', '8be21f755f27b4f83de305580b27d6cdf775c468cbb2bce2505c7bee222b739dc8aee4b8745597dd08b3b3d8bfdd8b4cf5650bb3bbc47d372a8ad1b773ade7f0', '139604190051592cbc5947c6.59778653', NULL, NULL, 'SJSU', 'SW', '/profile_img/1365411222.jpg');\
+\
+--\
+-- Constraints for dumped tables\
+--\
+\
+--\
+-- Constraints for table `author_book`\
+--\
+ALTER TABLE `author_book`\
+  ADD CONSTRAINT `author_book_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `author` (`id`) ON DELETE CASCADE,\
+  ADD CONSTRAINT `author_book_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE;\
+\
+--\
+-- Constraints for table `publisher_book`\
+--\
+ALTER TABLE `publisher_book`\
+  ADD CONSTRAINT `publisher_book_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE,\
+  ADD CONSTRAINT `publisher_book_ibfk_1` FOREIGN KEY (`publisher_id`) REFERENCES `publisher` (`id`) ON DELETE CASCADE;\
+\
+--\
+-- Constraints for table `subject_book`\
+--\
+ALTER TABLE `subject_book`\
+  ADD CONSTRAINT `subject_book_ibfk_4` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE,\
+  ADD CONSTRAINT `subject_book_ibfk_3` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`id`) ON DELETE CASCADE;\
+\
+--\
+-- Constraints for table `user_book`\
+--\
+ALTER TABLE `user_book`\
+  ADD CONSTRAINT `user_book_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_profile` (`id`) ON DELETE CASCADE,\
+  ADD CONSTRAINT `user_book_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE;\
+}
